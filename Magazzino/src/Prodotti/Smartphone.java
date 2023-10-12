@@ -1,15 +1,10 @@
 package Prodotti;
 
-public class Tablet extends Prodotto {
+public class Smartphone extends Prodotto{
 
-    public Tablet(){
+    public Smartphone(){
         super();
-        this.tipo = TipoProdotto.TABLET;
-    }
-
-    public Tablet(String produttore, String modello, String id, String descrizione, double dimDisplay, int dimMemoria, double prezzoAcquisto, double prezzoVendita) {
-        super(produttore, modello, id, descrizione, dimDisplay, dimMemoria, prezzoAcquisto, prezzoVendita);
-        this.tipo = TipoProdotto.TABLET;
+        this.tipo = TipoProdotto.SMARTPHONE;
     }
 
     @Override
@@ -26,5 +21,4 @@ public class Tablet extends Prodotto {
                 ", id='" + getId() + '\'' +
                 '}';
     }
-
 }

@@ -14,7 +14,7 @@ public class InputProdotti {
         while (true) {
             try {
                 System.out.println("Inserisci il tipo di prodotto: ");
-                return TipoProdotto.valueOf(in.nextLine().toLowerCase());
+                return TipoProdotto.valueOf(in.nextLine().toUpperCase());
             }
             catch (IllegalArgumentException e) {
                 System.out.println("Devi inserire un tipo di prodotto presente in magazzino");
@@ -45,6 +45,24 @@ public class InputProdotti {
             }
         }
 
+    }
+
+
+    public static int readInt() {
+
+        int num;
+
+        while(true) {
+            try {
+                return in.nextInt();
+            }
+            catch (InputMismatchException e)
+            {
+                System.out.println("Inserire un double");
+                in.next();
+                continue;
+            }
+        }
 
     }
 
