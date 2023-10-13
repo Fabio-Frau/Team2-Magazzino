@@ -1,4 +1,4 @@
-import Magazzino.Magazzino;
+import Magazzino.*;
 import Prodotti.InputProdotti;
 import Prodotti.Prodotto;
 import Prodotti.Tablet;
@@ -33,24 +33,19 @@ public class Main {
 
         //sceltaOperazione();
 
-        Tablet tablet1 = new Tablet("Samsung", "S87", "IDPROVA", "beello",
-                14.5, 16, 5000, 6000);
 
-        Tablet tablet2 = new Tablet("FIAT", "S87", "IDPROVA", "beello",
-                14.5, 16, 5000, 6000);
-
-        Tablet tablet3 = new Tablet("FERRATI", "S87", "IDPROVA", "beello",
-                14.5, 16, 5000, 6000);
-
-        ArrayList<Tablet> listaTablet = new ArrayList<Tablet>();
-        listaTablet.add(tablet1);
-        listaTablet.add(tablet2);
-        listaTablet.add(tablet3);
+        // TEST PRODOTTI IN MAGAZZINO
 
 
+        prodottiTest ptest= new prodottiTest();
         Magazzino magazzino = new Magazzino();
-        magazzino.setListaTablet(listaTablet);
+
+        magazzino.setListaTablet(ptest.listaTablet);
+        magazzino.setListaNotebook(ptest.listaNotebook);
+        magazzino.setListaSmartphone(ptest.listaSmartphone);
+
         magazzino.stampaMagazzino();
+
 
 
 
