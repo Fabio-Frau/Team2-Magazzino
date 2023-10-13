@@ -24,7 +24,7 @@ public class Tablet extends Prodotto {
                 ", prezzoAcquisto=" + getPrezzoAcquisto() +
                 ", prezzoVendita=" + getPrezzoVendita() +
                 ", id='" + getId() + '\'' +
-                '}';
+                '}' + "\n ";
     }
 
 }

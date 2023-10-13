@@ -6,7 +6,10 @@ public class Notebook extends Prodotto {
         super();
         this.tipo = TipoProdotto.NOTEBOOK;
     }
-
+    public Notebook(String produttore, String modello, String id, String descrizione, double dimDisplay, int dimMemoria, double prezzoAcquisto, double prezzoVendita) {
+        super(produttore, modello, id, descrizione, dimDisplay, dimMemoria, prezzoAcquisto, prezzoVendita);
+        this.tipo = TipoProdotto.NOTEBOOK;
+    }
     @Override
     public String toString() {
         return "Prodotto{" +
@@ -19,7 +22,7 @@ public class Notebook extends Prodotto {
                 ", prezzoAcquisto=" + getPrezzoAcquisto() +
                 ", prezzoVendita=" + getPrezzoVendita() +
                 ", id='" + getId() + '\'' +
-                '}';
+                '}' + "\n " ;
     }
 
 

@@ -18,7 +18,6 @@ public class InputProdotti {
             }
             catch (IllegalArgumentException e) {
                 System.out.println("Devi inserire un tipo di prodotto presente in magazzino");
-                //in.next();
                 continue;
             }
         }
