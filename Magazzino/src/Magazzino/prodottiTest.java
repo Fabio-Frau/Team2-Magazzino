@@ -10,6 +10,10 @@ public class prodottiTest {
 
     public ArrayList<Notebook> listaNotebook = new ArrayList<Notebook>();
 
+    public ArrayList<Prodotto> listaProdotti = new ArrayList<>();
+
+
+
     public prodottiTest() {
 
         listaTablet.add(tablet1);
@@ -25,6 +29,10 @@ public class prodottiTest {
         listaNotebook.add(note1);
         listaNotebook.add(note2);
         listaNotebook.add(note3);
+
+        listaProdotti.addAll(listaNotebook);
+        listaProdotti.addAll(listaSmartphone);
+        listaProdotti.addAll(listaTablet);
 
     }
 

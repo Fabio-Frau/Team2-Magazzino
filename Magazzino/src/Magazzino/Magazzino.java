@@ -1,8 +1,7 @@
 package Magazzino;
 
-import Prodotti.Notebook;
-import Prodotti.Smartphone;
-import Prodotti.Tablet;
+
+import Prodotti.*;
 import java.util.ArrayList;
 
 public class Magazzino {
@@ -50,5 +49,16 @@ public class Magazzino {
         this.listaSmartphone = listaSmartphone;
     }
 
+    //metodo di ricerca prodotto per tipo
+    public static ArrayList<Prodotto> ricercaProdotto(ArrayList<Prodotto> listaProdotti, TipoProdotto tipoProdotto) {
+        //array che conterra il prodotto cercato (TABLET o SMARTHPHONE o NOTEBOOK)
+        ArrayList<Prodotto> listaProdottoCercato = new ArrayList<>();
+        for (Prodotto prodotto : listaProdotti) {
+            if (prodotto.getTipo() == tipoProdotto) {
+                listaProdottoCercato.add(prodotto);
+            }
+        }
+        return listaProdottoCercato;
+    }
 
 }
