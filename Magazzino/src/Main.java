@@ -1,17 +1,119 @@
+import Magazzino.*;
+import Prodotti.InputProdotti;
+import Prodotti.Prodotto;
+import Prodotti.Tablet;
+import Prodotti.TipoProdotto;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Invio with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Maiusc+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
 
-            // Press Maiusc+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        //System.out.println(InputProdotti.readTipo());
+
+        //System.out.println(InputProdotti.readString());
+
+        //System.out.println(InputProdotti.readDouble());
+
+
+        //Prodotto prodotto = new Prodotto();
+
+//        Tablet tablet = new Tablet();
+//
+//        System.out.println(tablet.toString());
+
+        //sceltaTipo();
+//
+//
+
+
+        //sceltaOperazione();
+
+
+        // TEST PRODOTTI IN MAGAZZINO
+
+
+        prodottiTest ptest= new prodottiTest();
+        Magazzino magazzino = new Magazzino();
+
+        magazzino.setListaTablet(ptest.listaTablet);
+        magazzino.setListaNotebook(ptest.listaNotebook);
+        magazzino.setListaSmartphone(ptest.listaSmartphone);
+
+
+        magazzino.stampaMagazzino();
+
+        System.out.println(ptest.listaProdotti);
+        System.out.println("Sto cercando i prodotti");
+        System.out.println(Magazzino.ricercaProdotto(ptest.listaProdotti, TipoProdotto.NOTEBOOK));
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+    public static void sceltaOperazione() {
+
+        System.out.println("Scegli l'operazione da eseguire:");
+        System.out.println("1. Aggiunta a magazzino\n2. Scarico merce da magazzino\n3. Acquista");
+
+        int numeroOperazione = Prodotti.InputProdotti.readInt();
+
+        switch (numeroOperazione) {
+            case 1: {
+                System.out.println("Aggiunta a magazzino");
+                break;
+            }
+            case 2: {
+                System.out.println("Scarico merce da magazzino");
+                break;
+            }
+            case 3: {
+                System.out.println("Acquista");
+                break;
+            }
+            default: {
+                System.out.println("Operazione non trovata");
+            }
+        }
+    }
+
+    public static void sceltaTipo () {
+
+        ArrayList<Tablet> arrayTablet = new ArrayList<Tablet>();
+
+        TipoProdotto tipologia = Prodotti.InputProdotti.readTipo();
+
+
+        switch (tipologia) {
+            case TABLET: {
+                arrayTablet.add(new Tablet());
+                System.out.println(arrayTablet.toString());
+                break;
+            }
+            case NOTEBOOK:  {
+
+                break;
+            }
+            case SMARTPHONE: {
+
+                break;
+            }
+
+
         }
     }
 }
