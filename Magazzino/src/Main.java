@@ -44,7 +44,12 @@ public class Main {
         magazzino.setListaNotebook(ptest.listaNotebook);
         magazzino.setListaSmartphone(ptest.listaSmartphone);
 
+
         magazzino.stampaMagazzino();
+
+        System.out.println(ptest.listaProdotti);
+        System.out.println("Sto cercando i prodotti");
+        System.out.println(Magazzino.ricercaProdotto(ptest.listaProdotti, TipoProdotto.NOTEBOOK));
 
 
 
