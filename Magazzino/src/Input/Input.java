@@ -34,7 +34,7 @@ public class Input {
             }
             catch (InputMismatchException e)
             {
-                System.out.println("Inserire un double");
+                System.out.println("Inserire un numero intero");
                 in.next();
                 continue;
             }

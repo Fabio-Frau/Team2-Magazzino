@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         // TEST PRODOTTI IN MAGAZZINO
+
+
         ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
         ProdottiTest.prodottiBase(prodottiPresenti);
         Magazzino magazzino = new Magazzino(prodottiPresenti);
