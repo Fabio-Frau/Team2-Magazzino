@@ -3,6 +3,7 @@ import Input.*;
 import Magazzino.*;
 import Prodotti.Prodotto;
 import Prodotti.TipoProdotto;
+import Ricerca.RicercaPerMarca;
 import Ricerca.RicercaPerTipo;
 
 import java.util.ArrayList;
@@ -22,9 +23,10 @@ public class Cliente{
                 RicercaPerTipo.sceltaTipo(magazzino);
                 break;
             }
-//            case 2: {
-//                RicercaPerMarca.
-//            }
+            case 2: {
+                RicercaPerMarca.ricercaPerMarca(magazzino);
+                break;
+            }
 
         }
 
