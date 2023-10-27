@@ -11,29 +11,23 @@ import java.util.ArrayList;
 public class Cliente{
     public static void operazioniCliente(ArrayList<Prodotto> magazzino) {
 
-        System.out.println("Tipo di prodotto cercato: " +
-                "\n 1. Smartphone" + "\n 2. Tablet" + "\n 3. NoteBook" + "\n 4. Qualsiasi");
+        System.out.println("Quale azioni vuoi compiere?" +
+                "\n 1. Ricerca per tipo di prodotto" + "\n 2. Ricerca per Marca" + "\n 3. Ricerca per dimensione schermo" +
+                "\n 4. Ricerca per dimensione memoria");
 
         int sceltaUtente = Input.readInt();
 
         switch (sceltaUtente) {
             case 1: {
-                RicercaPerTipo.RicercaSmartohone(magazzino);
-
+                RicercaPerTipo.sceltaTipo(magazzino);
                 break;
             }
-            case 2: {
-                System.out.println("Tablet:\n"  );
-                // break;
-            }
-            case 3: {
-                System.out.println("NoteBook:\n" + TipoProdotto.NOTEBOOK);
-                // break;
-            }
-            case 4: {
-                //gestore();
-                // break;
-            }
+//            case 2: {
+//                RicercaPerMarca.
+//            }
+
         }
+
+
     }
 }
