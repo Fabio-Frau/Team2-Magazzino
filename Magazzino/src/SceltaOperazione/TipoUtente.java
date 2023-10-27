@@ -1,12 +1,8 @@
 package SceltaOperazione;
-import Magazzino.*;
-import Input.*;
+import Utility.*;
 import Prodotti.Prodotto;
-import Prodotti.Tablet;
-import Prodotti.TipoProdotto;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public class TipoUtente {

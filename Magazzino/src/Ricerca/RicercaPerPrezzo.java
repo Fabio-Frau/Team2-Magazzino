@@ -1,17 +1,18 @@
 package Ricerca;
 
-import Input.Input;
+import Utility.Input;
 import Prodotti.Prodotto;
-import Prodotti.TipoProdotto;
+import Utility.Range;
+import Utility.Stampa;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.*;
 
 public class RicercaPerPrezzo {
 
     public static void ricercaRangePrezzo (ArrayList<Prodotto> magazzino) {
-        double[] rng = range();
+        System.out.println("Inserire la fascia di prezzo: ");
+        double[] rng = Range.DoubleRange();
         RicercaPerPrezzo(magazzino,rng);
     }
 
@@ -23,28 +24,8 @@ public class RicercaPerPrezzo {
             }
         }
         listaProdottoCercato.sort(Comparator.comparingDouble(Prodotto::getPrezzoVendita));
-        stampaPerCliente (listaProdottoCercato);
+        Stampa.PerCliente(listaProdottoCercato);
     }
 
 
-
-    public static double[] range(){
-        System.out.println("Inserire la fascia di prezzo: ");
-        double[] range = new double[2];
-        for(int i = 0; i < range.length; i++){
-            range[i] = Input.readInt();
-        }
-        Arrays.sort(range);
-        return range;
-    }
-
-    public static void stampaPerCliente(ArrayList<Prodotto> prodottoCercato){
-        StringBuilder stampaProdotto = new StringBuilder();
-        for (Prodotto prodotto : prodottoCercato){
-            stampaProdotto.append(prodotto.getProduttore()).append(' ').append(prodotto.getModello()).append("\t Dimensione Display(pollici): ")
-                    .append(prodotto.getDimDisplay()).append("\t Dimensione Memoria(GB): ").append(prodotto.getDimMemoria()).
-                    append("\t Prezzo: ").append(prodotto.getPrezzoVendita()).append(" € \n");
-        }
-        System.out.println(stampaProdotto);
-    }
 }

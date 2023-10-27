@@ -1,8 +1,6 @@
 package SceltaOperazione;
-import Input.*;
-import Magazzino.*;
+import Utility.*;
 import Prodotti.Prodotto;
-import Prodotti.TipoProdotto;
 import Ricerca.RicercaPerPrezzo;
 import Ricerca.RicercaPerTipo;
 
