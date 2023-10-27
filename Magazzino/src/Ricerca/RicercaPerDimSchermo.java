@@ -2,7 +2,7 @@ package Ricerca;
 
 import Prodotti.InputProdotti;
 import Prodotti.Prodotto;
-import Input.Input;
+import Utility.Input;
 
 import java.util.ArrayList;
 import java.util.Arrays;

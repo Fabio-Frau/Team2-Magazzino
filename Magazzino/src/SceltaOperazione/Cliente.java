@@ -25,18 +25,13 @@ public class Cliente{
                 break;
             }
             case 2: {
-
                 RicercaPerMarca.ricercaPerMarca(magazzino);
-
                 break;
             }
             case 5: {
                 RicercaPerModello.ricercaPerModello(magazzino);
                 break;
             }
-
         }
-
-
     }
 }
