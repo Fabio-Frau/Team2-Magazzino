@@ -1,66 +1,27 @@
 import Magazzino.*;
-import Prodotti.InputProdotti;
 import Prodotti.Prodotto;
 import Prodotti.Tablet;
 import Prodotti.TipoProdotto;
-
+import SceltaOperazione.TipoUtente;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-
-
-        //System.out.println(InputProdotti.readTipo());
-
-        //System.out.println(InputProdotti.readString());
-
-        //System.out.println(InputProdotti.readDouble());
-
-
-        //Prodotto prodotto = new Prodotto();
-
-//        Tablet tablet = new Tablet();
-//
-//        System.out.println(tablet.toString());
-
-        //sceltaTipo();
-//
-//
-
-
-        //sceltaOperazione();
-
-
         // TEST PRODOTTI IN MAGAZZINO
+        ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
+        ProdottiTest.prodottiBase(prodottiPresenti);
+        Magazzino magazzino = new Magazzino(prodottiPresenti);
 
 
-        prodottiTest ptest= new prodottiTest();
-        Magazzino magazzino = new Magazzino();
-
-        magazzino.setListaTablet(ptest.listaTablet);
-        magazzino.setListaNotebook(ptest.listaNotebook);
-        magazzino.setListaSmartphone(ptest.listaSmartphone);
-
-
-        magazzino.stampaMagazzino();
-
-        System.out.println(ptest.listaProdotti);
-        System.out.println("Sto cercando i prodotti");
-        System.out.println(Magazzino.ricercaProdotto(ptest.listaProdotti, TipoProdotto.NOTEBOOK));
+        TipoUtente.sceltaUtente(prodottiPresenti);
 
 
 
-
-
-
-
-
-
-
-
+//
+//
+//
 
 
     }

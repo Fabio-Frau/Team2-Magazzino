@@ -1,31 +1,10 @@
-package Prodotti;
+package Input;
 
-import java.util.EnumSet;
-import java.util.Scanner;
 import java.util.InputMismatchException;
-import java.lang.IllegalArgumentException;
+import java.util.Scanner;
 
-public class InputProdotti {
-
+public class Input {
     static Scanner in = new Scanner(System.in);
-
-    public static TipoProdotto readTipo() {
-
-        while (true) {
-            try {
-                System.out.println("Inserisci il tipo di prodotto: ");
-                return TipoProdotto.valueOf(in.nextLine().toUpperCase());
-            }
-            catch (IllegalArgumentException e) {
-                System.out.println("Devi inserire un tipo di prodotto presente in magazzino");
-                continue;
-            }
-        }
-    }
-
-    public static String readString() {
-        return in.nextLine().toLowerCase();
-    }
 
     public static double readDouble() {
 
@@ -45,7 +24,6 @@ public class InputProdotti {
 
     }
 
-
     public static int readInt() {
 
         int num;
@@ -63,6 +41,4 @@ public class InputProdotti {
         }
 
     }
-
-
 }
