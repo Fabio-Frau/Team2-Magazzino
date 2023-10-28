@@ -1,4 +1,6 @@
 package Ricerca;
+import SceltaOperazione.Cliente;
+import Utility.Choose;
 import Utility.Input;
 import Prodotti.*;
 import Utility.Stampa;
@@ -32,6 +34,8 @@ public class RicercaPerTipo {
                 RicercaPerTipo.RicercaNotebook(magazzino);
             }
         }
+
+        Choose.ContinuaRicercaCliente(magazzino);
     }
     public static void RicercaTablet (ArrayList<Prodotto> magazzino) {
         ArrayList<Prodotto> listaProdottoCercato = new ArrayList<>();

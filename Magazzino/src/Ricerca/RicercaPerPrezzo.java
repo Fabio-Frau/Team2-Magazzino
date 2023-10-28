@@ -1,5 +1,7 @@
 package Ricerca;
 
+import SceltaOperazione.Cliente;
+import Utility.Choose;
 import Utility.Input;
 import Prodotti.Prodotto;
 import Utility.Range;
@@ -14,7 +16,10 @@ public class RicercaPerPrezzo {
         System.out.println("Inserire la fascia di prezzo: ");
         double[] rng = Range.DoubleRange();
         RicercaPerPrezzo(magazzino,rng);
+
+        Choose.ContinuaRicercaCliente(magazzino);
     }
+
 
     public static void RicercaPerPrezzo (ArrayList<Prodotto> magazzino, double[] rng) {
         ArrayList<Prodotto> listaProdottoCercato = new ArrayList<>();

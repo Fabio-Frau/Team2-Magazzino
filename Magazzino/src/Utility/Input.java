@@ -25,7 +25,6 @@ public class Input {
     }
 
     public static int readInt() {
-
         int num;
 
         while(true) {
@@ -41,4 +40,5 @@ public class Input {
         }
 
     }
+
 }
