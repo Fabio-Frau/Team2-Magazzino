@@ -1,7 +1,11 @@
 package SceltaOperazione;
 import Utility.*;
 import Prodotti.Prodotto;
-import Ricerca.RicercaPerPrezzo;
+
+import Prodotti.TipoProdotto;
+import Ricerca.RicercaPerMarca;
+
+
 import Ricerca.RicercaPerTipo;
 
 import java.util.ArrayList;
@@ -23,7 +27,9 @@ public class Cliente{
                 break;
             }
             case 2: {
-                RicercaPerPrezzo.ricercaRangePrezzo(magazzino);
+
+                RicercaPerMarca.ricercaPerMarca(magazzino);
+
                 break;
             }
 
