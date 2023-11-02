@@ -28,5 +28,4 @@ public class Magazzino {
 //        }
 //        return listaProdottoCercato;
 //    }
-
 }

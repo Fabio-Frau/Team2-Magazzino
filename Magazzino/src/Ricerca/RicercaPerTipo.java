@@ -1,7 +1,9 @@
 package Ricerca;
-import Input.Input;
+import SceltaOperazione.Cliente;
+import Utility.Choose;
+import Utility.Input;
 import Prodotti.*;
-import Magazzino.*;
+import Utility.Stampa;
 
 
 import java.util.ArrayList;
@@ -32,6 +34,8 @@ public class RicercaPerTipo {
                 RicercaPerTipo.RicercaNotebook(magazzino);
             }
         }
+
+        Choose.ContinuaRicercaCliente(magazzino);
     }
     public static void RicercaTablet (ArrayList<Prodotto> magazzino) {
         ArrayList<Prodotto> listaProdottoCercato = new ArrayList<>();
@@ -41,7 +45,7 @@ public class RicercaPerTipo {
             }
         }
         System.out.println(TipoProdotto.TABLET);
-        stampaPerCliente(listaProdottoCercato);
+        Stampa.PerCliente(listaProdottoCercato);
     }
 
     public static void RicercaSmartphone (ArrayList<Prodotto> magazzino) {
@@ -52,7 +56,7 @@ public class RicercaPerTipo {
             }
         }
         System.out.println(TipoProdotto.SMARTPHONE);
-        stampaPerCliente(listaProdottoCercato);
+        Stampa.PerCliente(listaProdottoCercato);
         //return listaProdottoCercato;
     }
 
@@ -64,17 +68,7 @@ public class RicercaPerTipo {
             }
         }
         System.out.println(TipoProdotto.NOTEBOOK);
-        stampaPerCliente(listaProdottoCercato);
+        Stampa.PerCliente(listaProdottoCercato);
     }
 
-    public static void stampaPerCliente(ArrayList<Prodotto> prodottoCercato){
-        StringBuilder stampaProdotto = new StringBuilder();
-        for (Prodotto prodotto : prodottoCercato){
-            stampaProdotto.append(prodotto.getProduttore()).append(' ').append(prodotto.getModello()).append("\t Dimensione Display(pollici): ")
-                    .append(prodotto.getDimDisplay()).append("\t Dimensione Memoria(GB): ").append(prodotto.getDimMemoria()).
-                    append("\t Prezzo: ").append(prodotto.getPrezzoVendita()).append(" € \n");
-        }
-        System.out.println(stampaProdotto);
-
-    }
 }

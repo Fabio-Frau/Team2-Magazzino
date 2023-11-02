@@ -1,4 +1,4 @@
-package Input;
+package Utility;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -25,7 +25,6 @@ public class Input {
     }
 
     public static int readInt() {
-
         int num;
 
         while(true) {
@@ -34,11 +33,12 @@ public class Input {
             }
             catch (InputMismatchException e)
             {
-                System.out.println("Inserire un double");
+                System.out.println("Inserire un numero intero");
                 in.next();
                 continue;
             }
         }
 
     }
+
 }
