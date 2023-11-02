@@ -21,7 +21,6 @@ public class InputProdotti {
                 continue;
             }
         }
-
     }
 
     public static String readString() {
