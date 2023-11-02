@@ -1,5 +1,7 @@
 package Prodotti;
 
+import java.util.ArrayList;
+
 /*abstract si o no?*/
 public class Prodotto {
 
@@ -29,7 +31,7 @@ public class Prodotto {
 
     }
 
-    public Prodotto(String produttore, String modello, String id, String descrizione,
+    public Prodotto(TipoProdotto tipo, String produttore, String modello, String id, String descrizione,
                     double dimDisplay, int dimMemoria, double prezzoAcquisto, double prezzoVendita) {
         setProduttore(produttore);
         setModello(modello);
@@ -45,9 +47,6 @@ public class Prodotto {
         return tipo;
     }
 
-//    public void setTipo() {
-//        this.tipo = InputProdotti.readTipo();
-//    }
 
     public String getProduttore() {
         return produttore;
@@ -156,8 +155,8 @@ public class Prodotto {
     @Override
     public String toString() {
         return "Prodotto{" +
-                "tipo=" + tipo +
-                ", produttore='" + produttore + '\'' +
+                //"tipo=" + tipo +
+                "  produttore='" + produttore + '\'' +
                 ", modello='" + modello + '\'' +
                 ", descrizione='" + descrizione + '\'' +
                 ", dimDisplay=" + dimDisplay +
@@ -168,6 +167,10 @@ public class Prodotto {
                 '}';
     }
 
+//    public String stampaPerCliente(){
+//        return produttore + ", " + modello + "\n Caratteristiche: display " + dimDisplay + ", memoria " +
+//                dimMemoria + ", prezzo " + prezzoVendita;
+//    }
 
     /*qualche campo deve essere final?
     * getter and setter, tutti i setter o alcune cose non modificabili?*/
