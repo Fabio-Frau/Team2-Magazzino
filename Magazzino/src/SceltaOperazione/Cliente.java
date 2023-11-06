@@ -1,10 +1,8 @@
 package SceltaOperazione;
+import Ricerca.Ricerche;
 import Utility.*;
 import Prodotti.Prodotto;
-import Prodotti.TipoProdotto;
-import Ricerca.RicercaPerMarca;
-import Ricerca.RicercaPerModello;
-import Ricerca.RicercaPerTipo;
+
 import java.util.ArrayList;
 
 
@@ -21,15 +19,15 @@ public class Cliente{
 
         switch (sceltaUtente) {
             case 1: {
-                RicercaPerTipo.sceltaTipo(magazzino);
+                Ricerche.sceltaTipo(magazzino);
                 break;
             }
             case 2: {
-                RicercaPerMarca.ricercaPerMarca(magazzino);
+                Ricerche.ricercaPerMarca(magazzino);
                 break;
             }
             case 5: {
-                RicercaPerModello.ricercaPerModello(magazzino);
+                Ricerche.ricercaPerModello(magazzino);
                 break;
             }
         }
