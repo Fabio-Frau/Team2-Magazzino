@@ -18,7 +18,6 @@ public class Input {
             {
                 System.out.println("Inserire un double");
                 in.next();
-                continue;
             }
         }
 
@@ -35,7 +34,6 @@ public class Input {
             {
                 System.out.println("Inserire un numero intero");
                 in.next();
-                continue;
             }
         }
 
