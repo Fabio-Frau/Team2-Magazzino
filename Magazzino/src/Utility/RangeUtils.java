@@ -10,7 +10,7 @@ public class RangeUtils {
     public static double[] DoubleRange(){
         double[] range = new double[2];
         for(int i = 0; i < range.length; i++){
-            range[i] = Input.readInt();
+            range[i] = Input.readDouble();
         }
         Arrays.sort(range);
         return range;
