@@ -1,15 +1,29 @@
 package Utility;
 
+import Prodotti.TipoProdotto;
+
+import java.math.BigDecimal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Input {
     static Scanner in = new Scanner(System.in);
 
+    public static TipoProdotto readTipo() {
+
+        while (true) {
+            try {
+                System.out.println("Inserisci il tipo di prodotto: ");
+                return TipoProdotto.valueOf(in.nextLine().toUpperCase());
+            }
+            catch (IllegalArgumentException e) {
+                System.out.println("Devi inserire un tipo di prodotto presente in magazzino");
+            }
+        }
+    }
+
     public static double readDouble() {
-
         double num;
-
         while(true) {
             try {
                 return in.nextDouble();
@@ -20,7 +34,6 @@ public class Input {
                 in.next();
             }
         }
-
     }
 
     public static int readInt() {
@@ -36,16 +49,27 @@ public class Input {
             }
         }
     }
-
     public static String readStr() {
-        String s;
         while(true) {
             try {
-                return in.nextLine();
+                return in.nextLine().toLowerCase();
             }
             catch (InputMismatchException e)
             {
                 System.out.println("Inserire una stringa");
+                in.next();
+            }
+        }
+    }
+    public static BigDecimal readBigD() {
+        BigDecimal d;
+        while(true) {
+            try {
+                return in.nextBigDecimal();
+            }
+            catch (InputMismatchException e)
+            {
+                System.out.println("Inserire un numero decimale");
                 in.next();
             }
         }

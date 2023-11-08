@@ -1,6 +1,5 @@
 package Ricerca;
 
-import Prodotti.InputProdotti;
 import Prodotti.Prodotto;
 import Utility.Input;
 
