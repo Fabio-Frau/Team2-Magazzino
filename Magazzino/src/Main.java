@@ -1,3 +1,5 @@
+import Login.ListaUtenti;
+import Login.Utente;
 import Magazzino.*;
 import Prodotti.Prodotto;
 import Prodotti.Tablet;
@@ -20,6 +22,7 @@ public class Main {
 
         TipoUtente.sceltaUtente(prodottiPresenti);
 
+        ListaUtenti listaUtenti = new ListaUtenti();
 
 
 
