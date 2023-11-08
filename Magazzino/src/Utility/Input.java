@@ -25,7 +25,6 @@ public class Input {
 
     public static int readInt() {
         int num;
-
         while(true) {
             try {
                 return in.nextInt();
@@ -36,7 +35,20 @@ public class Input {
                 in.next();
             }
         }
+    }
 
+    public static String readStr() {
+        String s;
+        while(true) {
+            try {
+                return in.nextLine();
+            }
+            catch (InputMismatchException e)
+            {
+                System.out.println("Inserire una stringa");
+                in.next();
+            }
+        }
     }
 
 }
