@@ -1,10 +1,13 @@
 import Login.ListaUtenti;
 import Login.Utente;
+import Login.UtentiTest;
 import Magazzino.*;
 import Prodotti.Prodotto;
 import Prodotti.Tablet;
 import Prodotti.TipoProdotto;
 import SceltaOperazione.TipoUtente;
+
+import java.time.temporal.UnsupportedTemporalTypeException;
 import java.util.ArrayList;
 
 
@@ -20,16 +23,18 @@ public class Main {
         Magazzino magazzino = new Magazzino(prodottiPresenti);
 
 
-        TipoUtente.sceltaUtente(prodottiPresenti);
+        //TipoUtente.sceltaUtente(prodottiPresenti);
 
-        ListaUtenti listaUtenti = new ListaUtenti();
+        ArrayList<Utente> prova = UtentiTest.utentiBase();
+
+        for (Utente user : prova) {
+            System.out.println(user.getNome() + " is " + user.getClass());
+        }
 
 
 
 
-//
-//
-//
+
 
 
     }
