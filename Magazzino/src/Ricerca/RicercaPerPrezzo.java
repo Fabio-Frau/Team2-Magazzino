@@ -29,7 +29,7 @@ public class RicercaPerPrezzo {
             }
         }
         listaProdottoCercato.sort(Comparator.comparingDouble(Prodotto::getPrezzoVendita));
-        Stampa.PerCliente(listaProdottoCercato);
+        Stampa.perCliente(listaProdottoCercato);
     }
 
 

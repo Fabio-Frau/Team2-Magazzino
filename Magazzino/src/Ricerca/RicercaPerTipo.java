@@ -45,7 +45,7 @@ public class RicercaPerTipo {
             }
         }
         System.out.println(TipoProdotto.TABLET);
-        Stampa.PerCliente(listaProdottoCercato);
+        Stampa.perCliente(listaProdottoCercato);
     }
 
     public static void RicercaSmartphone (ArrayList<Prodotto> magazzino) {
@@ -56,7 +56,7 @@ public class RicercaPerTipo {
             }
         }
         System.out.println(TipoProdotto.SMARTPHONE);
-        Stampa.PerCliente(listaProdottoCercato);
+        Stampa.perCliente(listaProdottoCercato);
         //return listaProdottoCercato;
     }
 
@@ -68,7 +68,7 @@ public class RicercaPerTipo {
             }
         }
         System.out.println(TipoProdotto.NOTEBOOK);
-        Stampa.PerCliente(listaProdottoCercato);
+        Stampa.perCliente(listaProdottoCercato);
     }
 
 }
