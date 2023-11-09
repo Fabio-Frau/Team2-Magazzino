@@ -11,6 +11,26 @@ public class Magazzino {
         this.listaProdotti = listaProdotti;
     }
 
+    public Prodotto aggiungiProdotto(Prodotto prodotto) {
+        this.listaProdotti.add(prodotto);
+        return prodotto;
+    }
+
+    public ArrayList<Prodotto> aggiungiListaProdotti(ArrayList<Prodotto> prodotti) {
+        this.listaProdotti.addAll(prodotti);
+        return prodotti;
+    }
+
+    public Prodotto rimuoviProdotto(Prodotto prodotto) {
+        this.listaProdotti.remove(prodotto);
+        return prodotto;
+    }
+
+    public ArrayList<Prodotto> rimuoviListaProdotti(ArrayList<Prodotto> prodotti) {
+        this.listaProdotti.removeAll(prodotti);
+        return prodotti;
+    }
+
     public ArrayList<Prodotto> getListaProdotti() {
         return listaProdotti;
     }

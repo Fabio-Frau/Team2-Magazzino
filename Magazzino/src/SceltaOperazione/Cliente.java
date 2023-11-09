@@ -30,19 +30,20 @@ public class Cliente{
                 break;
             }
             case 3: {
-                RicercaPerMarca.ricercaPerMarca(magazzino);
+                RicercaPerMarca.ricercaPerMarca(magazzino, "marca");
                 break;
             }
             case 4: {
-                RicercaPerModello.ricercaPerModello(magazzino);
+                RicercaPerModello.ricercaPerModello(magazzino,"modello");
                 break;
             }
             case 5: {
-                RicercaPerDimSchermo.ricercaDimSchermo(magazzino);
+
+                RicercaPerDimSchermo.ricercaDimSchermo(magazzino,13.5,14.5);
                 break;
             }
             case 6: {
-                RicercaPerDimMemoria.ricercaDimMemoria(magazzino);
+                RicercaPerDimMemoria.ricercaDimMemoria(magazzino,1,2);
                 break;
             }
         }
