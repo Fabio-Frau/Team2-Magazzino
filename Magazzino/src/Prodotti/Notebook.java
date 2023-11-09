@@ -1,5 +1,7 @@
 package Prodotti;
 
+import java.math.BigDecimal;
+
 public class Notebook extends Prodotto {
 
     public Notebook(){
@@ -7,7 +9,7 @@ public class Notebook extends Prodotto {
         this.tipo = TipoProdotto.NOTEBOOK;
     }
     public Notebook(TipoProdotto tipo, String produttore, String modello, String id, String descrizione,
-                    double dimDisplay, int dimMemoria, double prezzoAcquisto, double prezzoVendita) {
+                    double dimDisplay, int dimMemoria, BigDecimal prezzoAcquisto, BigDecimal prezzoVendita) {
         super(tipo ,produttore, modello, id, descrizione, dimDisplay, dimMemoria, prezzoAcquisto, prezzoVendita);
         this.tipo = TipoProdotto.NOTEBOOK;
     }

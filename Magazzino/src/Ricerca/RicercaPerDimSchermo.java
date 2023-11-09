@@ -1,6 +1,5 @@
 package Ricerca;
 
-import Prodotti.InputProdotti;
 import Prodotti.Prodotto;
 import Utility.Input;
 
@@ -11,7 +10,7 @@ public class RicercaPerDimSchermo {
 
     public static ArrayList<Prodotto> ricercaDimSchermo(ArrayList<Prodotto> magazzino ) {
 
-        double[] rng = range();
+        double[] rng = Utility.RangeUtils.DoubleRange();
 
         ArrayList<Prodotto> listaProdottoCercato = new ArrayList<Prodotto>();
 
@@ -24,16 +23,6 @@ public class RicercaPerDimSchermo {
         stampaPerCliente(listaProdottoCercato);
 
         return listaProdottoCercato;
-    }
-
-    public static double[] range(){
-        System.out.println("Inserire la fascia di prezzo: ");
-        double[] range = new double[2];
-        for(int i = 0; i < range.length; i++){
-            range[i] = Input.readInt();
-        }
-        Arrays.sort(range);
-        return range;
     }
 
     public static void stampaPerCliente(ArrayList<Prodotto> prodottoCercato){
