@@ -1,31 +1,18 @@
 package Ricerca;
-
 import Prodotti.Prodotto;
-
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class RicercaPerMarca {
-    public static void ricercaPerMarca(ArrayList<Prodotto> magazzino) {
+    public static ArrayList<Prodotto> ricercaPerMarca(ArrayList<Prodotto> magazzino, String marca) {
         ArrayList<Prodotto> listaProdottoMarca = new ArrayList<>();
-        //input marca dell utente
-        String marcaUtente = sceltaMarca();
-        //aggiungo alla listaProdottoMarca tutti i dispositivi della marca inserita dall utente all interno del magazzino
         for (Prodotto prodotto : magazzino) {
-            if (prodotto.getProduttore().toLowerCase().equals(marcaUtente)) {
+            if (prodotto.getProduttore().equalsIgnoreCase(marca)) {
                 listaProdottoMarca.add(prodotto);
             }
         }
-        //stampo i prodotti di quella marca
-        for (Prodotto prodotto : listaProdottoMarca) {
-            System.out.println(prodotto);
-        }
-        //se la marca non e presente
-        if (listaProdottoMarca.isEmpty()) {
-            System.out.println("Marca inserita non presente in magazzino");
-        }
-
+        return listaProdottoMarca;
     }
 
     public static String sceltaMarca() {

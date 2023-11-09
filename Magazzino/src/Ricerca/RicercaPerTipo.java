@@ -37,38 +37,36 @@ public class RicercaPerTipo {
 
         Choose.ContinuaRicercaCliente(magazzino);
     }
-    public static void RicercaTablet (ArrayList<Prodotto> magazzino) {
+    public static ArrayList<Prodotto> RicercaTablet (ArrayList<Prodotto> magazzino) {
         ArrayList<Prodotto> listaProdottoCercato = new ArrayList<>();
         for (Prodotto prodotto : magazzino) {
             if (prodotto.getTipo() == TipoProdotto.TABLET) {
                 listaProdottoCercato.add(prodotto);
             }
         }
-        System.out.println(TipoProdotto.TABLET);
-        Stampa.PerCliente(listaProdottoCercato);
+        return listaProdottoCercato;
     }
 
-    public static void RicercaSmartphone (ArrayList<Prodotto> magazzino) {
+    public static ArrayList<Prodotto> RicercaSmartphone (ArrayList<Prodotto> magazzino) {
         ArrayList<Prodotto> listaProdottoCercato = new ArrayList<>();
         for (Prodotto prodotto : magazzino) {
             if (prodotto.getTipo() == TipoProdotto.SMARTPHONE) {
                 listaProdottoCercato.add(prodotto);
             }
         }
-        System.out.println(TipoProdotto.SMARTPHONE);
-        Stampa.PerCliente(listaProdottoCercato);
-        //return listaProdottoCercato;
+        return listaProdottoCercato;
     }
 
-    public static void RicercaNotebook (ArrayList<Prodotto> magazzino) {
+    public static ArrayList<Prodotto> RicercaNotebook (ArrayList<Prodotto> magazzino) {
         ArrayList<Prodotto> listaProdottoCercato = new ArrayList<>();
         for (Prodotto prodotto : magazzino) {
             if (prodotto.getTipo() == TipoProdotto.NOTEBOOK) {
                 listaProdottoCercato.add(prodotto);
             }
         }
-        System.out.println(TipoProdotto.NOTEBOOK);
-        Stampa.PerCliente(listaProdottoCercato);
+        return listaProdottoCercato;
     }
+
+
 
 }

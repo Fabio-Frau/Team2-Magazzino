@@ -1,5 +1,6 @@
 package Prodotti;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /*abstract si o no?*/
@@ -12,8 +13,8 @@ public class Prodotto {
     private String descrizione;
     private double dimDisplay;
     private int dimMemoria;
-    private double prezzoAcquisto;
-    private double prezzoVendita;
+    private BigDecimal prezzoAcquisto;
+    private BigDecimal prezzoVendita;
     private String id;
 
     public Prodotto() {
@@ -32,15 +33,15 @@ public class Prodotto {
     }
 
     public Prodotto(TipoProdotto tipo, String produttore, String modello, String id, String descrizione,
-                    double dimDisplay, int dimMemoria, double prezzoAcquisto, double prezzoVendita) {
-        setProduttore(produttore);
-        setModello(modello);
-        setId(id);
-        setDescrizione(descrizione);
-        setDimDisplay(dimDisplay);
-        setDimMemoria(dimMemoria);
-        setPrezzoAcquisto(prezzoAcquisto);
-        setPrezzoVendita(prezzoVendita);
+                    double dimDisplay, int dimMemoria, BigDecimal prezzoAcquisto, BigDecimal prezzoVendita) {
+        this.produttore = produttore;
+        this.modello = modello;
+        this.id = id;
+        this.descrizione = descrizione;
+        this.dimDisplay = dimDisplay;
+        this.dimMemoria = dimMemoria;
+        this.prezzoAcquisto = prezzoAcquisto;
+        this.prezzoVendita = prezzoVendita;
     }
 
     public TipoProdotto getTipo() {
@@ -54,7 +55,7 @@ public class Prodotto {
 
     public void setProduttore() {
         System.out.println("Produttore:");
-        this.produttore = InputProdotti.readString();
+        this.produttore = Utility.Input.readStr();
     }
 
     public void setProduttore(String produttore) {
@@ -67,7 +68,7 @@ public class Prodotto {
 
     public void setModello() {
         System.out.println("Modello:");
-        this.modello = InputProdotti.readString();
+        this.modello = Utility.Input.readStr();
     }
 
     public void setModello(String modello) {
@@ -80,7 +81,7 @@ public class Prodotto {
 
     public void setDescrizione() {
         System.out.println("Descrizione:");
-        this.descrizione = InputProdotti.readString();
+        this.descrizione = Utility.Input.readStr();
     }
 
     public void setDescrizione(String descrizione) {
@@ -93,7 +94,7 @@ public class Prodotto {
 
     public void setDimDisplay() {
         System.out.println("Dimensione display:");
-        this.dimDisplay = InputProdotti.readDouble();
+        this.dimDisplay = Utility.Input.readDouble();
     }
 
     public void setDimDisplay(double dimDisplay) {
@@ -106,36 +107,36 @@ public class Prodotto {
 
     public void setDimMemoria() {
         System.out.println("Dimensione memoria:");
-        this.dimMemoria = InputProdotti.readInt();
+        this.dimMemoria = Utility.Input.readInt();
     }
 
     public void setDimMemoria(int dimMemoria) {
         this.dimMemoria = dimMemoria;
     }
 
-    public double getPrezzoAcquisto() {
+    public BigDecimal getPrezzoAcquisto() {
         return prezzoAcquisto;
     }
 
     public void setPrezzoAcquisto() {
         System.out.println("Prezzo di acquisto:");
-        this.prezzoAcquisto = InputProdotti.readDouble();
+        this.prezzoAcquisto = Utility.Input.readBigD();
     }
 
-    public void setPrezzoAcquisto(double prezzoAcquisto) {
+    public void setPrezzoAcquisto(BigDecimal prezzoAcquisto) {
         this.prezzoAcquisto = prezzoAcquisto;
     }
 
-    public double getPrezzoVendita() {
+    public BigDecimal getPrezzoVendita() {
         return prezzoVendita;
     }
 
     public void setPrezzoVendita() {
         System.out.println("Prezzo di vendita:");
-        this.prezzoVendita = InputProdotti.readDouble();
+        this.prezzoVendita = Utility.Input.readBigD();
     }
 
-    public void setPrezzoVendita(double prezzoVendita) {
+    public void setPrezzoVendita(BigDecimal prezzoVendita) {
         this.prezzoVendita = prezzoVendita;
     }
 
@@ -145,7 +146,7 @@ public class Prodotto {
 
     public void setId() {
         System.out.println("ID:");
-        this.id = InputProdotti.readString();
+        this.id = Utility.Input.readStr();
     }
 
     public void setId(String id) {
@@ -166,12 +167,4 @@ public class Prodotto {
                 ", id='" + id + '\'' +
                 '}';
     }
-
-//    public String stampaPerCliente(){
-//        return produttore + ", " + modello + "\n Caratteristiche: display " + dimDisplay + ", memoria " +
-//                dimMemoria + ", prezzo " + prezzoVendita;
-//    }
-
-    /*qualche campo deve essere final?
-    * getter and setter, tutti i setter o alcune cose non modificabili?*/
 }

@@ -1,8 +1,15 @@
+import Login.ListaUtenti;
+import Login.Utente;
+import Login.UtentiTest;
 import Magazzino.*;
 import Prodotti.Prodotto;
 import Prodotti.Tablet;
 import Prodotti.TipoProdotto;
-import SceltaOperazione.TipoUtente;
+import SceltaOperazione.*;
+import Utility.Stampa;
+
+import java.math.BigDecimal;
+import java.time.temporal.UnsupportedTemporalTypeException;
 import java.util.ArrayList;
 
 
@@ -17,16 +24,19 @@ public class Main {
         ProdottiTest.prodottiBase(prodottiPresenti);
         Magazzino magazzino = new Magazzino(prodottiPresenti);
 
-
-        TipoUtente.sceltaUtente(prodottiPresenti);
-
-
+        Stampa.perGestore(magazzino.getListaProdotti());
+        Stampa.perCliente(magazzino.getListaProdotti());
 
 
+        //TipoUtente.sceltaUtente(prodottiPresenti);
 
+//        ArrayList<Utente> prova = UtentiTest.utentiBase();
 //
-//
-//
+//        for (Utente user : prova) {
+//            System.out.println(user.getNome() + " is " + user.getClass());
+//        }
+
+
 
 
     }
@@ -36,7 +46,7 @@ public class Main {
         System.out.println("Scegli l'operazione da eseguire:");
         System.out.println("1. Aggiunta a magazzino\n2. Scarico merce da magazzino\n3. Acquista");
 
-        int numeroOperazione = Prodotti.InputProdotti.readInt();
+        int numeroOperazione = Utility.Input.readInt();
 
         switch (numeroOperazione) {
             case 1: {
@@ -61,7 +71,7 @@ public class Main {
 
         ArrayList<Tablet> arrayTablet = new ArrayList<Tablet>();
 
-        TipoProdotto tipologia = Prodotti.InputProdotti.readTipo();
+        TipoProdotto tipologia = Utility.Input.readTipo();
 
 
         switch (tipologia) {

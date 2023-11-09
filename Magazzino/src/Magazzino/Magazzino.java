@@ -11,21 +11,28 @@ public class Magazzino {
         this.listaProdotti = listaProdotti;
     }
 
+    public Prodotto aggiungiProdotto(Prodotto prodotto) {
+        this.listaProdotti.add(prodotto);
+        return prodotto;
+    }
+
+    public ArrayList<Prodotto> aggiungiListaProdotti(ArrayList<Prodotto> prodotti) {
+        this.listaProdotti.addAll(prodotti);
+        return prodotti;
+    }
+
+    public Prodotto rimuoviProdotto(Prodotto prodotto) {
+        this.listaProdotti.remove(prodotto);
+        return prodotto;
+    }
+
+    public ArrayList<Prodotto> rimuoviListaProdotti(ArrayList<Prodotto> prodotti) {
+        this.listaProdotti.removeAll(prodotti);
+        return prodotti;
+    }
+
     public ArrayList<Prodotto> getListaProdotti() {
         return listaProdotti;
     }
 
-
-    //metodo di ricerca prodotto per tipo
-//    public static ArrayList<Prodotto> ricercaProdotto(ArrayList<Prodotto> listaProdotti, TipoProdotto tipoProdotto) {
-//        //array che conterra il prodotto cercato (TABLET o SMARTHPHONE o NOTEBOOK)
-//
-//        ArrayList<Prodotto> listaProdottoCercato = new ArrayList<>();
-//        for (Prodotto prodotto : listaProdotti) {
-//            if (prodotto.getTipo() == tipoProdotto) {
-//                listaProdottoCercato.add(prodotto);
-//            }
-//        }
-//        return listaProdottoCercato;
-//    }
 }
