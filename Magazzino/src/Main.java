@@ -6,6 +6,7 @@ import Prodotti.Prodotto;
 import Prodotti.Tablet;
 import Prodotti.TipoProdotto;
 import SceltaOperazione.*;
+import Utility.Stampa;
 
 import java.math.BigDecimal;
 import java.time.temporal.UnsupportedTemporalTypeException;
@@ -23,16 +24,17 @@ public class Main {
         ProdottiTest.prodottiBase(prodottiPresenti);
         Magazzino magazzino = new Magazzino(prodottiPresenti);
 
+        Stampa.perGestore(magazzino.getListaProdotti());
+        Stampa.perCliente(magazzino.getListaProdotti());
+
 
         //TipoUtente.sceltaUtente(prodottiPresenti);
 
-        ArrayList<Utente> prova = UtentiTest.utentiBase();
-
-        for (Utente user : prova) {
-            System.out.println(user.getNome() + " is " + user.getClass());
-        }
-
-
+//        ArrayList<Utente> prova = UtentiTest.utentiBase();
+//
+//        for (Utente user : prova) {
+//            System.out.println(user.getNome() + " is " + user.getClass());
+//        }
 
 
 

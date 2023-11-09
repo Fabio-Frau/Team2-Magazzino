@@ -1,18 +1,13 @@
 package Ricerca;
-
 import Prodotti.Prodotto;
 import Utility.Input;
-
 import java.util.ArrayList;
 
 public class RicercaPerDimMemoria {
-    public static ArrayList<Prodotto> ricercaDimMemoria(ArrayList<Prodotto> magazzino) {
-        int memoriaMax = 0;
-        int memoriaMin = 0;
-        inserisciDimMemoriaMaxMin(memoriaMax, memoriaMin);
+    public static ArrayList<Prodotto> ricercaDimMemoria(ArrayList<Prodotto> magazzino,int min, int max) {
         ArrayList<Prodotto> listaProdottiRangeMemoria = new ArrayList<>();
         for (Prodotto prodotto : magazzino) {
-            if(prodotto.getDimMemoria() > memoriaMin && prodotto.getDimMemoria() < memoriaMax) {
+            if(prodotto.getDimMemoria() >= min && prodotto.getDimMemoria() <= max) {
                 listaProdottiRangeMemoria.add(prodotto);
             }
         }

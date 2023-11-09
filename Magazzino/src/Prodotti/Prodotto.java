@@ -34,14 +34,14 @@ public class Prodotto {
 
     public Prodotto(TipoProdotto tipo, String produttore, String modello, String id, String descrizione,
                     double dimDisplay, int dimMemoria, BigDecimal prezzoAcquisto, BigDecimal prezzoVendita) {
-        setProduttore(produttore);
-        setModello(modello);
-        setId(id);
-        setDescrizione(descrizione);
-        setDimDisplay(dimDisplay);
-        setDimMemoria(dimMemoria);
-        setPrezzoAcquisto(prezzoAcquisto);
-        setPrezzoVendita(prezzoVendita);
+        this.produttore = produttore;
+        this.modello = modello;
+        this.id = id;
+        this.descrizione = descrizione;
+        this.dimDisplay = dimDisplay;
+        this.dimMemoria = dimMemoria;
+        this.prezzoAcquisto = prezzoAcquisto;
+        this.prezzoVendita = prezzoVendita;
     }
 
     public TipoProdotto getTipo() {
