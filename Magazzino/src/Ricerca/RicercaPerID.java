@@ -1,4 +1,5 @@
 package Ricerca;
+import Magazzino.Magazzino;
 import Prodotti.Prodotto;
 import java.util.ArrayList;
 

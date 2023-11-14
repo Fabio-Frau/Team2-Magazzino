@@ -2,30 +2,34 @@ package SceltaOperazione;
 import Ricerca.*;
 import Utility.*;
 import Magazzino.*;
+import Prodotti.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Gestore {
-    private Magazzino magazzino;
+    private static Magazzino magazzino;
 
     public Gestore(Magazzino magazzino) {
         this.magazzino = magazzino;
     }
 
-    public void operazioniGestore() {
+    public static void operazioniGestore() {
 
         // AGGIUNGERE GESTIONE ECCEZIONI
 
 
-        System.out.println("Operazione da eseguire" +
-                "\n 1. Lettura prodotti in magazzino" + "\n 2. Ricerca Prodotto" + "\n 3. Aggiunta Prodotti");
+        System.out.println("Benvenuto GESTORE. Scegli l'operazione da eseguire:" +
+                "\n 1. Lettura prodotti in magazzino" +
+                "\n 2. Ricerca Prodotto" +
+                "\n 3. Aggiunta/Eliminazione Prodotti");
 
         int sceltaUtente = Input.readInt();
 
         switch (sceltaUtente) {
             case 1: {
                 Stampa.perGestore(magazzino.getListaProdotti());
+                Choose.ContinuaRicercaGestore();
                 break;
             }
             case 2: {
@@ -33,63 +37,80 @@ public class Gestore {
                 break;
             }
             case 3: {
-
                 // break;
             }
-
+            default:
+                System.out.println("Scelta non valida.");
+                break;
         }
     }
 
-    public void sceltaRicercheGestore () {
+    public static void sceltaRicercheGestore() {
         System.out.println("Opzioni disponibili" +
                 "\n 1. Ricerca per produttore" + "\n 2. Ricerca per modello" + "\n 3. Ricerca per ID" +
                 "\n 4. Ricerca per dimensione display" + "\n 5. Ricerca per dimensione memoria" +
-                "6. Ricerca per prezzo d'acquisto" +
-                "\n 7. Ricerca per prezzo di vendita");
+                "\n 6. Ricerca per prezzo d'acquisto" + "\n 7. Ricerca per prezzo di vendita");
 
         int sceltaUtente = Input.readInt();
         switch (sceltaUtente) {
             case 1: {
+                System.out.println("Inserisci la marca del prodotto cercato:");
                 String marca = Input.readStr();
-                Stampa.perGestore(RicercaPerMarca.ricercaPerMarca(magazzino.getListaProdotti(), marca));
+                arrayListEmpty(RicercaPerMarca.ricercaPerMarca(magazzino.getListaProdotti(), marca));
                 break;
             }
             case 2: {
+                System.out.println("Inserisci il modello del prodotto cercato:");
                 String modello = Input.readStr();
-                Stampa.perGestore(RicercaPerModello.ricercaPerModello(magazzino.getListaProdotti(), modello));
+                arrayListEmpty (RicercaPerModello.ricercaPerModello(magazzino.getListaProdotti(), modello));
                 break;
             }
             case 3: {
+                System.out.println("Inserisci l'id del prodotto: ");
                 String id = Input.readStr();
-                Stampa.perGestore(RicercaPerID.ricercaPerID(magazzino.getListaProdotti(), id));
+                arrayListEmpty(RicercaPerID.ricercaPerID(magazzino.getListaProdotti(), id));
                 break;
             }
             case 4: {
+                System.out.println("Inserisci la dimensioni dello schermo: (pollici) ");
                 double min = Input.readDouble();
                 double max = Input.readDouble();
-                Stampa.perGestore(RicercaPerDimSchermo.ricercaDimSchermo(magazzino.getListaProdotti(), min, max));
-                break;
+                arrayListEmpty(RicercaPerDimSchermo.ricercaDimSchermo(magazzino.getListaProdotti(), min, max));
+                    break;
             }
             case 5: {
+                System.out.println("Inserisci la dimensione della memoria del dispositivo: (GB) ");
                 int min = Input.readInt();
                 int max = Input.readInt();
-                Stampa.perGestore(RicercaPerDimMemoria.ricercaDimMemoria(magazzino.getListaProdotti(), min, max));
+                arrayListEmpty(RicercaPerDimMemoria.ricercaDimMemoria(magazzino.getListaProdotti(),min,max));
                 break;
             }
             case 6: {
-                BigDecimal [] range = RangeUtils.DoubleRangeBD();
-                Stampa.perGestore(RicercaPerPrezzo.RicercaPerPrezzoAcquisto(magazzino.getListaProdotti(), range));
+                System.out.println("Inserisci la fascia di prezzo: (€)");
+                BigDecimal[] range = RangeUtils.DoubleRangeBD();
+                arrayListEmpty((RicercaPerPrezzo.RicercaPerPrezzoAcquisto(magazzino.getListaProdotti(), range)));
                 break;
             }
             case 7: {
-                BigDecimal [] range = RangeUtils.DoubleRangeBD();
-                Stampa.perGestore(RicercaPerPrezzo.RicercaPerPrezzoVendita(magazzino.getListaProdotti(), range));
+                System.out.println("Inserisci la fascia di prezzo: (€)");
+                BigDecimal[] range = RangeUtils.DoubleRangeBD();
+                arrayListEmpty((RicercaPerPrezzo.RicercaPerPrezzoVendita(magazzino.getListaProdotti(), range)));
                 break;
             }
             default: {
                 System.out.println("Scelta non valida.");
                 break;
             }
+        }
+    }
+
+    public static void arrayListEmpty(ArrayList<Prodotto> prodotto){
+        if (prodotto.isEmpty()){
+            System.out.println("La ricerca non ha prodotto alcun risultato.");
+        }
+        else{
+            Stampa.perGestore(prodotto);
+            Choose.ContinuaRicercaGestore();
         }
     }
 }

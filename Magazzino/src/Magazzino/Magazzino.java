@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Magazzino {
 
+    public static ArrayList<Prodotto> magazzino;
     private ArrayList<Prodotto> listaProdotti;
 
     public Magazzino(ArrayList<Prodotto> listaProdotti) {
