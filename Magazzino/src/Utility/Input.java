@@ -52,7 +52,7 @@ public class Input {
     public static String readStr() {
         while(true) {
             try {
-                return in.nextLine().toLowerCase();
+                return in.next().toLowerCase();
             }
             catch (InputMismatchException e)
             {
