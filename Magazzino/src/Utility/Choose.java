@@ -1,6 +1,7 @@
 package Utility;
 import Prodotti.*;
 import SceltaOperazione.Cliente;
+import SceltaOperazione.Gestore;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -29,6 +30,23 @@ public class Choose {
             case 'n' : {
                 break;
             }
+        }
+    }
+
+    //Continua ricerca gestore
+    public static void ContinuaRicercaGestore(){
+        System.out.println("Vuoi continuare la ricerca?");
+        char c = Choose.yesORnot();
+        switch (c){
+            case 'y': {
+                Gestore.operazioniGestore();
+                break;
+            }
+            case 'n' : {
+                break;
+            }
+            default:
+                throw new IllegalStateException("Unexpected value: " + c);
         }
     }
 }
