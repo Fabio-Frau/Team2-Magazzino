@@ -23,8 +23,11 @@ public class Main {
         ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
         ProdottiTest.prodottiBase(prodottiPresenti);
         Magazzino magazzino = new Magazzino(prodottiPresenti);
-        Gestore gestore = new Gestore(magazzino);
-        gestore.operazioniGestore();
+//        Gestore gestore = new Gestore(magazzino);
+//        gestore.operazioniGestore();
+        Cliente cliente = new Cliente(magazzino);
+        cliente.sceltaRicercheCliente();
+
 
         //Stampa.perGestore(magazzino.getListaProdotti());
         //Stampa.perCliente(magazzino.getListaProdotti());

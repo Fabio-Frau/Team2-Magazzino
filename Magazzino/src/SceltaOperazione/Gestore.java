@@ -3,7 +3,6 @@ import Ricerca.*;
 import Utility.*;
 import Magazzino.*;
 import Prodotti.*;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -29,7 +28,7 @@ public class Gestore {
         switch (sceltaUtente) {
             case 1: {
                 Stampa.perGestore(magazzino.getListaProdotti());
-                Choose.ContinuaRicercaGestore();
+                Choose.continuaRicercaGestore();
                 break;
             }
             case 2: {
@@ -57,45 +56,45 @@ public class Gestore {
             case 1: {
                 System.out.println("Inserisci la marca del prodotto cercato:");
                 String marca = Input.readStr();
-                arrayListEmpty(RicercaPerMarca.ricercaPerMarca(magazzino.getListaProdotti(), marca));
+                Stampa.perGestore(RicercaPerMarca.ricercaPerMarca(magazzino.getListaProdotti(), marca));
                 break;
             }
             case 2: {
                 System.out.println("Inserisci il modello del prodotto cercato:");
                 String modello = Input.readStr();
-                arrayListEmpty (RicercaPerModello.ricercaPerModello(magazzino.getListaProdotti(), modello));
+                Stampa.perGestore(RicercaPerModello.ricercaPerModello(magazzino.getListaProdotti(), modello));
                 break;
             }
             case 3: {
                 System.out.println("Inserisci l'id del prodotto: ");
                 String id = Input.readStr();
-                arrayListEmpty(RicercaPerID.ricercaPerID(magazzino.getListaProdotti(), id));
+                Stampa.perGestore(RicercaPerID.ricercaPerID(magazzino.getListaProdotti(), id));
                 break;
             }
             case 4: {
                 System.out.println("Inserisci la dimensioni dello schermo: (pollici) ");
                 double min = Input.readDouble();
                 double max = Input.readDouble();
-                arrayListEmpty(RicercaPerDimSchermo.ricercaDimSchermo(magazzino.getListaProdotti(), min, max));
+                Stampa.perGestore(RicercaPerDimSchermo.ricercaDimSchermo(magazzino.getListaProdotti(), min, max));
                     break;
             }
             case 5: {
                 System.out.println("Inserisci la dimensione della memoria del dispositivo: (GB) ");
                 int min = Input.readInt();
                 int max = Input.readInt();
-                arrayListEmpty(RicercaPerDimMemoria.ricercaDimMemoria(magazzino.getListaProdotti(),min,max));
+                Stampa.perGestore(RicercaPerDimMemoria.ricercaDimMemoria(magazzino.getListaProdotti(),min,max));
                 break;
             }
             case 6: {
                 System.out.println("Inserisci la fascia di prezzo: (€)");
                 BigDecimal[] range = RangeUtils.DoubleRangeBD();
-                arrayListEmpty((RicercaPerPrezzo.RicercaPerPrezzoAcquisto(magazzino.getListaProdotti(), range)));
+                Stampa.perGestore((RicercaPerPrezzo.RicercaPerPrezzoAcquisto(magazzino.getListaProdotti(), range)));
                 break;
             }
             case 7: {
                 System.out.println("Inserisci la fascia di prezzo: (€)");
                 BigDecimal[] range = RangeUtils.DoubleRangeBD();
-                arrayListEmpty((RicercaPerPrezzo.RicercaPerPrezzoVendita(magazzino.getListaProdotti(), range)));
+                Stampa.perGestore((RicercaPerPrezzo.RicercaPerPrezzoVendita(magazzino.getListaProdotti(), range)));
                 break;
             }
             default: {
@@ -103,15 +102,8 @@ public class Gestore {
                 break;
             }
         }
+        Choose.continuaRicercaGestore();
     }
 
-    public static void arrayListEmpty(ArrayList<Prodotto> prodotto){
-        if (prodotto.isEmpty()){
-            System.out.println("La ricerca non ha prodotto alcun risultato.");
-        }
-        else{
-            Stampa.perGestore(prodotto);
-            Choose.ContinuaRicercaGestore();
-        }
-    }
+
 }

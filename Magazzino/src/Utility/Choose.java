@@ -19,12 +19,12 @@ public class Choose {
 
 
     //Continua Ricerca Cliente
-    public static void ContinuaRicercaCliente(ArrayList<Prodotto> magazzino){
+    public static void continuaRicercaCliente(){
         System.out.println("Vuoi continuare la ricerca?");
         char c = Choose.yesORnot();
         switch (c){
             case 'y': {
-                Cliente.operazioniCliente(magazzino);
+                Cliente.sceltaRicercheCliente();
                 break;
             }
             case 'n' : {
@@ -34,7 +34,7 @@ public class Choose {
     }
 
     //Continua ricerca gestore
-    public static void ContinuaRicercaGestore(){
+    public static void continuaRicercaGestore(){
         System.out.println("Vuoi continuare la ricerca?");
         char c = Choose.yesORnot();
         switch (c){

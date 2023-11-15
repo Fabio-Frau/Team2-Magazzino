@@ -35,7 +35,7 @@ public class RicercaPerTipo {
             }
         }
 
-        Choose.ContinuaRicercaCliente(magazzino);
+
     }
     public static ArrayList<Prodotto> RicercaTablet (ArrayList<Prodotto> magazzino) {
         ArrayList<Prodotto> listaProdottoCercato = new ArrayList<>();
