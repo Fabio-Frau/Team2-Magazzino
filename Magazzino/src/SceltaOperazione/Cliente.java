@@ -100,12 +100,6 @@ public class Cliente{
             case 6: {
                 System.out.println("Inserisci la fascia di prezzo: (€)");
                 BigDecimal[] range = RangeUtils.DoubleRangeBD();
-                Stampa.perCliente((RicercaPerPrezzo.RicercaPerPrezzoAcquisto(magazzino.getListaProdotti(), range)));
-                break;
-            }
-            case 7: {
-                System.out.println("Inserisci la fascia di prezzo: (€)");
-                BigDecimal[] range = RangeUtils.DoubleRangeBD();
                 Stampa.perCliente((RicercaPerPrezzo.RicercaPerPrezzoVendita(magazzino.getListaProdotti(), range)));
                 break;
             }
