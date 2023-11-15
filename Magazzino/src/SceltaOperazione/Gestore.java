@@ -38,6 +38,7 @@ public class Gestore {
             }
             case 3: {
                 // break;
+
             }
             default:
                 System.out.println("Scelta non valida.");
