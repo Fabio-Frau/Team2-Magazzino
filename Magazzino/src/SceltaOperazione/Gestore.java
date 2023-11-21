@@ -22,7 +22,8 @@ public class Gestore {
         System.out.println("Benvenuto GESTORE. Scegli l'operazione da eseguire:" +
                 "\n 1. Lettura prodotti in magazzino" +
                 "\n 2. Ricerca Prodotto" +
-                "\n 3. Aggiunta/Eliminazione Prodotti");
+                "\n 3. Aggiunta Prodotto" +
+                "\n 4. Eliminazione Prodotto");
 
         int sceltaUtente = Input.readInt();
 
@@ -37,6 +38,16 @@ public class Gestore {
                 break;
             }
             case 3: {
+                /*ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
+                ProdottiTest.prodottiBase(prodottiPresenti);
+                Magazzino magazzino = new Magazzino(prodottiPresenti);
+
+                Stampa.perGestore(magazzino.getListaProdotti());
+                Prodotto prodotto = new Prodotto();
+                magazzino.aggiungiProdotto(prodotto);
+                Stampa.perGestore(magazzino.getListaProdotti());*/
+            }
+            case 4: {
                 // break;
 
             }

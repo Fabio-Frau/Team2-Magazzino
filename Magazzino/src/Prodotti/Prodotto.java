@@ -65,7 +65,7 @@ public class Prodotto {
 
     public void setProduttore() {
         System.out.println("Produttore:");
-        this.produttore = Utility.Input.readStr();
+        this.produttore = Utility.Input.readStrNoLowerCase();
     }
 
     public void setProduttore(String produttore) {
@@ -78,7 +78,7 @@ public class Prodotto {
 
     public void setModello() {
         System.out.println("Modello:");
-        this.modello = Utility.Input.readStr();
+        this.modello = Utility.Input.readStrNoLowerCase();
     }
 
     public void setModello(String modello) {
@@ -156,7 +156,7 @@ public class Prodotto {
 
     public void setId() {
         System.out.println("ID:");
-        this.id = Utility.Input.readStr();
+        this.id = Utility.Input.readStrNoLowerCase();
     }
 
     public void setId(String id) {
