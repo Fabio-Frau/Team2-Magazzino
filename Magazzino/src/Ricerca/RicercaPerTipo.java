@@ -12,7 +12,7 @@ public class RicercaPerTipo {
 
     public static void sceltaTipo (ArrayList<Prodotto> magazzino) {
 
-        System.out.println("Tipo di prodotto ricercato: \n 1. Smartphone \n 2. Tablet \n 3. Notebook");
+        System.out.println("Tipo di prodotto ricercato: \n 1. Smartphone \n 2. Tablet \n 3. Notebook \n 4. Lista prodotti:");
         int choose = Input.readInt();
 
         switch (choose) {

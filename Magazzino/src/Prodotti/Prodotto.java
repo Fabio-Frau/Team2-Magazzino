@@ -1,5 +1,7 @@
 package Prodotti;
 
+import Utility.Input;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -20,7 +22,7 @@ public class Prodotto {
     public Prodotto() {
         /*Id mi da problemi se lo metto alla fine, che sia perchè prima faccio
         scanner di double con try catch, non mi consuma bene il token*/
-        //setTipo();
+        setTipo();
         setProduttore();
         setModello();
         setId();
@@ -42,6 +44,14 @@ public class Prodotto {
         this.dimMemoria = dimMemoria;
         this.prezzoAcquisto = prezzoAcquisto;
         this.prezzoVendita = prezzoVendita;
+    }
+
+    public void setTipo(TipoProdotto tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setTipo() {
+        this.tipo = Input.readTipo();
     }
 
     public TipoProdotto getTipo() {
