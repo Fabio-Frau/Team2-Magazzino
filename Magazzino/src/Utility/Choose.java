@@ -24,7 +24,7 @@ public class Choose {
         char c = Choose.yesORnot();
         switch (c){
             case 'y': {
-                Cliente.operazioniCliente(magazzino);
+                Cliente.sceltaRicercheCliente();
                 break;
             }
             case 'n' : {
