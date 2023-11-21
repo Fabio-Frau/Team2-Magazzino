@@ -22,7 +22,7 @@ public class Verifica {
         }
         else{
             Stampa.perCliente(prodotto);
-            //Choose.ContinuaRicercaGestore();
+            Choose.ContinuaRicercaCliente();
         }
     }
 

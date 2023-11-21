@@ -15,7 +15,7 @@ public class RicercaPerPrezzo {
         System.out.println("Inserire la fascia di prezzo: ");
         BigDecimal[] rng = RangeUtils.DoubleRangeBD();
         RicercaPerPrezzoVendita(magazzino,rng);
-        Choose.ContinuaRicercaCliente(magazzino);
+        Choose.ContinuaRicercaCliente();
     }
     public static void ricercaRangePrezzoAcquisto (ArrayList<Prodotto> magazzino) {
         System.out.println("Inserire la fascia di prezzo: ");
