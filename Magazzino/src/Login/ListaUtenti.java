@@ -3,10 +3,14 @@ package Login;
 import java.util.ArrayList;
 
 public class ListaUtenti {
-    ArrayList<Utente> listaUtenti = new ArrayList<>();
+    private ArrayList<Utente> listaUtenti = new ArrayList<>();
 
     public ListaUtenti(ArrayList<Utente> listaUtenti) {
         this.listaUtenti = listaUtenti;
+    }
+
+    public ListaUtenti() {
+
     }
 
     public ArrayList<Utente> getListaUtenti() {
