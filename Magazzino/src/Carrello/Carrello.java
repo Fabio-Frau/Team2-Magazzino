@@ -1,5 +1,4 @@
 package Carrello;
-
 import Prodotti.Prodotto;
 
 import java.math.BigDecimal;
@@ -18,5 +17,4 @@ public class Carrello {
                 '}';
     }
 
-//private BigDecimal totaleSpesa;
 }
