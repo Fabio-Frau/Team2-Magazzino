@@ -61,6 +61,20 @@ public class Input {
             }
         }
     }
+
+    //aggiunto un readStr a parte senza il toLowerCase per leggere in particolare Marca Modello e ID per gestore
+    public static String readStrNoLowerCase() {
+        while(true) {
+            try {
+                return in.next();
+            }
+            catch (InputMismatchException e)
+            {
+                System.out.println("Inserire una stringa");
+                in.next();
+            }
+        }
+    }
     public static BigDecimal readBigD() {
         BigDecimal d;
         while(true) {

@@ -30,6 +30,9 @@ public class Main {
         magazzino.aggiungiProdotto(prodotto);
         Stampa.perGestore(magazzino.getListaProdotti());
 
+        //Gestore.operazioniGestore();
+
+
 
 
 

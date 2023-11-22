@@ -156,7 +156,7 @@ public class Prodotto {
 
     public void setId() {
         System.out.println("ID:");
-        this.id = Utility.Input.readStr();
+        this.id = Utility.Input.readStrNoLowerCase();
     }
 
     public void setId(String id) {
