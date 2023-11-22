@@ -24,11 +24,14 @@ public class Main {
         ProdottiTest.prodottiBase(prodottiPresenti);
         Magazzino magazzino = new Magazzino(prodottiPresenti);
 
+        Cliente cliente1 = new Cliente(magazzino);
+        cliente1.sceltaRicercheCliente();
 
-        Stampa.perGestore(magazzino.getListaProdotti());
+
+       /* Stampa.perGestore(magazzino.getListaProdotti());
         Prodotto prodotto = new Prodotto();
         magazzino.aggiungiProdotto(prodotto);
-        Stampa.perGestore(magazzino.getListaProdotti());
+        Stampa.perGestore(magazzino.getListaProdotti());*/
 
         //Gestore.operazioniGestore();
 
