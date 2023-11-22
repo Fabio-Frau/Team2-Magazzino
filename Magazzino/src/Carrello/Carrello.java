@@ -1,5 +1,4 @@
 package Carrello;
-
 import Prodotti.Prodotto;
 
 import java.math.BigDecimal;
@@ -7,9 +6,15 @@ import java.util.ArrayList;
 
 public class Carrello {
 
-    private ArrayList<Prodotto> prodottiCarrello;
+    private ArrayList<Prodotto> carrello = new ArrayList<>();
+    public ArrayList<Prodotto> getCarrello(){return carrello;}
+    public void setCarrello(ArrayList<Prodotto> carrello){this.carrello = carrello;}
 
-    private BigDecimal totaleSpesa;
-
+    @Override
+    public String toString() {
+        return "Carrello{" +
+                "carrello=" + carrello +
+                '}';
+    }
 
 }
