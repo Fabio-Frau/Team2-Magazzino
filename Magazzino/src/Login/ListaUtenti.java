@@ -3,9 +3,9 @@ package Login;
 import java.util.ArrayList;
 
 public class ListaUtenti {
-    ArrayList<Utente> listaUtenti = new ArrayList<>();
+    private ArrayList<Utente> listaUtenti = new ArrayList<>();
 
-    public ListaUtenti(ArrayList<Utente> listaUtenti) {
+    public ListaUtenti() {
         this.listaUtenti = listaUtenti;
     }
 
@@ -16,6 +16,5 @@ public class ListaUtenti {
     public void setLista(ArrayList<Utente> lista) {
         this.listaUtenti = lista;
     }
-
 
 }

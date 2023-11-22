@@ -1,9 +1,13 @@
 package Login;
-import Magazzino.Magazzino;
+import Carrello.*;
+import Magazzino.*;
+import Prodotti.Prodotto;
+
+import java.util.ArrayList;
 
 public class Login {
 
-    public static void accesso (ListaUtenti lista, Magazzino magazzino){
+    public static void accesso (ListaUtenti lista, Magazzino magazzino, Carrello carrello, ArrayList<Prodotto> tmp){
         System.out.println("Seleziona l'operazione di accesso:\s 1. Log in\s 2.Registrati");
         int in = Utility.Input.readInt();
         switch (in){
