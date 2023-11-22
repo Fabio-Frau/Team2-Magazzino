@@ -16,5 +16,4 @@ public class Carrello {
                 "carrello=" + carrello +
                 '}';
     }
-
 }
