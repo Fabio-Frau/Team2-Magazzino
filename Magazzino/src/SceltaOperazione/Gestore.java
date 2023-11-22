@@ -38,11 +38,7 @@ public class Gestore {
                 break;
             }
             case 3: {
-                /*ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
-                ProdottiTest.prodottiBase(prodottiPresenti);
-                Magazzino magazzino = new Magazzino(prodottiPresenti);
-
-                Stampa.perGestore(magazzino.getListaProdotti());
+                /*Stampa.perGestore(magazzino.getListaProdotti());
                 Prodotto prodotto = new Prodotto();
                 magazzino.aggiungiProdotto(prodotto);
                 Stampa.perGestore(magazzino.getListaProdotti());*/

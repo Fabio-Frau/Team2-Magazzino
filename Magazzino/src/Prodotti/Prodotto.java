@@ -65,7 +65,7 @@ public class Prodotto {
 
     public void setProduttore() {
         System.out.println("Produttore:");
-        this.produttore = Utility.Input.readStrNoLowerCase();
+        this.produttore = Utility.Input.readStr();
     }
 
     public void setProduttore(String produttore) {
@@ -78,7 +78,7 @@ public class Prodotto {
 
     public void setModello() {
         System.out.println("Modello:");
-        this.modello = Utility.Input.readStrNoLowerCase();
+        this.modello = Utility.Input.readStr();
     }
 
     public void setModello(String modello) {
