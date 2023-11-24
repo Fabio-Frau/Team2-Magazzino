@@ -20,12 +20,12 @@ public class Main {
         // TEST PRODOTTI IN MAGAZZINO
 
 
-        ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
+        /*ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
         ProdottiTest.prodottiBase(prodottiPresenti);
         Magazzino magazzino = new Magazzino(prodottiPresenti);
 
         Cliente cliente1 = new Cliente(magazzino);
-        cliente1.sceltaRicercheCliente();
+        cliente1.sceltaRicercheCliente();*/
 
 
        /* Stampa.perGestore(magazzino.getListaProdotti());
@@ -33,14 +33,15 @@ public class Main {
         magazzino.aggiungiProdotto(prodotto);
         Stampa.perGestore(magazzino.getListaProdotti());*/
 
-        //Gestore.operazioniGestore();
 
 
 
+        ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
+        ProdottiTest.prodottiBase(prodottiPresenti);
+        Magazzino magazzino = new Magazzino(prodottiPresenti);
 
-
-//        Gestore gestore = new Gestore(magazzino);
-//        gestore.operazioniGestore();
+        Gestore gestore = new Gestore(magazzino);
+        gestore.operazioniGestore();
 
         //Stampa.perGestore(magazzino.getListaProdotti());
         //Stampa.perCliente(magazzino.getListaProdotti());

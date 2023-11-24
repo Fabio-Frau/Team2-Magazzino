@@ -8,7 +8,7 @@ public class Magazzino {
     public static ArrayList<Prodotto> magazzino;
     private ArrayList<Prodotto> listaProdotti= new ArrayList<>();
 
-    public Magazzino() {
+    public Magazzino(ArrayList<Prodotto> listaProdotti) {
         this.listaProdotti = listaProdotti;
     }
 
