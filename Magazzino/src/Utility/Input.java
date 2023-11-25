@@ -14,7 +14,7 @@ public class Input {
         while (true) {
             try {
                 System.out.println("Inserisci il tipo di prodotto: ");
-                return TipoProdotto.valueOf(in.nextLine().toUpperCase());
+                return TipoProdotto.valueOf(in.next().toUpperCase());
             }
             catch (IllegalArgumentException e) {
                 System.out.println("Devi inserire un tipo di prodotto presente in magazzino");
@@ -52,7 +52,7 @@ public class Input {
     public static String readStr() {
         while(true) {
             try {
-                return in.next().toLowerCase();
+                return in.next();
             }
             catch (InputMismatchException e)
             {

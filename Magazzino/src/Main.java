@@ -6,6 +6,7 @@ import Magazzino.*;
 import SceltaOperazione.InterfacciaGestore;
 
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -18,6 +19,9 @@ public class Main {
 //        Utente utenteCorrente = null;
 //        utenteCorrente = Login.accesso(db);
 
+
+
+
         Utente utenteCorrente = new Gestore("Sara", "Neri", "saraneri@gmail.com",
                 "sarabella1", 348334566);
 
@@ -27,6 +31,9 @@ public class Main {
             InterfacciaGestore.operazioniGestore(db.getMagazzino());
 
         }
+
+
+
 
 
         //Login.accesso(listaUtenti, magazzino, carrello, tmp);

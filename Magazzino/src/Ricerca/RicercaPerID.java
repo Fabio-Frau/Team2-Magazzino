@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 public class RicercaPerID {
     public static ArrayList<Prodotto> ricercaPerID(ArrayList<Prodotto> magazzino, String id) {
-        ArrayList<Prodotto> listaProdotto = new ArrayList<>();
+        ArrayList<Prodotto> listaProdottoCercato = new ArrayList<>();
         for (Prodotto prodotto : magazzino) {
             if (prodotto.getId().equals(id)) {
-                listaProdotto.add(prodotto);
+                listaProdottoCercato.add(prodotto);
             }
         }
-        return listaProdotto;
+        return listaProdottoCercato;
     }
 }

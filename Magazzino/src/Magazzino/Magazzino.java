@@ -4,7 +4,7 @@ import Prodotti.*;
 import java.util.ArrayList;
 
 public class Magazzino {
-    private ArrayList<Prodotto> listaProdotti = new ArrayList<>();
+    private ArrayList<Prodotto> listaProdotti;
 
     public Magazzino(ArrayList<Prodotto> listaProdotti) {
         this.listaProdotti = listaProdotti;
@@ -14,27 +14,39 @@ public class Magazzino {
         return listaProdotti;
     }
 
-    public Prodotto aggiungiProdotto(Prodotto prodotto) {
-        this.listaProdotti.add(prodotto);
-        return prodotto;
+    public boolean aggiungiProdotto(Prodotto prodotto) {
+         return this.listaProdotti.add(prodotto);
     }
 
-    public ArrayList<Prodotto> aggiungiListaProdotti(ArrayList<Prodotto> prodotti) {
-        this.listaProdotti.addAll(prodotti);
-        return prodotti;
+    public boolean aggiungiListaProdotti(ArrayList<Prodotto> prodotti) {
+        return this.listaProdotti.addAll(prodotti);
+    }
+
+    public Prodotto rimuoviProdottoPerID(String id) {
+        for (Prodotto prodotto : this.listaProdotti) {
+            if(prodotto.getId().equals(id)) {
+                listaProdotti.remove(prodotto);
+                return prodotto;
+            }
+        }
+        return null;
     }
 
     public Prodotto rimuoviProdotto(Prodotto prodotto) {
-        this.listaProdotti.remove(prodotto);
-        return prodotto;
+        if(this.listaProdotti.remove(prodotto)) {
+            return prodotto;
+        } else {
+            return null;
+        }
     }
 
     public ArrayList<Prodotto> rimuoviListaProdotti(ArrayList<Prodotto> prodotti) {
-        this.listaProdotti.removeAll(prodotti);
-        return prodotti;
+        if (this.listaProdotti.removeAll(prodotti)) {
+            return prodotti;
+        } else {
+            return null;
+        }
     }
-
-
 
     public void setListaProdotti(ArrayList<Prodotto> listaProdotti) {this.listaProdotti = listaProdotti; }
 

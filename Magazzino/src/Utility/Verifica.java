@@ -12,7 +12,6 @@ public class Verifica {
         }
         else{
             Stampa.perGestore(prodotto);
-            Choose.ContinuaRicercaGestore();
         }
     }
 
@@ -22,7 +21,6 @@ public class Verifica {
         }
         else{
             Stampa.perCliente(prodotto);
-            Choose.ContinuaRicercaCliente();
         }
     }
 

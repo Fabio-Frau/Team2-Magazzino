@@ -31,20 +31,20 @@ public class Choose {
         }
     }
 
-    //Continua ricerca gestore
-    public static void ContinuaRicercaGestore(){
-        System.out.println("Vuoi continuare la ricerca?");
-        char c = Choose.yesORnot();
-        switch (c){
-            case 'y': {
-                InterfacciaGestore.operazioniGestore();
-                break;
-            }
-            case 'n' : {
-                break;
-            }
-            default:
-                throw new IllegalStateException("Unexpected value: " + c);
-        }
-    }
+//    //Continua ricerca gestore
+//    public static void ContinuaRicercaGestore(){
+//        System.out.println("Vuoi continuare la ricerca?");
+//        char c = Choose.yesORnot();
+//        switch (c){
+//            case 'y': {
+//                InterfacciaGestore.operazioniGestore();
+//                break;
+//            }
+//            case 'n' : {
+//                break;
+//            }
+//            default:
+//                throw new IllegalStateException("Unexpected value: " + c);
+//        }
+//    }
 }

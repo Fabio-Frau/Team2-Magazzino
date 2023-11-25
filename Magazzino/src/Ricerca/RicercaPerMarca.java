@@ -6,19 +6,14 @@ import java.util.Scanner;
 
 public class RicercaPerMarca {
     public static ArrayList<Prodotto> ricercaPerMarca(ArrayList<Prodotto> magazzino, String marca) {
-        ArrayList<Prodotto> listaProdottoMarca = new ArrayList<>();
+        ArrayList<Prodotto> listaProdottoCercato = new ArrayList<>();
         for (Prodotto prodotto : magazzino) {
             if (prodotto.getProduttore().equalsIgnoreCase(marca)) {
-                listaProdottoMarca.add(prodotto);
+                listaProdottoCercato.add(prodotto);
             }
         }
-        return listaProdottoMarca;
+        return listaProdottoCercato;
     }
 
-    public static String sceltaMarca() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Inserire la marca: ");
-        String marca = sc.nextLine().toLowerCase();
-        return marca;
-    }
+
 }
