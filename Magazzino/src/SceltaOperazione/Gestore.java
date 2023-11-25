@@ -1,4 +1,5 @@
 package SceltaOperazione;
+import Carrello.Carrello;
 import Ricerca.*;
 import Utility.*;
 import Magazzino.*;
@@ -38,14 +39,17 @@ public class Gestore {
                 break;
             }
             case 3: {
-                /*Stampa.perGestore(magazzino.getListaProdotti());
+                Stampa.perGestore(magazzino.getListaProdotti());
                 Prodotto prodotto = new Prodotto();
                 magazzino.aggiungiProdotto(prodotto);
-                Stampa.perGestore(magazzino.getListaProdotti());*/
+                Stampa.perGestore(magazzino.getListaProdotti());
+                break;
             }
             case 4: {
-                // break;
-
+                Stampa.perGestore(magazzino.getListaProdotti());
+                String id = idProdottoDaRimuovere();
+                rimuoviProdotto(magazzino.getListaProdotti(), id);
+                Stampa.perGestore(magazzino.getListaProdotti());
             }
             default:
                 System.out.println("Scelta non valida.");
@@ -112,5 +116,22 @@ public class Gestore {
         }
     }
 
+    //aggiunto metodo per eliminazione da parte del gestore tramite ID
+    public static ArrayList<Prodotto> rimuoviProdotto(ArrayList<Prodotto> magazzino, String idProdotto) {
+        for (Prodotto prodotto : magazzino) {
+            if (prodotto.getId().equals(idProdotto)) {
+                magazzino.remove(prodotto);
+                break;
+            } else {
+                System.out.println("ID non trovato, nessun prodotto rimosso.");
+            }
+        }
+        return magazzino;
+    }
+
+    public static String idProdottoDaRimuovere() {
+        System.out.println("Inserire ID del prodotto da rimuovere: ");
+        return Input.readStrNoLowerCase();
+    }
 
 }

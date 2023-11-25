@@ -17,7 +17,7 @@ public class Magazzino {
     }
 
 
-    public Magazzino() {
+    public Magazzino(ArrayList<Prodotto> listaProdotti) {
         this.listaProdotti = listaProdotti;
     }
 

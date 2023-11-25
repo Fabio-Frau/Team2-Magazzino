@@ -14,6 +14,18 @@ import java.util.ArrayList;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+
+        // TEST PRODOTTI IN MAGAZZINO
+
+
+        /*ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
+        ProdottiTest.prodottiBase(prodottiPresenti);
+        Magazzino magazzino = new Magazzino(prodottiPresenti);
+
+        Cliente cliente1 = new Cliente(magazzino);
+        cliente1.sceltaRicercheCliente();*/
+
+
         ListaUtenti listaUtenti = new ListaUtenti();
         UtentiTest.utentiBase();
         ArrayList<Prodotto> tmp = new ArrayList<>();
@@ -30,19 +42,21 @@ public class Main {
 //        cliente1.sceltaRicercheCliente();
 //
 
+
        /* Stampa.perGestore(magazzino.getListaProdotti());
         Prodotto prodotto = new Prodotto();
         magazzino.aggiungiProdotto(prodotto);
         Stampa.perGestore(magazzino.getListaProdotti());*/
 
-        //Gestore.operazioniGestore();
 
 
 
+//         ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
+//         ProdottiTest.prodottiBase(prodottiPresenti);
+//         Magazzino magazzino = new Magazzino(prodottiPresenti);
 
-
-//        Gestore gestore = new Gestore(magazzino);
-//        gestore.operazioniGestore();
+//         Gestore gestore = new Gestore(magazzino);
+//         gestore.operazioniGestore();
 
         //Stampa.perGestore(magazzino.getListaProdotti());
         //Stampa.perCliente(magazzino.getListaProdotti());
