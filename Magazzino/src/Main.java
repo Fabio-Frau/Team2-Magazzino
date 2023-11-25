@@ -3,6 +3,9 @@ import DataSample.ProdottiSample;
 import DataSample.UtentiSample;
 import Login.*;
 import Magazzino.*;
+import SceltaOperazione.InterfacciaGestore;
+
+import java.sql.SQLOutput;
 
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -12,9 +15,18 @@ public class Main {
     public static void main(String[] args) {
 
         FakeDB db = initData();
-        Utente utenteCorrente = null;
-        Login.accesso(db);
+//        Utente utenteCorrente = null;
+//        utenteCorrente = Login.accesso(db);
 
+        Utente utenteCorrente = new Gestore("Sara", "Neri", "saraneri@gmail.com",
+                "sarabella1", 348334566);
+
+        if (utenteCorrente instanceof Cliente) {
+            System.out.println("cliente");
+        } else if(utenteCorrente instanceof Gestore) {
+            InterfacciaGestore.operazioniGestore(db.getMagazzino());
+
+        }
 
 
         //Login.accesso(listaUtenti, magazzino, carrello, tmp);

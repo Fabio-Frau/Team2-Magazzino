@@ -1,9 +1,7 @@
 package Utility;
-import Prodotti.*;
-import SceltaOperazione.Cliente;
-import SceltaOperazione.Gestore;
+import SceltaOperazione.InterfacciaCliente;
+import SceltaOperazione.InterfacciaGestore;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Choose {
@@ -24,7 +22,7 @@ public class Choose {
         char c = Choose.yesORnot();
         switch (c){
             case 'y': {
-                Cliente.sceltaRicercheCliente();
+                InterfacciaCliente.sceltaRicercheCliente();
                 break;
             }
             case 'n' : {
@@ -39,7 +37,7 @@ public class Choose {
         char c = Choose.yesORnot();
         switch (c){
             case 'y': {
-                Gestore.operazioniGestore();
+                InterfacciaGestore.operazioniGestore();
                 break;
             }
             case 'n' : {

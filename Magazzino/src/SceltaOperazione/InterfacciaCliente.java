@@ -2,17 +2,14 @@ package SceltaOperazione;
 import Magazzino.Magazzino;
 import Ricerca.*;
 import Utility.*;
-import Prodotti.Prodotto;
-import Prodotti.TipoProdotto;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 
-public class Cliente{
+public class InterfacciaCliente {
     private static Magazzino magazzino;
 
-    public Cliente(Magazzino magazzino) {
+    public InterfacciaCliente(Magazzino magazzino) {
         this.magazzino = magazzino;
     }
     public static void sceltaRicercheCliente() {

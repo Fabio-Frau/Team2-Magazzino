@@ -1,9 +1,7 @@
 package Ricerca;
-import SceltaOperazione.Cliente;
 import Utility.Choose;
 import Utility.Input;
 import Prodotti.*;
-import Utility.Stampa;
 
 
 import java.util.ArrayList;

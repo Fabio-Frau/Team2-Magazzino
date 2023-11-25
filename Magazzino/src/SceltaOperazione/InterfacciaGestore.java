@@ -1,5 +1,4 @@
 package SceltaOperazione;
-import Carrello.Carrello;
 import Ricerca.*;
 import Utility.*;
 import Magazzino.*;
@@ -8,14 +7,9 @@ import Prodotti.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class Gestore {
-    private static Magazzino magazzino;
+public class InterfacciaGestore {
 
-    public Gestore(Magazzino magazzino) {
-        this.magazzino = magazzino;
-    }
-
-    public static void operazioniGestore() {
+    public static void operazioniGestore(Magazzino magazzino) {
 
         // AGGIUNGERE GESTIONE ECCEZIONI
 
@@ -35,7 +29,7 @@ public class Gestore {
                 break;
             }
             case 2: {
-                sceltaRicercheGestore();
+                sceltaRicercheGestore(magazzino);
                 break;
             }
             case 3: {
@@ -57,7 +51,7 @@ public class Gestore {
         }
     }
 
-    public static void sceltaRicercheGestore() {
+    public static void sceltaRicercheGestore(Magazzino magazzino) {
         System.out.println("Opzioni disponibili" +
                 "\n 1. Ricerca per produttore" + "\n 2. Ricerca per modello" + "\n 3. Ricerca per ID" +
                 "\n 4. Ricerca per dimensione display" + "\n 5. Ricerca per dimensione memoria" +

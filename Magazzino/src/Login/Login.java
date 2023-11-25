@@ -3,22 +3,27 @@ import DBManager.FakeDB;
 
 public class Login {
 
-    public static void accesso (FakeDB db){
+    public static Utente accesso (FakeDB db){
 
-        System.out.println("Seleziona l'operazione di accesso:\n 1. Log in\n 2. Registrati");
-
-        int in = Utility.Input.readInt();
-        switch (in){
-            case 1:
-                pgAccedi(db.getArchivioUtenti());
-                break;
-            case 2:
-                pgRegistrati(db.getArchivioUtenti());
-                break;
-            default:
-                break;
+        Utente utente = null;
+        while(utente == null) {
+            System.out.println("Seleziona l'operazione di accesso:\n 1. Log in\n 2. Registrati");
+            int in = Utility.Input.readInt();
+            switch (in){
+                case 1:
+                    utente = pgAccedi(db.getArchivioUtenti());
+                    break;
+                case 2:
+                    pgRegistrati(db.getArchivioUtenti());
+                    break;
+                default:
+                    break;
+            }
         }
+
+        return utente;
     }
+
     //Accesso
     public static Utente pgAccedi(ArchivioUtenti archivioUtenti) {
 
@@ -30,6 +35,8 @@ public class Login {
             Utente utente = archivioUtenti.checkCredentials(email, psw);
 
             if (utente != null) {
+                System.out.println("Autenticazione avvenuta con successo.");
+                System.out.println("Benvenuto " + utente.getNome() + " " + utente.getCognome());
                 return utente;
             } else {
                 System.out.println("Autenticazione fallita");

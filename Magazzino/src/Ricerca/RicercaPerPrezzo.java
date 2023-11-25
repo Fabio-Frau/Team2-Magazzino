@@ -1,13 +1,10 @@
 package Ricerca;
-import SceltaOperazione.Cliente;
 import Utility.Choose;
-import Utility.Input;
 import Prodotti.Prodotto;
 import Utility.RangeUtils;
-import Utility.Stampa;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.*;
 
 public class RicercaPerPrezzo {
 
