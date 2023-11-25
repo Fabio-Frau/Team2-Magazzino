@@ -9,6 +9,10 @@ public class ListaUtenti {
         this.listaUtenti = listaUtenti;
     }
 
+    public ListaUtenti() {
+
+    }
+
     public ArrayList<Utente> getListaUtenti() {
         return listaUtenti;
     }
