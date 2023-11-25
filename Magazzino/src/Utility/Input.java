@@ -10,7 +10,6 @@ public class Input {
     static Scanner in = new Scanner(System.in);
 
     public static TipoProdotto readTipo() {
-
         while (true) {
             try {
                 System.out.println("Inserisci il tipo di prodotto: ");
@@ -23,7 +22,6 @@ public class Input {
     }
 
     public static double readDouble() {
-        double num;
         while(true) {
             try {
                 return in.nextDouble();
@@ -36,8 +34,19 @@ public class Input {
         }
     }
 
+    public static double[] readDoubleSort() {
+
+        double num1 = readDouble();
+        double num2 = readDouble();
+
+        if (num1 >= num2) {
+            return new double[] {num2, num1};
+        } else {
+            return new double[] {num1, num2};
+        }
+    }
+
     public static int readInt() {
-        int num;
         while(true) {
             try {
                 return in.nextInt();
@@ -49,6 +58,20 @@ public class Input {
             }
         }
     }
+
+    public static int[] readIntSort() {
+
+        int num1 = readInt();
+        int num2 = readInt();
+
+        if (num1 >= num2) {
+            return new int[] {num2, num1};
+        } else {
+            return new int[] {num1, num2};
+        }
+    }
+
+
     public static String readStr() {
         while(true) {
             try {
@@ -76,7 +99,6 @@ public class Input {
         }
     }
     public static BigDecimal readBigD() {
-        BigDecimal d;
         while(true) {
             try {
                 return in.nextBigDecimal();

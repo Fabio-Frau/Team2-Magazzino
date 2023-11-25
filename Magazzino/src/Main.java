@@ -16,6 +16,7 @@ public class Main {
     public static void main(String[] args) {
 
         FakeDB db = initData();
+
 //        Utente utenteCorrente = null;
 //        utenteCorrente = Login.accesso(db);
 

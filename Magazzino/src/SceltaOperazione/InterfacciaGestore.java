@@ -38,9 +38,11 @@ public class InterfacciaGestore {
                 }
                 case 4: {
                     Stampa.perGestore(magazzino.getListaProdotti());
+                    System.out.println("Digita l'ID del prodotto che vuoi eliminare dal magazzino:");
                     String id = Input.readStr();
                     magazzino.rimuoviProdottoPerID(id);
                     Stampa.perGestore(magazzino.getListaProdotti());
+                    break;
                 }
                 case 0: {
                     break opGestore;
@@ -86,15 +88,17 @@ public class InterfacciaGestore {
                 }
                 case 4: {
                     System.out.println("Inserisci la dimensioni dello schermo: (pollici) ");
-                    double min = Input.readDouble();
-                    double max = Input.readDouble();
+                    double[] minAndMax = RangeUtils.DoubleRange();
+                    double min = minAndMax[0];
+                    double max = minAndMax[1];
                     Verifica.checkResultsGestore(RicercaPerDimSchermo.ricercaDimSchermo(magazzino.getListaProdotti(), min, max));
                     break;
                 }
                 case 5: {
-                    System.out.println("Inserisci la dimensione della memoria del dispositivo: (GB) ");
-                    int min = Input.readInt();
-                    int max = Input.readInt();
+                    System.out.println("Inserisci la fascia di dimensione della memoria del dispositivo: (GB) ");
+                    int[] minAndMax = Input.readIntSort();
+                    int min = minAndMax[0];
+                    int max = minAndMax[1];
                     Verifica.checkResultsGestore(RicercaPerDimMemoria.ricercaDimMemoria(magazzino.getListaProdotti(),min,max));
                     break;
                 }
