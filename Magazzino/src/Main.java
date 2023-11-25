@@ -1,12 +1,9 @@
-import Login.ListaUtenti;
-import Login.Utente;
-import Login.UtentiTest;
+import Carrello.Carrello;
+import Login.*;
 import Magazzino.*;
-import Prodotti.Prodotto;
-import Prodotti.Tablet;
-import Prodotti.TipoProdotto;
+import Prodotti.*;
 import SceltaOperazione.*;
-import Utility.Stampa;
+import Utility.*;
 
 import java.math.BigDecimal;
 import java.time.temporal.UnsupportedTemporalTypeException;
@@ -17,16 +14,21 @@ import java.util.ArrayList;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // TEST PRODOTTI IN MAGAZZINO
+        ListaUtenti listaUtenti = new ListaUtenti();
+        UtentiTest.utentiBase();
+        ArrayList<Prodotto> tmp = new ArrayList<>();
+        Magazzino magazzino = new Magazzino();
+        magazzino.setListaProdotti(ProdottiTest.prodottiBase(magazzino.getListaProdotti()));
+        Carrello carrello = new Carrello();
+        Login.accesso(listaUtenti, magazzino, carrello, tmp);
 
 
-        ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
-        ProdottiTest.prodottiBase(prodottiPresenti);
-        Magazzino magazzino = new Magazzino(prodottiPresenti);
-
-        Cliente cliente1 = new Cliente(magazzino);
-        cliente1.sceltaRicercheCliente();
-
+//        ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
+//        ProdottiTest.prodottiBase(prodottiPresenti);
+//        Magazzino magazzino = new Magazzino(prodottiPresenti);
+//        Cliente cliente1 = new Cliente(magazzino);
+//        cliente1.sceltaRicercheCliente();
+//
 
        /* Stampa.perGestore(magazzino.getListaProdotti());
         Prodotto prodotto = new Prodotto();

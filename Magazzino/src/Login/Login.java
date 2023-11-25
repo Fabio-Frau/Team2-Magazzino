@@ -1,14 +1,17 @@
 package Login;
 import Carrello.*;
 import Magazzino.*;
-import Prodotti.Prodotto;
+
+import Prodotti.*;
 
 import java.util.ArrayList;
 
 public class Login {
 
     public static void accesso (ListaUtenti lista, Magazzino magazzino, Carrello carrello, ArrayList<Prodotto> tmp){
-        System.out.println("Seleziona l'operazione di accesso:\s 1. Log in\s 2.Registrati");
+
+        System.out.println("Seleziona l'operazione di accesso:\n 1. Log in\n 2. Registrati");
+
         int in = Utility.Input.readInt();
         switch (in){
             case 1:
@@ -30,7 +33,6 @@ public class Login {
             String email = Utility.Input.readStr();
             System.out.println("Password:");
             String psw = Utility.Input.readStr();
-
                 for (Utente u : lista.getListaUtenti()){
                     if (u.getEmail().equals(email) && u.getPassword().equals(psw)) {
                     f = true;
