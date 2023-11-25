@@ -6,10 +6,13 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.*;
 
-
-
 public class gestioneCarrello {
     public static Map<OffsetDateTime, ArrayList<Prodotto>> vendita = new LinkedHashMap<>();
+
+    public static void inizializzazioneCarrello (Magazzino magazzino, Carrello carrello, ArrayList<Prodotto> tmp){
+        tmp.addAll(magazzino.getListaProdotti());
+        operazioniCarrello(magazzino, carrello,tmp);
+    }
 
     public static void operazioniCarrello(Magazzino magazzino, Carrello carrello, ArrayList<Prodotto> tmp) {
 
@@ -100,11 +103,9 @@ public class gestioneCarrello {
             ricevutaAcquisto.add(carrello.getCarrello().get(i));
         }
         vendita.put(OffsetDateTime.now(), ricevutaAcquisto);
-
         for (Map.Entry<OffsetDateTime, ArrayList<Prodotto>> a : vendita.entrySet()){
             System.out.println(a);
             //Stampa.perCliente(new ArrayList<>(vendita.values().toArray()));
-
         }
         carrello.getCarrello().clear();
         magazzino.getListaProdotti().clear();

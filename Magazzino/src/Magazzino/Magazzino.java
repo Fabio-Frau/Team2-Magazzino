@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Magazzino {
 
-    public static ArrayList<Prodotto> magazzino;
+
     private ArrayList<Prodotto> listaProdotti = new ArrayList<>();
 
     public Magazzino() {
@@ -15,17 +15,9 @@ public class Magazzino {
     public ArrayList<Prodotto> getListaProdotti() {
         return listaProdotti;
     }
-    public void setListaProdotti(ArrayList<Prodotto> listaProdotti) {
-        this.listaProdotti = listaProdotti;
-    }
-
-    public static void setMagazzino(ArrayList<Prodotto> magazzino) {
-        Magazzino.magazzino = magazzino;
-    }
 
 
-
-    public Magazzino(ArrayList<Prodotto> listaProdotti) {
+    public Magazzino() {
         this.listaProdotti = listaProdotti;
     }
 
@@ -50,5 +42,11 @@ public class Magazzino {
     }
 
 
+
+    public void setListaProdotti(ArrayList<Prodotto> listaProdotti) {this.listaProdotti = listaProdotti; }
+
+    public static void setMagazzino(ArrayList<Prodotto> magazzino) {
+        Magazzino.magazzino = magazzino;
+    }
 
 }
