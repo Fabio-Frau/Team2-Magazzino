@@ -1,19 +1,23 @@
-import Carrello.Carrello;
+import DBManager.FakeDB;
+import DataSample.ProdottiSample;
+import DataSample.UtentiSample;
 import Login.*;
 import Magazzino.*;
-import Prodotti.*;
-import SceltaOperazione.*;
-import Utility.*;
-
-import java.math.BigDecimal;
-import java.time.temporal.UnsupportedTemporalTypeException;
-import java.util.ArrayList;
 
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
+
     public static void main(String[] args) {
+
+        FakeDB db = initData();
+        Utente utenteCorrente = null;
+        Login.accesso(db);
+
+
+
+        //Login.accesso(listaUtenti, magazzino, carrello, tmp);
 
         // TEST PRODOTTI IN MAGAZZINO
 
@@ -26,15 +30,6 @@ public class Main {
         cliente1.sceltaRicercheCliente();*/
 
 
-        ListaUtenti listaUtenti = new ListaUtenti();
-        UtentiTest.utentiBase();
-        ArrayList<Prodotto> tmp = new ArrayList<>();
-        Magazzino magazzino = new Magazzino();
-        magazzino.setListaProdotti(ProdottiTest.prodottiBase(magazzino.getListaProdotti()));
-        Carrello carrello = new Carrello();
-        Login.accesso(listaUtenti, magazzino, carrello, tmp);
-
-
 //        ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
 //        ProdottiTest.prodottiBase(prodottiPresenti);
 //        Magazzino magazzino = new Magazzino(prodottiPresenti);
@@ -42,13 +37,10 @@ public class Main {
 //        cliente1.sceltaRicercheCliente();
 //
 
-
        /* Stampa.perGestore(magazzino.getListaProdotti());
         Prodotto prodotto = new Prodotto();
         magazzino.aggiungiProdotto(prodotto);
         Stampa.perGestore(magazzino.getListaProdotti());*/
-
-
 
 
 //         ArrayList<Prodotto> prodottiPresenti = new ArrayList<>();
@@ -60,8 +52,6 @@ public class Main {
 
         //Stampa.perGestore(magazzino.getListaProdotti());
         //Stampa.perCliente(magazzino.getListaProdotti());
-
-
 
 
         //TipoUtente.sceltaUtente(prodottiPresenti);
@@ -77,55 +67,17 @@ public class Main {
 
     }
 
-    public static void sceltaOperazione() {
+    /**Carica dei dati di prova sul magazzino e sulla lista degli utenti*/
+    public static FakeDB initData() {
 
-        System.out.println("Scegli l'operazione da eseguire:");
-        System.out.println("1. Aggiunta a magazzino\n2. Scarico merce da magazzino\n3. Acquista");
+        ArchivioUtenti archivioUtenti = new ArchivioUtenti(UtentiSample.utentiBase());
+        Magazzino magazzino = new Magazzino(ProdottiSample.prodottiBase());
 
-        int numeroOperazione = Utility.Input.readInt();
+        return new FakeDB(magazzino, archivioUtenti);
 
-        switch (numeroOperazione) {
-            case 1: {
-                System.out.println("Aggiunta a magazzino");
-                break;
-            }
-            case 2: {
-                System.out.println("Scarico merce da magazzino");
-                break;
-            }
-            case 3: {
-                System.out.println("Acquista");
-                break;
-            }
-            default: {
-                System.out.println("Operazione non trovata");
-            }
-        }
     }
 
-    public static void sceltaTipo () {
-
-        ArrayList<Tablet> arrayTablet = new ArrayList<Tablet>();
-
-        TipoProdotto tipologia = Utility.Input.readTipo();
 
 
-        switch (tipologia) {
-            case TABLET: {
-                arrayTablet.add(new Tablet());
-                System.out.println(arrayTablet.toString());
-                break;
-            }
-            case NOTEBOOK:  {
 
-                break;
-            }
-            case SMARTPHONE: {
-
-                break;
-            }
-
-
-        }
-    }
 }

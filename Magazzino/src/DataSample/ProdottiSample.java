@@ -1,12 +1,15 @@
-package Magazzino;
+package DataSample;
 import Prodotti.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class ProdottiTest {
+public class ProdottiSample {
 
-    public static ArrayList<Prodotto> prodottiBase (ArrayList<Prodotto> listaProdotti) {
+    public static ArrayList<Prodotto> prodottiBase () {
+
+        ArrayList<Prodotto> listaProdotti = new ArrayList<>();
+
         Tablet tablet1 = new Tablet(TipoProdotto.TABLET, "Samsung", "Galaxy Tab S6 Lite", "TabS6", "con pen in dotazione",
                 10.4, 128, BigDecimal.valueOf(120.00), BigDecimal.valueOf(298.00));
 
