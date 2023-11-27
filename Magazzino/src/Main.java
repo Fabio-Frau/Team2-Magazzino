@@ -3,6 +3,7 @@ import DataSample.ProdottiSample;
 import DataSample.UtentiSample;
 import Login.*;
 import Magazzino.*;
+import SceltaOperazione.InterfacciaCliente;
 import SceltaOperazione.InterfacciaGestore;
 
 import java.sql.SQLOutput;
@@ -23,11 +24,12 @@ public class Main {
 
 
 
-        Utente utenteCorrente = new Gestore("Sara", "Neri", "saraneri@gmail.com",
+        Utente utenteCorrente = new Gestore(
+                "Sara", "Neri", "saraneri@gmail.com",
                 "sarabella1", 348334566);
 
         if (utenteCorrente instanceof Cliente) {
-            System.out.println("cliente");
+            InterfacciaCliente.sceltaRicercheCliente(db.getMagazzino());
         } else if(utenteCorrente instanceof Gestore) {
             InterfacciaGestore.operazioniGestore(db.getMagazzino());
 

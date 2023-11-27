@@ -16,20 +16,20 @@ public class Choose {
     }
 
 
-    //Continua Ricerca Cliente
-    public static void ContinuaRicercaCliente(){
-        System.out.println("Vuoi continuare la ricerca?");
-        char c = Choose.yesORnot();
-        switch (c){
-            case 'y': {
-                InterfacciaCliente.sceltaRicercheCliente();
-                break;
-            }
-            case 'n' : {
-                break;
-            }
-        }
-    }
+//    //Continua Ricerca Cliente
+//    public static void ContinuaRicercaCliente(){
+//        System.out.println("Vuoi continuare la ricerca?");
+//        char c = Choose.yesORnot();
+//        switch (c){
+//            case 'y': {
+//                InterfacciaCliente.sceltaRicercheCliente();
+//                break;
+//            }
+//            case 'n' : {
+//                break;
+//            }
+//        }
+//    }
 
 //    //Continua ricerca gestore
 //    public static void ContinuaRicercaGestore(){

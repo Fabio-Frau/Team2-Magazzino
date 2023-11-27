@@ -12,7 +12,6 @@ public class Input {
     public static TipoProdotto readTipo() {
         while (true) {
             try {
-                System.out.println("Inserisci il tipo di prodotto: ");
                 return TipoProdotto.valueOf(in.next().toUpperCase());
             }
             catch (IllegalArgumentException e) {

@@ -5,7 +5,6 @@ import Magazzino.*;
 import Prodotti.*;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 public class InterfacciaGestore {
 
@@ -64,7 +63,7 @@ public class InterfacciaGestore {
                     "\n 1. Ricerca per produttore" + "\n 2. Ricerca per modello" + "\n 3. Ricerca per ID" +
                     "\n 4. Ricerca per dimensione display" + "\n 5. Ricerca per dimensione memoria" +
                     "\n 6. Ricerca per prezzo d'acquisto" + "\n 7. Ricerca per prezzo di vendita" +
-                    "\n0. Ritorna al menu scelta operazioni gestore.");
+                    "\n 8. Ricerca per tipo di prodotto" + "\n0. Ritorna al menu scelta operazioni gestore.");
 
             int sceltaUtente = Input.readInt();
             switch (sceltaUtente) {
@@ -87,7 +86,7 @@ public class InterfacciaGestore {
                     break;
                 }
                 case 4: {
-                    System.out.println("Inserisci la dimensioni dello schermo: (pollici) ");
+                    System.out.println("Inserisci la fascia di dimensioni dello schermo: (pollici) ");
                     double[] minAndMax = RangeUtils.DoubleRange();
                     double min = minAndMax[0];
                     double max = minAndMax[1];
@@ -105,13 +104,19 @@ public class InterfacciaGestore {
                 case 6: {
                     System.out.println("Inserisci la fascia di prezzo: (€)");
                     BigDecimal[] range = RangeUtils.DoubleRangeBD();
-                    Verifica.checkResultsGestore((RicercaPerPrezzo.RicercaPerPrezzoAcquisto(magazzino.getListaProdotti(), range)));
+                    Verifica.checkResultsGestore((RicercaPerPrezzo.ricercaPerPrezzoAcquisto(magazzino.getListaProdotti(), range)));
                     break;
                 }
                 case 7: {
                     System.out.println("Inserisci la fascia di prezzo: (€)");
                     BigDecimal[] range = RangeUtils.DoubleRangeBD();
-                    Verifica.checkResultsGestore((RicercaPerPrezzo.RicercaPerPrezzoVendita(magazzino.getListaProdotti(), range)));
+                    Verifica.checkResultsGestore((RicercaPerPrezzo.ricercaPerPrezzoVendita(magazzino.getListaProdotti(), range)));
+                    break;
+                }
+                case 8: {
+                    System.out.println("Inserisci il tipo di prodotto: ");
+                    TipoProdotto tipo = Input.readTipo();
+                    Verifica.checkResultsGestore(RicercaPerTipo.ricercaPerTipo(magazzino.getListaProdotti(), tipo));
                     break;
                 }
                 case 0: {

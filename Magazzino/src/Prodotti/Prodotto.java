@@ -20,8 +20,6 @@ public class Prodotto {
     private String id;
 
     public Prodotto() {
-        /*Id mi da problemi se lo metto alla fine, che sia perchè prima faccio
-        scanner di double con try catch, non mi consuma bene il token*/
         setTipo();
         setProduttore();
         setModello();
@@ -36,6 +34,7 @@ public class Prodotto {
 
     public Prodotto(TipoProdotto tipo, String produttore, String modello, String id, String descrizione,
                     double dimDisplay, int dimMemoria, BigDecimal prezzoAcquisto, BigDecimal prezzoVendita) {
+        this.tipo = tipo;
         this.produttore = produttore;
         this.modello = modello;
         this.id = id;
