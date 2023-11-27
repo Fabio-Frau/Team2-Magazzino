@@ -16,14 +16,7 @@ public class gestioneCarrello {
 
     public static void operazioniCarrello(Magazzino magazzino, Carrello carrello, ArrayList<Prodotto> tmp) {
 
-        System.out.println("Seleziona l'operazione da eseguire:\n " +
-                "1. Visualizzare il carrello \n" +
-                "2. Aggiungere un prodotto al carrello\n" +
-                "3. Rimuovere un prodotto dal carrello\n" +
-                "4. Svuotare il carrello\n" +
-                "5. Calcolare la spesa totale\n" +
-                "6. Concludere l'ordine\n"
-        );
+
 
         int opCar = Input.readInt();
         switch (opCar) {

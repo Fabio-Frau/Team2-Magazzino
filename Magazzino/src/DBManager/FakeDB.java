@@ -8,6 +8,8 @@ public class FakeDB {
     private Magazzino magazzino;
     private ArchivioUtenti archivioUtenti;
 
+
+
     public FakeDB(Magazzino magazzino, ArchivioUtenti archivioUtenti) {
         this.magazzino = magazzino;
         this.archivioUtenti = archivioUtenti;

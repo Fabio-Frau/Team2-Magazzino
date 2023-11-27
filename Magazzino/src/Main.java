@@ -24,12 +24,12 @@ public class Main {
 
 
 
-        Utente utenteCorrente = new Gestore(
+        Utente utenteCorrente = new Cliente(
                 "Sara", "Neri", "saraneri@gmail.com",
                 "sarabella1", 348334566);
 
         if (utenteCorrente instanceof Cliente) {
-            InterfacciaCliente.sceltaRicercheCliente(db.getMagazzino());
+            InterfacciaCliente.operazioniCliente(db.getMagazzino());
         } else if(utenteCorrente instanceof Gestore) {
             InterfacciaGestore.operazioniGestore(db.getMagazzino());
 
