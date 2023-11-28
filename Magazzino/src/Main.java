@@ -14,26 +14,26 @@ import java.util.ArrayList;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
 
         FakeDB db = initData();
 
-//        Utente utenteCorrente = null;
-//        utenteCorrente = Login.accesso(db);
+        Utente utenteCorrente = null;
+        utenteCorrente = Login.accesso(db);
 
 
 
 
-        Utente utenteCorrente = new Cliente(
-                "Sara", "Neri", "saraneri@gmail.com",
-                "sarabella1", 348334566);
-
-        if (utenteCorrente instanceof Cliente) {
-            InterfacciaCliente.operazioniCliente(db.getMagazzino());
-        } else if(utenteCorrente instanceof Gestore) {
-            InterfacciaGestore.operazioniGestore(db.getMagazzino());
-
-        }
+//        Utente utenteCorrente = new Cliente(
+//                "Sara", "Neri", "saraneri@gmail.com",
+//                "sarabella1", 348334566);
+//
+//        if (utenteCorrente instanceof Cliente) {
+//            InterfacciaCliente.operazioniCliente(db.getMagazzino());
+//        } else if(utenteCorrente instanceof Gestore) {
+//            InterfacciaGestore.operazioniGestore(db.getMagazzino());
+//
+//        }
 
 
 

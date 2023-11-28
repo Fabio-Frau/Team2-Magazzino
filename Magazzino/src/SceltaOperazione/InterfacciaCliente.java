@@ -1,17 +1,24 @@
 package SceltaOperazione;
+import Carrello.Carrello;
 import Magazzino.Magazzino;
+import Prodotti.Prodotto;
 import Prodotti.TipoProdotto;
 import Ricerca.*;
 import Utility.*;
 
 import java.math.BigDecimal;
+import java.sql.SQLOutput;
+import java.util.ArrayList;
 
 
 public class InterfacciaCliente {
 
-    public static void operazioniCliente(Magazzino magazzino) {
+    public static void operazioniCliente(Magazzino magazzino) throws CloneNotSupportedException {
 
-        opCliente :while (true) {
+        Carrello carrello = new Carrello(new ArrayList<Prodotto>());
+        Magazzino magTemp = magazzino.clone();
+
+        opCliente : while (true) {
             System.out.println("Seleziona l'operazione da eseguire:\n" +
                     "1. Lettura prodotti in magazzino\n" +
                     "2. Ricerca Prodotto\n" +
@@ -34,7 +41,52 @@ public class InterfacciaCliente {
                     sceltaRicercheCliente(magazzino);
                     break;
                 }
-                
+                case 3: {
+                    Stampa.perCliente(carrello.getCarrello());
+                    break;
+                }
+                case 4: {
+                    System.out.println("Inserisci l'ID del prodotto da aggiungere al carrello");
+                    String id = Input.readStr();
+                    Prodotto aggiunta = magTemp.rimuoviProdottoPerID(id);
+                    if( aggiunta != null) {
+                        carrello.aggiungiProdotto(aggiunta);
+                        Stampa.perCliente(carrello.getCarrello());
+                    } else {
+                            System.out.println("Il prodotto selezionato non è presente in magazzino.");
+                    }
+                    break;
+                }
+                case 5: {
+                    System.out.println("Inserisci l'ID del prodotto da rimuovere dal carrello");
+                    String id =Input.readStr();
+                    Prodotto rimozione = carrello.rimuoviProdottoPerID(id);
+                    if (rimozione != null) {
+                        magTemp.aggiungiProdotto(rimozione);
+                        Stampa.perCliente(carrello.getCarrello());
+                    } else {
+                        System.out.println("Il prodotto selezionato non è presente nel carrello");
+                    }
+                    break;
+                }
+                case 6: {
+                    carrello.getCarrello().clear();
+                    System.out.println("Carrello svuotato");
+                    break;
+                }
+                case 7: {
+                    System.out.println("Il prezzo totale del carrello é di ");
+                    System.out.println(carrello.getPrezzoTotale());
+                    break;
+                }
+                case 8: {
+                    if (magazzino.checkAvailability(carrello.getCarrello())) {
+                        magazzino.rimuoviListaProdotti(carrello.getCarrello());
+                        magTemp.getListaProdotti().clear();
+                        carrello.getCarrello().clear(); //salvare la transazione da qualche parte
+                    }
+
+                }
                 case 0: {
                     break opCliente;
                 }

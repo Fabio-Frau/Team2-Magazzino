@@ -48,10 +48,23 @@ public class Magazzino {
         }
     }
 
+    public boolean checkAvailability(ArrayList<Prodotto> prodotti) {
+        for(Prodotto prodotto : prodotti) {
+            if (!this.listaProdotti.contains(prodotto)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void setListaProdotti(ArrayList<Prodotto> listaProdotti) {this.listaProdotti = listaProdotti; }
 
     public void setMagazzino(ArrayList<Prodotto> listaProdotti) {
         this.listaProdotti = listaProdotti;
     }
 
+    @Override
+    public Magazzino clone() throws CloneNotSupportedException {
+        return new Magazzino(this.listaProdotti);
+    }
 }
