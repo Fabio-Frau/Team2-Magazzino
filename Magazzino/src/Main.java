@@ -1,3 +1,4 @@
+import DBManager.DbManager;
 import DBManager.FakeDB;
 import DataSample.ProdottiSample;
 import DataSample.UtentiSample;
@@ -16,10 +17,13 @@ public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException {
 
-        FakeDB db = initData();
+        //DbManager.createDb();
+        DbManager.createClienteTab();
+
+      /*  FakeDB db = initData();
 
         Utente utenteCorrente = null;
-        utenteCorrente = Login.accesso(db);
+        utenteCorrente = Login.accesso(db); */
 
 
 
