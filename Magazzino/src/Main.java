@@ -27,7 +27,13 @@ public class Main {
         //DbManager.createProdottoCarelloTab();
         //DbManager.createCarrelloClienteTab();
 
-        DbManager.createFkProdottoVenditore();
+        //DbManager.createFkProdottoVenditore();
+        /*DbManager.createFkDettaglioOrdineProdotto();
+        DbManager.createFkDettaglioOrdineOrdine();*/
+        //DbManager.createFkOrdineCliente();
+        //DbManager.createFkCarrelloClienteCliente();
+        //DbManager.createFkProdottoCarrello_CarrelloCliente();
+        DbManager.createFkProdottoCarrelloProdotto();
 
       /*  FakeDB db = initData();
 

@@ -177,6 +177,86 @@ public class DbManager {
         }
     }
 
+    public static void createFkDettaglioOrdineProdotto() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "ALTER TABLE dettaglioOrdine " +
+                    "ADD CONSTRAINT FK_dettaglioOrdine_prodotto " +
+                    "FOREIGN KEY (id_prodotto) " +
+                    "REFERENCES prodotto(id_prodotto);";
+            stmt.executeUpdate(query);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void createFkDettaglioOrdineOrdine() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "ALTER TABLE dettaglioOrdine " +
+                    "ADD CONSTRAINT FK_dettaglioOrdine_ordine " +
+                    "FOREIGN KEY (id_ordine) " +
+                    "REFERENCES ordine(id_ordine);";
+            stmt.executeUpdate(query);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void createFkOrdineCliente() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "ALTER TABLE ordine " +
+                    "ADD CONSTRAINT FK_ordine_cliente " +
+                    "FOREIGN KEY (id_cliente) " +
+                    "REFERENCES cliente(id_cliente);";
+            stmt.executeUpdate(query);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void createFkCarrelloClienteCliente() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "ALTER TABLE carrelloCliente " +
+                    "ADD CONSTRAINT FK_carrelloCliente_cliente " +
+                    "FOREIGN KEY (id_cliente) " +
+                    "REFERENCES cliente(id_cliente);";
+            stmt.executeUpdate(query);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void createFkProdottoCarrello_CarrelloCliente() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "ALTER TABLE prodottoCarrello " +
+                    "ADD CONSTRAINT FK_prodottoCarrello_carrelloCliente " +
+                    "FOREIGN KEY (id_carrello) " +
+                    "REFERENCES carrelloCliente(id_carrello);";
+            stmt.executeUpdate(query);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void createFkProdottoCarrelloProdotto() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "ALTER TABLE prodottoCarrello " +
+                    "ADD CONSTRAINT FK_prodottoCarrello_prodotto " +
+                    "FOREIGN KEY (id_prodotto) " +
+                    "REFERENCES prodotto(id_prodotto);";
+            stmt.executeUpdate(query);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+
+
 
 
    /* private static ArrayList<City> dataMapper(ResultSet rs) throws SQLException {
