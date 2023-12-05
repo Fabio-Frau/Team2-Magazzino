@@ -18,7 +18,16 @@ public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
 
         //DbManager.createDb();
-        DbManager.createClienteTab();
+        //DbManager.grantPrivilegeToDeveloper();
+        //DbManager.createClienteTab();
+        //DbManager.createVenditoreTab();
+        //DbManager.createProdottoTab();
+        //DbManager.createDettaglioOrdineTab();
+        //DbManager.createOrdineTab();
+        //DbManager.createProdottoCarelloTab();
+        //DbManager.createCarrelloClienteTab();
+
+        DbManager.createFkProdottoVenditore();
 
       /*  FakeDB db = initData();
 
