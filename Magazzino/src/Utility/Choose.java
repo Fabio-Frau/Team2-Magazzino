@@ -1,8 +1,7 @@
 package Utility;
-import Prodotti.*;
-import SceltaOperazione.Cliente;
+import SceltaOperazione.InterfacciaCliente;
+import SceltaOperazione.InterfacciaGestore;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Choose {
@@ -17,18 +16,35 @@ public class Choose {
     }
 
 
-    //Continua Ricerca Cliente
-    public static void ContinuaRicercaCliente(ArrayList<Prodotto> magazzino){
-        System.out.println("Vuoi continuare la ricerca?");
-        char c = Choose.yesORnot();
-        switch (c){
-            case 'y': {
-                Cliente.operazioniCliente(magazzino);
-                break;
-            }
-            case 'n' : {
-                break;
-            }
-        }
-    }
+//    //Continua Ricerca Cliente
+//    public static void ContinuaRicercaCliente(){
+//        System.out.println("Vuoi continuare la ricerca?");
+//        char c = Choose.yesORnot();
+//        switch (c){
+//            case 'y': {
+//                InterfacciaCliente.sceltaRicercheCliente();
+//                break;
+//            }
+//            case 'n' : {
+//                break;
+//            }
+//        }
+//    }
+
+//    //Continua ricerca gestore
+//    public static void ContinuaRicercaGestore(){
+//        System.out.println("Vuoi continuare la ricerca?");
+//        char c = Choose.yesORnot();
+//        switch (c){
+//            case 'y': {
+//                InterfacciaGestore.operazioniGestore();
+//                break;
+//            }
+//            case 'n' : {
+//                break;
+//            }
+//            default:
+//                throw new IllegalStateException("Unexpected value: " + c);
+//        }
+//    }
 }

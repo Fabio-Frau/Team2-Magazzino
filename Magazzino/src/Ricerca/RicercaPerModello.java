@@ -7,20 +7,15 @@ import java.util.Scanner;
 
 public class RicercaPerModello {
     public static ArrayList<Prodotto> ricercaPerModello(ArrayList<Prodotto> magazzino, String modello) {
-        ArrayList<Prodotto> listaProdottoModello = new ArrayList<>();
+        ArrayList<Prodotto> listaProdottoCercato = new ArrayList<>();
         for (Prodotto prodotto : magazzino) {
             List<String> modelloSplit = Arrays.asList(prodotto.getModello().toLowerCase().split(" "));
-            if (modelloSplit.contains(modello)) {
-                listaProdottoModello.add(prodotto);
+            if (modelloSplit.contains(modello.toLowerCase())) {
+                listaProdottoCercato.add(prodotto);
             }
+
         }
-        return listaProdottoModello;
+        return listaProdottoCercato;
     }
 
-    public static String sceltaModello() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Inserire il modello: ");
-        String modello = sc.nextLine().toLowerCase();
-        return modello;
-    }
-}
+   }

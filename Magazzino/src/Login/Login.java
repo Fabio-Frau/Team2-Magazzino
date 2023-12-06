@@ -1,43 +1,52 @@
 package Login;
-import Magazzino.Magazzino;
+import DBManager.FakeDB;
 
 public class Login {
 
-    public static void accesso (ListaUtenti lista, Magazzino magazzino){
-        System.out.println("Seleziona l'operazione di accesso:\s 1. Log in\s 2.Registrati");
-        int in = Utility.Input.readInt();
-        switch (in){
-            case 1:
-                pgAccedi(lista, magazzino);
-                break;
-            case 2:
-                pgRegistrati(lista);
-                break;
-            default:
-                break;
+    public static Utente accesso (FakeDB db){
+
+        Utente utente = null;
+        while(utente == null) {
+            System.out.println("Seleziona l'operazione di accesso:\n 1. Log in\n 2. Registrati");
+            int in = Utility.Input.readInt();
+            switch (in){
+                case 1:
+                    utente = pgAccedi(db.getArchivioUtenti());
+                    break;
+                case 2:
+                    pgRegistrati(db.getArchivioUtenti());
+                    break;
+                default:
+                    break;
+            }
         }
+
+        return utente;
     }
+
     //Accesso
-    public static void pgAccedi(ListaUtenti lista, Magazzino magazzino){
-        boolean isTrue = false;
-        while (!isTrue){
-            boolean f = false;
+    public static Utente pgAccedi(ArchivioUtenti archivioUtenti) {
+
+        while (true) {
             System.out.println("Email:");
             String email = Utility.Input.readStr();
             System.out.println("Password:");
             String psw = Utility.Input.readStr();
+            Utente utente = archivioUtenti.checkCredentials(email, psw);
 
-                for (Utente u : lista.getListaUtenti()){
-                    if (u.getEmail().equals(email) && u.getPassword().equals(psw)) {
-                    f = true;
-                    Utente user = u;}
-                    }
-                     if (!f){
-                         System.out.println("Username o Password errati.");
-                     }
-                }
+            if (utente != null) {
+                System.out.println("Autenticazione avvenuta con successo.");
+                System.out.println("Benvenuto " + utente.getNome() + " " + utente.getCognome());
+                return utente;
+            } else {
+                System.out.println("Autenticazione fallita");
+            }
         }
-    public static Utente pgRegistrati(ListaUtenti lista){
+    }
+
+
+    public static Cliente pgRegistrati(ArchivioUtenti archivioUtenti){
+
         System.out.println("Nome Utente: ");
         String nome = Utility.Input.readStr();
         System.out.println("Cognome Utente: ");
@@ -49,23 +58,22 @@ public class Login {
         System.out.println("Numero di telefono: ");
         int telefono = Utility.Input.readInt();
 
-        Utente u1 = new Utente(nome, cognome, email, password, telefono);
-        return u1;
-    }
-
-
-    public static boolean verificaMail(ListaUtenti lista, String mail){
-        for (Utente u : lista.getListaUtenti()){
-            if(u.getEmail().equals(mail)){
-                System.out.println("Email corretta");
-                return true;
-            }
+        Cliente nuovoCliente= new Cliente(nome, cognome, email, password, telefono);
+        if (archivioUtenti.addUtente(nuovoCliente)) {
+            System.out.println("Utente inserito correttamente");
+        } else {
+            System.out.println("Impossibile registrare il nuovo utente:" +
+                    "\nLa mail con cui ti stai registrando è già presente nell'archivio");
         }
-        return false;
+
+        return nuovoCliente;
+
     }
 
-    public static ListaUtenti resetPsw (ListaUtenti lista, String mail){
-        for (Utente u : lista.getListaUtenti()){
+
+
+    public static ArchivioUtenti resetPsw (ArchivioUtenti lista, String mail){
+        for (Utente u : lista.getArchivioUtenti()){
             if (u.getEmail().equals(mail)){
                 System.out.println("Inserisci la nuova password: ");
                 String psw = Utility.Input.readStr();
@@ -75,15 +83,6 @@ public class Login {
         return lista;
     }
 
-    public static ListaUtenti verificaPsw(ListaUtenti lista){
-        System.out.println("Email: ");
-        String email = Utility.Input.readStr();
-        if (verificaMail(lista, email)){
-            resetPsw(lista,email);
-        } else {
-            System.out.println("Email non valida.");
-        }
-        return lista;
-    }
+
 }
 
