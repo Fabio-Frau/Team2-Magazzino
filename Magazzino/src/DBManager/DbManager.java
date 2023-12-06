@@ -4,16 +4,17 @@ import Prodotti.TipoProdotto;
 
 import java.math.BigDecimal;
 import java.sql.*;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 
 public class DbManager {
     private static final String DB_URL_ROOT = "jdbc:mysql://localhost:3306/mysql";
     private static final String USER_ROOT = "root";
-    private static final String PASSWORD_ROOT = "passwordhere";
+    private static final String PASSWORD_ROOT = "Nerissa3091?";
 
     private static final String DB_URL_MAGAZZINO = "jdbc:mysql://localhost:3306/magazzino";
     private static final String USER_MAGAZZINO = "developer";
-    private static final String PASSWORD_MAGAZZINO = "passwordhere";
+    private static final String PASSWORD_MAGAZZINO = "Nerissa3091?";
 
     public static void grantPrivilegeToDeveloper() {
         try (Statement stmt = createStatementForDbRoot()){
@@ -85,6 +86,27 @@ public class DbManager {
 
     }
 
+    public static void insertOrdine(int id_cliente, OffsetDateTime data_esecuzione) {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String data = data_esecuzione.toString();
+            String query = "INSERT INTO ordine (id_cliente, data_esecuzione ) " + "VALUES ( '" + id_cliente + "', '" + data  + "' );";
+            stmt.execute(query);
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void insertDettaglioOrdine(int id_prodotto, int id_ordine) {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "INSERT INTO dettaglioOrdine (id_prodotto, id_ordine ) " + "VALUES ( '" + id_prodotto + "', '" + id_ordine  + "' );";
+            stmt.execute(query);
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
     public static void initDb () {
         DbCreateSchema.createDb();
         DbManager.grantPrivilegeToDeveloper();
@@ -103,9 +125,12 @@ public class DbManager {
         DbCreateSchema.createFkCarrelloClienteCliente();
         DbCreateSchema.createFkProdottoCarrello_CarrelloCliente();
         DbCreateSchema.createFkProdottoCarrelloProdotto();
+        DbCreateSchema.createUKDettaglioProdotto();
         DbPopulate.populateVenditore();
         DbPopulate.populateCliente();
         DbPopulate.populateProdotto();
+        DbPopulate.populateOrdine();
+        DbPopulate.populateDettaglioOrdine();
     }
 
 

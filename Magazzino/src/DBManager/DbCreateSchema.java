@@ -221,4 +221,16 @@ public class DbCreateSchema {
             System.out.println(e);
         }
     }
+
+    public static void createUKDettaglioProdotto() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "ALTER TABLE magazzino.dettaglioordine " +
+                    "ADD CONSTRAINT dettaglioordine_un UNIQUE KEY (id_prodotto);";
+            stmt.executeUpdate(query);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+
+    }
 }
