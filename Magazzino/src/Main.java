@@ -1,5 +1,6 @@
 import DBManager.DbManager;
 import DBManager.DbPopulate;
+import DBManager.DbRicerche;
 import DBManager.FakeDB;
 import DataSample.ProdottiSample;
 import DataSample.UtentiSample;
@@ -8,6 +9,8 @@ import Magazzino.*;
 import SceltaOperazione.InterfacciaCliente;
 import SceltaOperazione.InterfacciaGestore;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 
@@ -16,8 +19,13 @@ import java.util.ArrayList;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
 
-    public static void main(String[] args) throws CloneNotSupportedException {
-        DbManager.initDb();
+    public static void main(String[] args) throws CloneNotSupportedException, SQLException {
+        //DbManager.initDb();
+
+        ResultSet rs = DbRicerche.ricercaPerModelloCliente("galaxy");
+
+
+
 
 
 
