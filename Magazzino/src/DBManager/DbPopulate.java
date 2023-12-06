@@ -67,7 +67,23 @@ public class DbPopulate {
 
         DbManager.insertDettaglioOrdine(21,6);
         DbManager.insertDettaglioOrdine(25,6);
+    }
 
+    public static void populateCarrelloCliente() {
+        DbManager.insertCarrelloCliente(1);
+        DbManager.insertCarrelloCliente(1);
 
+        DbManager.insertCarrelloCliente(2);
+        DbManager.insertCarrelloCliente(2);
+        DbManager.insertCarrelloCliente(2);
+
+        DbManager.insertCarrelloCliente(3);
+    }
+
+    public static void populateProdottoCarrello() {
+        DbManager.insertProdottoCarrello(1,1);
+        DbManager.insertProdottoCarrello(1,2);
+        DbManager.insertProdottoCarrello(30,3);
+        DbManager.insertProdottoCarrello(29,4);
     }
 }

@@ -107,6 +107,26 @@ public class DbManager {
         }
     }
 
+    public static void insertCarrelloCliente( int id_cliente) {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "INSERT INTO carrellocliente ( id_cliente ) " + "VALUES ( '" + id_cliente  + "' );";
+            stmt.execute(query);
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void insertProdottoCarrello(int id_prodotto, int id_carrello) {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "INSERT INTO prodottocarrello ( id_prodotto, id_carrello ) " + "VALUES ( '" + id_prodotto  + "', '" + id_carrello +  "' );";
+            stmt.execute(query);
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
     public static void initDb () {
         DbCreateSchema.createDb();
         DbManager.grantPrivilegeToDeveloper();
@@ -131,6 +151,8 @@ public class DbManager {
         DbPopulate.populateProdotto();
         DbPopulate.populateOrdine();
         DbPopulate.populateDettaglioOrdine();
+        DbPopulate.populateCarrelloCliente();
+        DbPopulate.populateProdottoCarrello();
     }
 
 
