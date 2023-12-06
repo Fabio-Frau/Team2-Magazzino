@@ -1,4 +1,5 @@
 import DBManager.DbManager;
+import DBManager.DbPopulate;
 import DBManager.FakeDB;
 import DataSample.ProdottiSample;
 import DataSample.UtentiSample;
@@ -33,7 +34,11 @@ public class Main {
         //DbManager.createFkOrdineCliente();
         //DbManager.createFkCarrelloClienteCliente();
         //DbManager.createFkProdottoCarrello_CarrelloCliente();
-        DbManager.createFkProdottoCarrelloProdotto();
+        //DbManager.createFkProdottoCarrelloProdotto();
+        //DbManager.insertVenditore("Pippo","Baudo","pippo@email.com","777","Sanremo","Italia","123");
+        //DbPopulate.populateVenditore();
+        //DbPopulate.populateCliente();
+        DbPopulate.populateProdotto();
 
       /*  FakeDB db = initData();
 

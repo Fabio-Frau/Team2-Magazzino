@@ -1,16 +1,19 @@
 package DBManager;
 
+import Prodotti.TipoProdotto;
+
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 
 public class DbManager {
-    static final String DB_URL_ROOT = "jdbc:mysql://localhost:3306/mysql";
-    static final String USER_ROOT = "root";
-    static final String PASSWORD_ROOT = "123";
+    private static final String DB_URL_ROOT = "jdbc:mysql://localhost:3306/mysql";
+    private static final String USER_ROOT = "root";
+    private static final String PASSWORD_ROOT = "123";
 
-    static final String DB_URL_MAGAZZINO = "jdbc:mysql://localhost:3306/magazzino";
-    static final String USER_MAGAZZINO = "developer";
-    static final String PASSWORD_MAGAZZINO = "123";
+    private static final String DB_URL_MAGAZZINO = "jdbc:mysql://localhost:3306/magazzino";
+    private static final String USER_MAGAZZINO = "developer";
+    private static final String PASSWORD_MAGAZZINO = "123";
 
     public static void grantPrivilegeToDeveloper() {
         try (Statement stmt = createStatementForDbRoot()){
@@ -21,7 +24,7 @@ public class DbManager {
         }
     }
 
-    private static Statement createStatementForDbRoot () {
+    public static Statement createStatementForDbRoot () {
         try {
             Connection conn = DriverManager.getConnection(DB_URL_ROOT, USER_ROOT, PASSWORD_ROOT);
             return conn.createStatement();
@@ -30,7 +33,7 @@ public class DbManager {
         }
     }
 
-    private static Statement createStatementForDbMagazzino () {
+    public static Statement createStatementForDbMagazzino () {
         try {
             Connection conn = DriverManager.getConnection(DB_URL_MAGAZZINO, USER_MAGAZZINO, PASSWORD_MAGAZZINO);
             return conn.createStatement();
@@ -39,225 +42,48 @@ public class DbManager {
         }
     }
 
-    public static void createDb () {
-        try (Statement stmt = createStatementForDbRoot()) {
-            String query = "CREATE DATABASE IF NOT EXISTS magazzino";
-            stmt.executeUpdate(query);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void createClienteTab () {
+    public static void insertVenditore(String nome, String cognome, String email, String password, String indirizzo, String paese, String num_telefono) {
         try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "CREATE TABLE IF NOT EXISTS cliente (" +
-                    "id_cliente INT NOT NULL AUTO_INCREMENT," +
-                    "nome VARCHAR(50) NOT NULL," +
-                    "cognome VARCHAR(50) NOT NULL," +
-                    "email VARCHAR(50) NOT NULL," +
-                    "password VARCHAR(50) NOT NULL," +
-                    "indirizzo VARCHAR(100) NOT NULL," +
-                    "paese VARCHAR(50) NOT NULL," +
-                    "telefono VARCHAR(15) NOT NULL," +
-                    "PRIMARY KEY (id_cliente));";
+            String query = "INSERT INTO venditore (nome, cognome, email, password, indirizzo, paese, telefono) " +
+                    "VALUES ( '" + nome + "', '" + cognome + "', '" + email + "', '" + password + "', '" + indirizzo +
+                    "', '" + paese + "', '" + num_telefono + "' );";
 
-            stmt.executeUpdate(query);
+                stmt.execute(query);
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e);
         }
     }
 
-    public static void createVenditoreTab () {
+    public static void insertCliente(String nome, String cognome, String email, String password, String indirizzo, String paese, String num_telefono) {
         try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "CREATE TABLE IF NOT EXISTS venditore (" +
-                    "id_venditore INT NOT NULL AUTO_INCREMENT," +
-                    "nome VARCHAR(50) NOT NULL," +
-                    "cognome VARCHAR(50) NOT NULL," +
-                    "email VARCHAR(50) NOT NULL," +
-                    "password VARCHAR(50) NOT NULL," +
-                    "indirizzo VARCHAR(100) NOT NULL," +
-                    "paese VARCHAR(50) NOT NULL," +
-                    "telefono VARCHAR(15) NOT NULL," +
-                    "PRIMARY KEY (id_venditore));";
+            String query = "INSERT INTO cliente (nome, cognome, email, password, indirizzo, paese, telefono) " +
+                    "VALUES ( '" + nome + "', '" + cognome + "', '" + email + "', '" + password + "', '" + indirizzo +
+                    "', '" + paese + "', '" + num_telefono + "' );";
 
-            stmt.executeUpdate(query);
+            stmt.execute(query);
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e);
         }
     }
 
-    public static void createProdottoTab() {
-        try (Statement stmt = createStatementForDbMagazzino()){
-            String query = "CREATE TABLE IF NOT EXISTS prodotto (" +
-                    "id_prodotto INT NOT NULL AUTO_INCREMENT," +
-                    "id_venditore INT NOT NULL," +
-                    "categoria ENUM('SMARTPHONE','NOTEBOOK','TABLET') NOT NULL," +
-                    "produttore VARCHAR(50) NOT NULL," +
-                    "modello VARCHAR(50) NOT NULL," +
-                    "descrizione VARCHAR(255) NULL," +
-                    "dimensione_memoria INT NOT NULL," +
-                    "dimensione_schermo FLOAT NOT NULL," +
-                    "prezzo_acquisto DECIMAL(7,2) NOT NULL," +
-                    "prezzo_vendita DECIMAL(7,2) NOT NULL," +
-                    "PRIMARY KEY (id_prodotto));";
-
-            stmt.executeUpdate(query);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void createDettaglioOrdineTab() {
+    public static void insertProdotto(int id_venditore, TipoProdotto categoria, String produttore, String modello,
+                                      String descrizione, int dimesione_memoria, double dimensione_schermo,
+                                      BigDecimal prezzoAcquisto, BigDecimal prezzoVendita) {
         try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "CREATE TABLE IF NOT EXISTS dettaglioOrdine (" +
-                    "id_prodotto INT NOT NULL," +
-                    "id_ordine INT NOT NULL," +
-                    "PRIMARY KEY (id_prodotto, id_ordine));";
-            stmt.executeUpdate(query);
+            String query = "INSERT INTO prodotto (id_venditore, categoria, produttore, modello, descrizione, dimensione_memoria, " +
+                    "dimensione_schermo, prezzo_acquisto, prezzo_vendita) " + "VALUES ( '" + id_venditore + "', '" + categoria +
+                    "', '" + produttore + "', '" + modello + "', '" + descrizione + "', '" + dimesione_memoria + "', '" +
+                    dimensione_schermo + "', '" + prezzoAcquisto.setScale(2) + "', '" + prezzoVendita.setScale(2) + "' );";
 
-        } catch (Exception e) {
+            stmt.execute(query);
+
+        } catch (SQLException e) {
             System.out.println(e);
         }
+
     }
-
-    public static void createOrdineTab() {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "CREATE TABLE IF NOT EXISTS ordine (" +
-                    "id_ordine INT NOT NULL AUTO_INCREMENT," +
-                    "id_cliente INT NOT NULL," +
-                    "data_esecuzione DATETIME," +
-                    "PRIMARY KEY (id_ordine));";
-            stmt.executeUpdate(query);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void createProdottoCarelloTab() {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "CREATE TABLE IF NOT EXISTS prodottoCarrello (" +
-                    "id_carrello INT NOT NULL," +
-                    "id_prodotto INT NOT NULL," +
-                    "PRIMARY KEY (id_carrello, id_prodotto));";
-            stmt.executeUpdate(query);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void createCarrelloClienteTab() {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "CREATE TABLE IF NOT EXISTS carrelloCliente (" +
-                    "id_carrello INT NOT NULL AUTO_INCREMENT," +
-                    "id_cliente INT NOT NULL," +
-                    "PRIMARY KEY (id_carrello));";
-            stmt.executeUpdate(query);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void createFkProdottoVenditore() {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "ALTER TABLE prodotto " +
-                    "ADD CONSTRAINT FK_prodotto_venditore " +
-                    "FOREIGN KEY (id_venditore) " +
-                    "REFERENCES venditore(id_venditore);";
-            stmt.executeUpdate(query);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void createFkDettaglioOrdineProdotto() {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "ALTER TABLE dettaglioOrdine " +
-                    "ADD CONSTRAINT FK_dettaglioOrdine_prodotto " +
-                    "FOREIGN KEY (id_prodotto) " +
-                    "REFERENCES prodotto(id_prodotto);";
-            stmt.executeUpdate(query);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void createFkDettaglioOrdineOrdine() {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "ALTER TABLE dettaglioOrdine " +
-                    "ADD CONSTRAINT FK_dettaglioOrdine_ordine " +
-                    "FOREIGN KEY (id_ordine) " +
-                    "REFERENCES ordine(id_ordine);";
-            stmt.executeUpdate(query);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void createFkOrdineCliente() {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "ALTER TABLE ordine " +
-                    "ADD CONSTRAINT FK_ordine_cliente " +
-                    "FOREIGN KEY (id_cliente) " +
-                    "REFERENCES cliente(id_cliente);";
-            stmt.executeUpdate(query);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void createFkCarrelloClienteCliente() {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "ALTER TABLE carrelloCliente " +
-                    "ADD CONSTRAINT FK_carrelloCliente_cliente " +
-                    "FOREIGN KEY (id_cliente) " +
-                    "REFERENCES cliente(id_cliente);";
-            stmt.executeUpdate(query);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void createFkProdottoCarrello_CarrelloCliente() {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "ALTER TABLE prodottoCarrello " +
-                    "ADD CONSTRAINT FK_prodottoCarrello_carrelloCliente " +
-                    "FOREIGN KEY (id_carrello) " +
-                    "REFERENCES carrelloCliente(id_carrello);";
-            stmt.executeUpdate(query);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void createFkProdottoCarrelloProdotto() {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "ALTER TABLE prodottoCarrello " +
-                    "ADD CONSTRAINT FK_prodottoCarrello_prodotto " +
-                    "FOREIGN KEY (id_prodotto) " +
-                    "REFERENCES prodotto(id_prodotto);";
-            stmt.executeUpdate(query);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-
-
-
 
    /* private static ArrayList<City> dataMapper(ResultSet rs) throws SQLException {
         ArrayList<City> cities = new ArrayList<>();
