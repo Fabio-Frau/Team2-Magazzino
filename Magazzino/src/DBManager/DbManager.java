@@ -9,11 +9,11 @@ import java.util.ArrayList;
 public class DbManager {
     private static final String DB_URL_ROOT = "jdbc:mysql://localhost:3306/mysql";
     private static final String USER_ROOT = "root";
-    private static final String PASSWORD_ROOT = "123";
+    private static final String PASSWORD_ROOT = "passwordhere";
 
     private static final String DB_URL_MAGAZZINO = "jdbc:mysql://localhost:3306/magazzino";
     private static final String USER_MAGAZZINO = "developer";
-    private static final String PASSWORD_MAGAZZINO = "123";
+    private static final String PASSWORD_MAGAZZINO = "passwordhere";
 
     public static void grantPrivilegeToDeveloper() {
         try (Statement stmt = createStatementForDbRoot()){
@@ -84,6 +84,32 @@ public class DbManager {
         }
 
     }
+
+    public static void initDb () {
+        DbCreateSchema.createDb();
+        DbManager.grantPrivilegeToDeveloper();
+        DbCreateSchema.createClienteTab();
+        DbCreateSchema.createVenditoreTab();
+        DbCreateSchema.createProdottoTab();
+        DbCreateSchema.createDettaglioOrdineTab();
+        DbCreateSchema.createOrdineTab();
+        DbCreateSchema.createProdottoCarelloTab();
+        DbCreateSchema.createCarrelloClienteTab();
+
+        DbCreateSchema.createFkProdottoVenditore();
+        DbCreateSchema.createFkDettaglioOrdineProdotto();
+        DbCreateSchema.createFkDettaglioOrdineOrdine();
+        DbCreateSchema.createFkOrdineCliente();
+        DbCreateSchema.createFkCarrelloClienteCliente();
+        DbCreateSchema.createFkProdottoCarrello_CarrelloCliente();
+        DbCreateSchema.createFkProdottoCarrelloProdotto();
+        DbPopulate.populateVenditore();
+        DbPopulate.populateCliente();
+        DbPopulate.populateProdotto();
+    }
+
+
+
 
    /* private static ArrayList<City> dataMapper(ResultSet rs) throws SQLException {
         ArrayList<City> cities = new ArrayList<>();

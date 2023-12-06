@@ -17,28 +17,11 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException {
+        DbManager.initDb();
 
-        //DbManager.createDb();
-        //DbManager.grantPrivilegeToDeveloper();
-        //DbManager.createClienteTab();
-        //DbManager.createVenditoreTab();
-        //DbManager.createProdottoTab();
-        //DbManager.createDettaglioOrdineTab();
-        //DbManager.createOrdineTab();
-        //DbManager.createProdottoCarelloTab();
-        //DbManager.createCarrelloClienteTab();
 
-        //DbManager.createFkProdottoVenditore();
-        /*DbManager.createFkDettaglioOrdineProdotto();
-        DbManager.createFkDettaglioOrdineOrdine();*/
-        //DbManager.createFkOrdineCliente();
-        //DbManager.createFkCarrelloClienteCliente();
-        //DbManager.createFkProdottoCarrello_CarrelloCliente();
-        //DbManager.createFkProdottoCarrelloProdotto();
-        //DbManager.insertVenditore("Pippo","Baudo","pippo@email.com","777","Sanremo","Italia","123");
-        //DbPopulate.populateVenditore();
-        //DbPopulate.populateCliente();
-        DbPopulate.populateProdotto();
+
+
 
       /*  FakeDB db = initData();
 
