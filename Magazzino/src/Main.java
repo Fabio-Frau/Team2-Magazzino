@@ -1,11 +1,9 @@
-import DBManager.DbManager;
-import DBManager.DbPopulate;
-import DBManager.DbRicerche;
-import DBManager.FakeDB;
+import DBManager.*;
 import DataSample.ProdottiSample;
 import DataSample.UtentiSample;
 import Login.*;
 import Magazzino.*;
+import Prodotti.Prodotto;
 import SceltaOperazione.InterfacciaCliente;
 import SceltaOperazione.InterfacciaGestore;
 
@@ -13,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import Utility.*;
 
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -20,9 +19,11 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException, SQLException {
-        DbManager.initDb();
+        //DbManager.initDb();
 
        // ResultSet rs = DbRicerche.ricercaPerModelloCliente("galaxy");
+        ArrayList<Prodotto> prodotti = DataMapper.getProdottiFromDb(DbRicerche.ricercaPerModelloCliente("galaxy"));
+        Stampa.perCliente(prodotti);
 
 
 
