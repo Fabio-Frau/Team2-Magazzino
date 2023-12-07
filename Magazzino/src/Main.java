@@ -20,9 +20,9 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException, SQLException {
-        //DbManager.initDb();
+        DbManager.initDb();
 
-        ResultSet rs = DbRicerche.ricercaPerModelloCliente("galaxy");
+       // ResultSet rs = DbRicerche.ricercaPerModelloCliente("galaxy");
 
 
 

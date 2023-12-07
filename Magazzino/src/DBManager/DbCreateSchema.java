@@ -78,6 +78,18 @@ public class DbCreateSchema {
         }
     }
 
+    public static void addColumnDisp() {
+        try (Statement stmt = createStatementForDbMagazzino()){
+            String query = "ALTER TABLE prodotto " +
+                    "ADD COLUMN disponibile TINYINT(1) NOT NULL DEFAULT 1";
+
+            stmt.executeUpdate(query);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
     public static void createDettaglioOrdineTab() {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "CREATE TABLE IF NOT EXISTS dettaglioOrdine (" +
