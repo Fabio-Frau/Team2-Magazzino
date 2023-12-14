@@ -1,5 +1,6 @@
 package DBManager;
 
+import Login.Cliente;
 import Prodotti.Prodotto;
 import Prodotti.TipoProdotto;
 
@@ -19,6 +20,22 @@ public class DataMapper {
                         ));
             }
             return prodotti;
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    public static ArrayList<Cliente> getClientiFromDb (ResultSet rs) {
+        ArrayList<Cliente> clienti = new ArrayList<>();
+        try {
+            while (rs.next()) {
+                clienti.add(new Cliente(rs.getString("id_cliente"), rs.getString("nome"), rs.getString("cognome"),
+                        rs.getString("email"), rs.getString("password"), rs.getString("indirizzo"),
+                        rs.getString("paese"), rs.getInt("telefono"))
+                );
+            }
+            return clienti;
         } catch (SQLException e) {
             System.out.println(e);
         }

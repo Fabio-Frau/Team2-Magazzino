@@ -1,18 +1,11 @@
 import DBManager.*;
 import DataSample.ProdottiSample;
-import DataSample.UtentiSample;
+//import DataSample.UtentiSample;
 import Login.*;
 import Magazzino.*;
-import Prodotti.Prodotto;
-import Prodotti.TipoProdotto;
-import SceltaOperazione.InterfacciaCliente;
-import SceltaOperazione.InterfacciaGestore;
 
-import java.math.BigDecimal;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
+
 import Utility.*;
 
 
@@ -22,7 +15,8 @@ public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException, SQLException {
         //DbManager.initDb();
-        Stampa.perCliente(DbRicerche.ricercaPerID(16));
+        Stampa.perCliente(DbRicercaProdotto.ricercaPerID(16));
+        Stampa.utenti(DbRicercaCliente.ricercaPerId("1"));
 
 
 
@@ -103,14 +97,14 @@ public class Main {
     }
 
     /**Carica dei dati di prova sul magazzino e sulla lista degli utenti*/
-    public static FakeDB initData() {
+   /* public static FakeDB initData() {
 
         ArchivioUtenti archivioUtenti = new ArchivioUtenti(UtentiSample.utentiBase());
         Magazzino magazzino = new Magazzino(ProdottiSample.prodottiBase());
 
         return new FakeDB(magazzino, archivioUtenti);
 
-    }
+    }*/
 
 
 

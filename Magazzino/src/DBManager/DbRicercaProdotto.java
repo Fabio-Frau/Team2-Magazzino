@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import static DBManager.DbManager.createStatementForDbMagazzino;
 
-public class DbRicerche {
+public class DbRicercaProdotto {
 
     public static ArrayList<Prodotto> ricercaPerModello(String modello) {
         try (Statement stmt = createStatementForDbMagazzino()) {
