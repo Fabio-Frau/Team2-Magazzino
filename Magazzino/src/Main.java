@@ -4,9 +4,11 @@ import DataSample.UtentiSample;
 import Login.*;
 import Magazzino.*;
 import Prodotti.Prodotto;
+import Prodotti.TipoProdotto;
 import SceltaOperazione.InterfacciaCliente;
 import SceltaOperazione.InterfacciaGestore;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLOutput;
@@ -20,7 +22,7 @@ public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException, SQLException {
         //DbManager.initDb();
-        Stampa.perCliente(DbRicerche.ricercaPerModelloCliente("galaxy"));
+        Stampa.perCliente(DbRicerche.ricercaPerID(16));
 
 
 

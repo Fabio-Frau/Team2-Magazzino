@@ -16,6 +16,16 @@ public class DbCreateSchema {
         }
     }
 
+    public static void addDisponibilita() {
+        try (Statement stmt = createStatementForDbRoot()) {
+            String query = "ALTER TABLE prodotto ADD COLUMN disponibilita TINYINT(1) NOT NULL DEFAULT 1";
+            stmt.executeUpdate(query);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
     public static void createClienteTab () {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "CREATE TABLE IF NOT EXISTS cliente (" +

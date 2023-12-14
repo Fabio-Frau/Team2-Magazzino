@@ -138,7 +138,7 @@ public class DbManager {
         DbCreateSchema.createOrdineTab();
         DbCreateSchema.createProdottoCarelloTab();
         DbCreateSchema.createCarrelloClienteTab();
-
+        DbCreateSchema.addDisponibilita();
         DbCreateSchema.createFkProdottoVenditore();
         DbCreateSchema.createFkDettaglioOrdineProdotto();
         DbCreateSchema.createFkDettaglioOrdineOrdine();
