@@ -1,26 +1,30 @@
 package DBManager;
 
+import Prodotti.Prodotto;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import static DBManager.DbManager.createStatementForDbMagazzino;
 
 public class DbRicerche {
 
-    public static ResultSet ricercaPerModelloCliente(String modello) {
+    public static ArrayList<Prodotto> ricercaPerModelloCliente(String modello) {
         try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "SELECT id_prodotto, categoria, produttore, modello, dimensione_memoria, dimensione_schermo, prezzo_vendita\n" +
+            String query = "SELECT id_prodotto, categoria, produttore, modello, descrizione, dimensione_memoria, dimensione_schermo, prezzo_acquisto, prezzo_vendita\n" +
                     "FROM prodotto\n" +
                     "WHERE modello LIKE '%" + modello + "%' ;";
             System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
 
-            /*SCRIVERE FUNZIONE DI STAMPA DA RIUSARE PER LE VARIE QUERY => DATA MAPPER*/
+            /*SCRIVERE FUNZIONE DI STAMPA DA RIUSARE PER LE VARIE QUERY => DATA MAPPER*//*
             while(rs.next()) {
                 System.out.println(rs.getString("id_prodotto"));
-            }
+            }*/
+            return DataMapper.getProdottiFromDb(rs);
 
 
         } catch (SQLException e) {

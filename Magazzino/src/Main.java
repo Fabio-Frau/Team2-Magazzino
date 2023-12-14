@@ -20,14 +20,7 @@ public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException, SQLException {
         //DbManager.initDb();
-
-       // ResultSet rs = DbRicerche.ricercaPerModelloCliente("galaxy");
-        ArrayList<Prodotto> prodotti = DataMapper.getProdottiFromDb(DbRicerche.ricercaPerModelloCliente("galaxy"));
-        Stampa.perCliente(prodotti);
-
-
-
-
+        Stampa.perCliente(DbRicerche.ricercaPerModelloCliente("galaxy"));
 
 
 
