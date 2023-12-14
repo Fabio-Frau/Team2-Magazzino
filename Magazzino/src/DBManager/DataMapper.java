@@ -1,6 +1,7 @@
 package DBManager;
 
 import Login.Cliente;
+import Login.Gestore;
 import Prodotti.Prodotto;
 import Prodotti.TipoProdotto;
 
@@ -36,6 +37,22 @@ public class DataMapper {
                 );
             }
             return clienti;
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    public static ArrayList<Gestore> getVenditoriFromDb (ResultSet rs) {
+        ArrayList<Gestore> venditori = new ArrayList<>();
+        try {
+            while (rs.next()) {
+                venditori.add(new Gestore(rs.getString("id_venditore"), rs.getString("nome"), rs.getString("cognome"),
+                        rs.getString("email"), rs.getString("password"), rs.getString("indirizzo"),
+                        rs.getString("paese"), rs.getInt("telefono"))
+                );
+            }
+            return venditori;
         } catch (SQLException e) {
             System.out.println(e);
         }

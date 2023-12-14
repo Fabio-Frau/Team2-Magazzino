@@ -1,6 +1,7 @@
 package Utility;
 
 import Login.Cliente;
+import Login.Gestore;
 import Login.Utente;
 import Prodotti.Prodotto;
 
@@ -34,11 +35,24 @@ public class Stampa {
         System.out.println();
     }
 
-    public static void utenti (ArrayList<Cliente> listaUtenti) {
+    public static void clienti (ArrayList<Cliente> listaUtenti) {
         System.out.printf("%-15s %-15s %-15s %-25s %-20s %-20s %-20s %-10s", "id", "nome", "cognome", "email", "password",
                 "indirizzo", "paese", "numeroTelefono");
         System.out.println();
         for (Utente utente : listaUtenti) {
+            System.out.printf("%-15s %-15s %-15s %-25s %-20s %-20s %-20s %-10d", utente.getId(), utente.getNome(), utente.getCognome(),
+                    utente.getEmail(), utente.getPassword(), utente.getIndirizzo(),
+                    utente.getPaese(), utente.getNumeroTelefono());
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static void venditori (ArrayList<Gestore> listaVenditori) {
+        System.out.printf("%-15s %-15s %-15s %-25s %-20s %-20s %-20s %-10s", "id", "nome", "cognome", "email", "password",
+                "indirizzo", "paese", "numeroTelefono");
+        System.out.println();
+        for (Utente utente : listaVenditori) {
             System.out.printf("%-15s %-15s %-15s %-25s %-20s %-20s %-20s %-10d", utente.getId(), utente.getNome(), utente.getCognome(),
                     utente.getEmail(), utente.getPassword(), utente.getIndirizzo(),
                     utente.getPaese(), utente.getNumeroTelefono());

@@ -1,8 +1,7 @@
 package DBManager;
 
 import Login.Cliente;
-import Login.Utente;
-import Prodotti.Prodotto;
+import Login.Gestore;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,17 +10,17 @@ import java.util.ArrayList;
 
 import static DBManager.DbManager.createStatementForDbMagazzino;
 
-public class DbRicercaCliente {
-    public static ArrayList<Cliente> ricercaPerId(String id) {
+public class DbRicercaVenditore {
+    public static ArrayList<Gestore> ricercaPerId(String id) {
         try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "SELECT id_cliente, nome, cognome, email, password, indirizzo, paese, telefono\n" +
-                    "FROM cliente\n" +
-                    "WHERE id_cliente =" + id + " ;";
+            String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
+                    "FROM venditore\n" +
+                    "WHERE id_venditore =" + id + " ;";
             System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
 
-            return DataMapper.getClientiFromDb(rs);
+            return DataMapper.getVenditoriFromDb(rs);
 
 
         } catch (SQLException e) {
@@ -30,16 +29,16 @@ public class DbRicercaCliente {
         return null;
     }
 
-    public static ArrayList<Cliente> ricercaPerNome(String nome) {
+    public static ArrayList<Gestore> ricercaPerNome(String nome) {
         try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "SELECT id_cliente, nome, cognome, email, password, indirizzo, paese, telefono\n" +
-                    "FROM cliente\n" +
+            String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
+                    "FROM venditore\n" +
                     "WHERE nome ='" + nome + "' ;";
             System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
 
-            return DataMapper.getClientiFromDb(rs);
+            return DataMapper.getVenditoriFromDb(rs);
 
 
         } catch (SQLException e) {
@@ -48,16 +47,16 @@ public class DbRicercaCliente {
         return null;
     }
 
-    public static ArrayList<Cliente> ricercaPerCognome(String cognome) {
+    public static ArrayList<Gestore> ricercaPerCognome(String cognome) {
         try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "SELECT id_cliente, nome, cognome, email, password, indirizzo, paese, telefono\n" +
-                    "FROM cliente\n" +
+            String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
+                    "FROM venditore\n" +
                     "WHERE cognome ='" + cognome + "' ;";
             System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
 
-            return DataMapper.getClientiFromDb(rs);
+            return DataMapper.getVenditoriFromDb(rs);
 
 
         } catch (SQLException e) {
@@ -66,16 +65,16 @@ public class DbRicercaCliente {
         return null;
     }
 
-    public static ArrayList<Cliente> ricercaPerEmail(String email) {
+    public static ArrayList<Gestore> ricercaPerEmail(String email) {
         try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "SELECT id_cliente, nome, cognome, email, password, indirizzo, paese, telefono\n" +
-                    "FROM cliente\n" +
+            String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
+                    "FROM venditore\n" +
                     "WHERE email ='" + email + "' ;";
             System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
 
-            return DataMapper.getClientiFromDb(rs);
+            return DataMapper.getVenditoriFromDb(rs);
 
 
         } catch (SQLException e) {
@@ -84,16 +83,16 @@ public class DbRicercaCliente {
         return null;
     }
 
-    public static ArrayList<Cliente> ricercaPerIndirizzo(String indirizzo) {
+    public static ArrayList<Gestore> ricercaPerIndirizzo(String indirizzo) {
         try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "SELECT id_cliente, nome, cognome, email, password, indirizzo, paese, telefono\n" +
-                    "FROM cliente\n" +
+            String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
+                    "FROM venditore\n" +
                     "WHERE indirizzo LIKE '%" + indirizzo + "%' ;";
             System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
 
-            return DataMapper.getClientiFromDb(rs);
+            return DataMapper.getVenditoriFromDb(rs);
 
 
         } catch (SQLException e) {
@@ -102,16 +101,16 @@ public class DbRicercaCliente {
         return null;
     }
 
-    public static ArrayList<Cliente> ricercaPerPaese(String paese) {
+    public static ArrayList<Gestore> ricercaPerPaese(String paese) {
         try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "SELECT id_cliente, nome, cognome, email, password, indirizzo, paese, telefono\n" +
-                    "FROM cliente\n" +
+            String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
+                    "FROM venditore\n" +
                     "WHERE paese ='" + paese + "' ;";
             System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
 
-            return DataMapper.getClientiFromDb(rs);
+            return DataMapper.getVenditoriFromDb(rs);
 
 
         } catch (SQLException e) {
@@ -120,16 +119,16 @@ public class DbRicercaCliente {
         return null;
     }
 
-    public static ArrayList<Cliente> ricercaPerTelefono(String telefono) {
+    public static ArrayList<Gestore> ricercaPerTelefono(String telefono) {
         try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "SELECT id_cliente, nome, cognome, email, password, indirizzo, paese, telefono\n" +
-                    "FROM cliente\n" +
+            String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
+                    "FROM venditore\n" +
                     "WHERE telefono ='" + telefono + "' ;";
             System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
 
-            return DataMapper.getClientiFromDb(rs);
+            return DataMapper.getVenditoriFromDb(rs);
 
 
         } catch (SQLException e) {

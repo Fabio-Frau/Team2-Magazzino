@@ -15,8 +15,8 @@ public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException, SQLException {
         //DbManager.initDb();
-        Stampa.perCliente(DbRicercaProdotto.ricercaPerID(16));
-        Stampa.utenti(DbRicercaCliente.ricercaPerId("1"));
+        //Stampa.perCliente(DbRicercaProdotto.ricercaPerID(16));
+        //Stampa.venditori(DbRicercaVenditore.ricercaPerTelefono("123"));
 
 
 
