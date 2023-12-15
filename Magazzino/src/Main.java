@@ -17,6 +17,7 @@ public class Main {
         //DbManager.initDb();
         //Stampa.perCliente(DbRicercaProdotto.ricercaPerID(16));
         //Stampa.venditori(DbRicercaVenditore.ricercaPerTelefono("123"));
+        Login.pgAccediDb();
 
 
 

@@ -1,5 +1,12 @@
-/*package Login;
+package Login;
+import DBManager.DataMapper;
 import DBManager.FakeDB;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import static DBManager.DbManager.createStatementForDbMagazzino;
 
 public class Login {
 
@@ -55,10 +62,14 @@ public class Login {
         String email = Utility.Input.readStr();
         System.out.println("Password: ");
         String password = Utility.Input.readStr();
+        System.out.println("Indirizzo: ");
+        String indirizzo = Utility.Input.readStr();
+        System.out.println("Paese: ");
+        String paese = Utility.Input.readStr();
         System.out.println("Numero di telefono: ");
-        int telefono = Utility.Input.readInt();
+        int numeroTelefono = Utility.Input.readInt();
 
-        Cliente nuovoCliente= new Cliente(nome, cognome, email, password, telefono);
+        Cliente nuovoCliente= new Cliente(null, nome, cognome, email, password, indirizzo, paese, numeroTelefono);
         if (archivioUtenti.addUtente(nuovoCliente)) {
             System.out.println("Utente inserito correttamente");
         } else {
@@ -83,6 +94,47 @@ public class Login {
         return lista;
     }
 
+    public static Utente pgAccediDb() {
 
-} */
+        while (true) {
+            System.out.println("Email:");
+            String email = Utility.Input.readStr();
+            System.out.println("Password:");
+            String psw = Utility.Input.readStr();
+            try  (Statement stmt = createStatementForDbMagazzino()) {
+
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+            Utente utente = loginCliente(email, psw);
+            if (utente != null) {
+                System.out.println("Autenticazione avvenuta con successo.");
+                System.out.println("Benvenuto " + utente.getNome() + " " + utente.getCognome());
+                return utente;
+            } else {
+                System.out.println("Autenticazione fallita");
+            }
+        }
+    }
+
+    public static Cliente loginCliente (String email, String password) {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "SELECT id_cliente, nome, cognome, email, password, indirizzo, paese, telefono\n" +
+                    "FROM cliente\n" +
+                    "WHERE email ='" + email + "'" + "AND password = '" + password + "';";
+            System.out.println(query);
+
+            ResultSet rs = stmt.executeQuery(query);
+
+            return DataMapper.getClientiFromDb(rs).get(0);
+
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+
+}
 
