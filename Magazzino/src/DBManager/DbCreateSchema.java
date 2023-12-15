@@ -255,4 +255,24 @@ public class DbCreateSchema {
 
 
     }
+
+    public static void createUKCliente() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "ALTER TABLE magazzino.cliente " +
+                    "ADD CONSTRAINT cliente_un UNIQUE KEY (email);";
+            stmt.executeUpdate(query);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void createUKVenditore() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "ALTER TABLE magazzino.venditore " +
+                    "ADD CONSTRAINT venditore_un UNIQUE KEY (email);";
+            stmt.executeUpdate(query);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 }
