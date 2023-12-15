@@ -5,23 +5,27 @@ import DBManager.FakeDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import static DBManager.DbManager.createStatementForDbMagazzino;
 
 public class Login {
 
-    public static Utente accesso (FakeDB db){
+    public static Utente accesso (){
 
         Utente utente = null;
         while(utente == null) {
-            System.out.println("Seleziona l'operazione di accesso:\n 1. Log in\n 2. Registrati");
+            System.out.println("Seleziona l'operazione di accesso:\n 1. Login Cliente\n 2. Login Gestore\n 3. Registrati");
             int in = Utility.Input.readInt();
             switch (in){
                 case 1:
-                    utente = pgAccedi(db.getArchivioUtenti());
+                    utente = pgAccediClienteDb();
                     break;
                 case 2:
-                    pgRegistrati(db.getArchivioUtenti());
+                    utente = pgAccediVenditoreDb();
+                    break;
+                case 3:
+                    utente = pgRegistrati();
                     break;
                 default:
                     break;
@@ -52,7 +56,7 @@ public class Login {
     }
 
 
-    public static Cliente pgRegistrati(ArchivioUtenti archivioUtenti){
+    public static Cliente pgRegistrati(){
 
         System.out.println("Nome Utente: ");
         String nome = Utility.Input.readStr();
@@ -70,11 +74,17 @@ public class Login {
         int numeroTelefono = Utility.Input.readInt();
 
         Cliente nuovoCliente= new Cliente(null, nome, cognome, email, password, indirizzo, paese, numeroTelefono);
-        if (archivioUtenti.addUtente(nuovoCliente)) {
-            System.out.println("Utente inserito correttamente");
-        } else {
-            System.out.println("Impossibile registrare il nuovo utente:" +
-                    "\nLa mail con cui ti stai registrando è già presente nell'archivio");
+
+        try  (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "INSERT INTO cliente (nome, cognome, email, password, indirizzo, paese, telefono)\n" +
+                    "SELECT '" + nome + "', '" + cognome + "', '" + email + "', '" + password + "', '" + indirizzo + "', '" + paese + "', '" + numeroTelefono + "'\n" +
+                    "WHERE NOT EXISTS ( SELECT * FROM cliente\n" +
+                    "WHERE email = '" + email + "');";
+            System.out.println(query);
+            stmt.execute(query);
+
+        } catch (SQLException e) {
+            System.out.println(e);
         }
 
         return nuovoCliente;
@@ -94,7 +104,7 @@ public class Login {
         return lista;
     }
 
-    public static Utente pgAccediDb() {
+    public static Utente pgAccediClienteDb() {
 
         while (true) {
             System.out.println("Email:");
@@ -125,9 +135,13 @@ public class Login {
             System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
+            ArrayList<Cliente> cliente = DataMapper.getClientiFromDb(rs);
 
-            return DataMapper.getClientiFromDb(rs).get(0);
-
+            if (cliente.isEmpty() || cliente == null) {
+                throw new SQLException("Utente non trovato. Riprova.");
+            } else {
+                return cliente.get(0);
+            }
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -135,6 +149,50 @@ public class Login {
         return null;
     }
 
+    public static Utente pgAccediVenditoreDb() {
+
+        while (true) {
+            System.out.println("Email:");
+            String email = Utility.Input.readStr();
+            System.out.println("Password:");
+            String psw = Utility.Input.readStr();
+            try  (Statement stmt = createStatementForDbMagazzino()) {
+
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+            Utente utente = loginVenditore(email, psw);
+            if (utente != null) {
+                System.out.println("Autenticazione avvenuta con successo.");
+                System.out.println("Benvenuto " + utente.getNome() + " " + utente.getCognome());
+                return utente;
+            } else {
+                System.out.println("Autenticazione fallita");
+            }
+        }
+    }
+
+    public static Gestore loginVenditore (String email, String password) {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
+                    "FROM venditore\n" +
+                    "WHERE email ='" + email + "'" + "AND password = '" + password + "';";
+            System.out.println(query);
+
+            ResultSet rs = stmt.executeQuery(query);
+            ArrayList<Gestore> gestore = DataMapper.getVenditoriFromDb(rs);
+
+            if (gestore.isEmpty() || gestore == null) {
+                throw new SQLException("Utente non trovato. Riprova.");
+            } else {
+                return gestore.get(0);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
 
 }
 
