@@ -1,5 +1,6 @@
 package SceltaOperazione;
 
+import DBManager.DbInsert;
 import DBManager.DbRicercaProdotto;
 import Login.Gestore;
 import Magazzino.Magazzino;
@@ -36,10 +37,9 @@ public class InterfacciaGestoreDB {
                     break;
                 }
                 case 3: {
-                    /*Prodotto prodotto = new Prodotto();
-                    magazzino.aggiungiProdotto(prodotto);
-                    Stampa.perGestore(magazzino.getListaProdotti());
-                    break;*/
+                    Prodotto prodotto = new Prodotto();
+                    DbInsert.insertProdottoIntoProdotto(prodotto, gestore);
+                    break;
                 }
                 case 4: {
                     /*Stampa.perGestore(magazzino.getListaProdotti());

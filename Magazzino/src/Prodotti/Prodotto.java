@@ -23,7 +23,7 @@ public class Prodotto {
         setTipo();
         setProduttore();
         setModello();
-        setId();
+        //setId();
         setDescrizione();
         setDimDisplay();
         setDimMemoria();
@@ -50,6 +50,7 @@ public class Prodotto {
     }
 
     public void setTipo() {
+        System.out.println("Categoria: ");
         this.tipo = Input.readTipo();
     }
 
