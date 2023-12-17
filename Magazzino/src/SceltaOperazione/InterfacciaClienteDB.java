@@ -1,6 +1,7 @@
 package SceltaOperazione;
 
 import Carrello.Carrello;
+import DBManager.DbRicercaProdotto;
 import Login.Cliente;
 import Login.Utente;
 import Magazzino.Magazzino;
@@ -37,11 +38,11 @@ public class InterfacciaClienteDB {
             int sceltaUtente = Input.readInt();
             switch (sceltaUtente) {
                 case 1: {
-                    //Stampa.perCliente(magazzino.getListaProdotti());
+                    Verifica.checkResultsCliente(DbRicercaProdotto.ricercaTuttiProdotti());
                     break;
                 }
                 case 2: {
-                    //sceltaRicercheCliente(magazzino);
+                    sceltaRicercheCliente();
                     break;
                 }
                 case 3: {
@@ -98,7 +99,7 @@ public class InterfacciaClienteDB {
     }
 
 
-    public static void sceltaRicercheCliente(Magazzino magazzino) {
+    public static void sceltaRicercheCliente() {
 
         ricCliente : while (true) {
             System.out.println("Opzioni disponibili" +
@@ -112,19 +113,19 @@ public class InterfacciaClienteDB {
                 case 1: {
                     System.out.println("Inserisci la marca del prodotto cercato:");
                     String marca = Input.readStr();
-                    Verifica.checkResultsCliente(RicercaPerMarca.ricercaPerMarca(magazzino.getListaProdotti(), marca));
+                    Verifica.checkResultsCliente(DbRicercaProdotto.ricercaPerProduttore(marca));
                     break;
                 }
                 case 2: {
                     System.out.println("Inserisci il modello del prodotto cercato:");
                     String modello = Input.readStr();
-                    Verifica.checkResultsCliente(RicercaPerModello.ricercaPerModello(magazzino.getListaProdotti(), modello));
+                    Verifica.checkResultsCliente(DbRicercaProdotto.ricercaPerModello(modello));
                     break;
                 }
                 case 3: {
                     System.out.println("Inserisci l'id del prodotto: ");
-                    String id = Input.readStr();
-                    Verifica.checkResultsCliente(RicercaPerID.ricercaPerID(magazzino.getListaProdotti(), id));
+                    int id = Input.readInt();
+                    Verifica.checkResultsCliente(DbRicercaProdotto.ricercaPerID(id));
                     break;
                 }
                 case 4: {
@@ -132,7 +133,7 @@ public class InterfacciaClienteDB {
                     double[] minAndMax = RangeUtils.DoubleRange();
                     double min = minAndMax[0];
                     double max = minAndMax[1];
-                    Verifica.checkResultsCliente(RicercaPerDimSchermo.ricercaDimSchermo(magazzino.getListaProdotti(), min, max));
+                    Verifica.checkResultsCliente(DbRicercaProdotto.ricercaPerDimensioneSchermo(min, max));
                     break;
                 }
                 case 5: {
@@ -140,19 +141,19 @@ public class InterfacciaClienteDB {
                     int[] minAndMax = Input.readIntSort();
                     int min = minAndMax[0];
                     int max = minAndMax[1];
-                    Verifica.checkResultsCliente(RicercaPerDimMemoria.ricercaDimMemoria(magazzino.getListaProdotti(), min, max));
+                    Verifica.checkResultsCliente(DbRicercaProdotto.ricercaPerMemoria(min, max));
                     break;
                 }
                 case 6: {
                     System.out.println("Inserisci la fascia di prezzo: (€)");
                     BigDecimal[] range = RangeUtils.DoubleRangeBD();
-                    Verifica.checkResultsCliente((RicercaPerPrezzo.ricercaPerPrezzoVendita(magazzino.getListaProdotti(), range)));
+                    Verifica.checkResultsCliente(DbRicercaProdotto.ricercaPerPrezzoVendita(range[0], range[1]));
                     break;
                 }
                 case 7: {
                     System.out.println("Inserisci il tipo di prodotto: ");
                     TipoProdotto tipo = Input.readTipo();
-                    Verifica.checkResultsCliente(RicercaPerTipo.ricercaPerTipo(magazzino.getListaProdotti(), tipo));
+                    Verifica.checkResultsCliente(DbRicercaProdotto.ricercaPerCategoria(tipo));
                     break;
                 }
                 case 0:

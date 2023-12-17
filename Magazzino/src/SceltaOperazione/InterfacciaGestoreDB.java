@@ -39,6 +39,7 @@ public class InterfacciaGestoreDB {
                     break;
                 }
                 case 3: {
+                    //aggiungere parametro per inserire prodotti multipli
                     Prodotto prodotto = new Prodotto();
                     DbInsert.insertProdottoIntoProdotto(prodotto, gestore);
                     break;
