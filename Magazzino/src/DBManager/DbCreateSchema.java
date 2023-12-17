@@ -256,20 +256,40 @@ public class DbCreateSchema {
 
     }
 
-    public static void createUKCliente() {
+    public static void createUKEmailCliente() {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "ALTER TABLE magazzino.cliente " +
-                    "ADD CONSTRAINT cliente_un UNIQUE KEY (email);";
+                    "ADD CONSTRAINT cliente_un_email UNIQUE KEY (email);";
             stmt.executeUpdate(query);
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-    public static void createUKVenditore() {
+    public static void createUKEmailVenditore() {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "ALTER TABLE magazzino.venditore " +
-                    "ADD CONSTRAINT venditore_un UNIQUE KEY (email);";
+                    "ADD CONSTRAINT venditore_un_email UNIQUE KEY (email);";
+            stmt.executeUpdate(query);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void createUKTelefonoVenditore() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "ALTER TABLE magazzino.venditore " +
+                    "ADD CONSTRAINT venditore_un_telefono UNIQUE KEY (telefono);";
+            stmt.executeUpdate(query);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void createUKTelefonoCliente() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "ALTER TABLE magazzino.cliente " +
+                    "ADD CONSTRAINT cliente_un_telefono UNIQUE KEY (telefono);";
             stmt.executeUpdate(query);
         } catch (Exception e) {
             System.out.println(e);
