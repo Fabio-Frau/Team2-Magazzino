@@ -2,8 +2,8 @@ package Login;
 
 public class Cliente extends Utente{
 
-    public Cliente(String nome, String cognome, String email, String password, int numeroTelefono) {
-        super(nome, cognome, email, password, numeroTelefono);
-    }
 
+    public Cliente(String id, String nome, String cognome, String email, String password, String indirizzo, String paese, int numeroTelefono) {
+        super(id, nome, cognome, email, password, indirizzo, paese, numeroTelefono);
+    }
 }

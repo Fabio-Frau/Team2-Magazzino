@@ -2,10 +2,8 @@ package Login;
 
 public class Gestore extends Utente{
 
-    public Gestore(String nome, String cognome, String email, String password, int numeroTelefono) {
-        super(nome, cognome, email, password, numeroTelefono);
+
+    public Gestore(String id, String nome, String cognome, String email, String password, String indirizzo, String paese, int numeroTelefono) {
+        super(id, nome, cognome, email, password, indirizzo, paese, numeroTelefono);
     }
-    
-
-
 }

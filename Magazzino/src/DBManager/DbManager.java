@@ -133,11 +133,12 @@ public class DbManager {
         DbCreateSchema.createClienteTab();
         DbCreateSchema.createVenditoreTab();
         DbCreateSchema.createProdottoTab();
+        DbCreateSchema.addColumnDisp();
         DbCreateSchema.createDettaglioOrdineTab();
         DbCreateSchema.createOrdineTab();
         DbCreateSchema.createProdottoCarelloTab();
         DbCreateSchema.createCarrelloClienteTab();
-
+        DbCreateSchema.addDisponibilita();
         DbCreateSchema.createFkProdottoVenditore();
         DbCreateSchema.createFkDettaglioOrdineProdotto();
         DbCreateSchema.createFkDettaglioOrdineOrdine();
@@ -146,6 +147,10 @@ public class DbManager {
         DbCreateSchema.createFkProdottoCarrello_CarrelloCliente();
         DbCreateSchema.createFkProdottoCarrelloProdotto();
         DbCreateSchema.createUKDettaglioProdotto();
+        DbCreateSchema.createUKEmailCliente();
+        DbCreateSchema.createUKEmailVenditore();
+        DbCreateSchema.createUKTelefonoCliente();
+        DbCreateSchema.createUKTelefonoVenditore();
         DbPopulate.populateVenditore();
         DbPopulate.populateCliente();
         DbPopulate.populateProdotto();
@@ -156,21 +161,5 @@ public class DbManager {
     }
 
 
-
-
-   /* private static ArrayList<City> dataMapper(ResultSet rs) throws SQLException {
-        ArrayList<City> cities = new ArrayList<>();
-        while (rs.next()) {
-            City city = new City(
-                    rs.getInt("ID"),
-                    rs.getString("Name"),
-                    rs.getString("CountryCode"),
-                    rs.getString("District"),
-                    rs.getInt("Population")
-            );
-            cities.add(city);
-        }
-        return cities;
-    }*/
 
 }

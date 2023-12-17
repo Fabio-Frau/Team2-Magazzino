@@ -7,7 +7,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Input {
-    static Scanner in = new Scanner(System.in);
+    static Scanner in = new Scanner(System.in).useDelimiter("\n");
 
     public static TipoProdotto readTipo() {
         while (true) {

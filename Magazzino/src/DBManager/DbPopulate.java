@@ -1,7 +1,5 @@
 package DBManager;
-
 import Prodotti.TipoProdotto;
-
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 

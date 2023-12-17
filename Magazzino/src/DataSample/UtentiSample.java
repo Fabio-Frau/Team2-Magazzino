@@ -6,7 +6,7 @@ import Login.Utente;
 
 import java.util.ArrayList;
 
-public class UtentiSample {
+/*public class UtentiSample {
 
     public static ArrayList<Utente> utentiBase() {
 
@@ -29,4 +29,4 @@ public class UtentiSample {
 
         return listaUtenti;
     }
-}
+} */
