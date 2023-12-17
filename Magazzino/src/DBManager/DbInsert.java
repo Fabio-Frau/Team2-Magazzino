@@ -20,7 +20,7 @@ public class DbInsert {
                     prodotto.getPrezzoAcquisto().setScale(2, RoundingMode.HALF_EVEN) + "', '" +
                     prodotto.getPrezzoVendita().setScale(2, RoundingMode.HALF_EVEN) + "' );";
 
-            stmt.execute(query);
+            stmt.executeUpdate(query);
 
         } catch (SQLException e) {
             System.out.println(e);

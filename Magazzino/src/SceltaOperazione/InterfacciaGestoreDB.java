@@ -1,5 +1,6 @@
 package SceltaOperazione;
 
+import DBManager.DbDelete;
 import DBManager.DbInsert;
 import DBManager.DbRicercaProdotto;
 import Login.Gestore;
@@ -19,10 +20,11 @@ public class InterfacciaGestoreDB {
 
         opGestore : while(true) {
             System.out.println("Benvenuto GESTORE. Scegli l'operazione da eseguire:" +
-                    "\n 1. Lettura prodotti in magazzino" +
+                    "\n 1. Visualizza prodotti in magazzino" +
                     "\n 2. Ricerca Prodotto" +
                     "\n 3. Aggiunta Prodotto" +
                     "\n 4. Eliminazione Prodotto" +
+                    "\n 5. Visualizza Prodotti Venditore" +
                     "\n 0. Torna al menu di Login");
 
             int sceltaUtente = Input.readInt();
@@ -42,12 +44,14 @@ public class InterfacciaGestoreDB {
                     break;
                 }
                 case 4: {
-                    /*Stampa.perGestore(magazzino.getListaProdotti());
                     System.out.println("Digita l'ID del prodotto che vuoi eliminare dal magazzino:");
-                    String id = Input.readStr();
-                    magazzino.rimuoviProdottoPerID(id);
-                    Stampa.perGestore(magazzino.getListaProdotti());
-                    break;*/
+                    int id = Input.readInt();
+                    DbDelete.deleteProdottoVenditore(id, gestore);
+                    break;
+                }
+                case 5: {
+                    Verifica.checkResultsGestore(DbRicercaProdotto.ricercaPerVenditore(gestore));
+                    break;
                 }
                 case 0: {
                     break opGestore;

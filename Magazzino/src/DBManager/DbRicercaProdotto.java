@@ -1,5 +1,6 @@
 package DBManager;
 
+import Login.Gestore;
 import Prodotti.Prodotto;
 import Prodotti.TipoProdotto;
 
@@ -17,6 +18,21 @@ public class DbRicercaProdotto {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "SELECT *\n" +
                     "FROM prodotto;";
+
+            ResultSet rs = stmt.executeQuery(query);
+            return DataMapper.getProdottiFromDb(rs);
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    public static ArrayList<Prodotto> ricercaPerVenditore(Gestore gestore) {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "SELECT id_prodotto, categoria, produttore, modello, descrizione, dimensione_memoria, dimensione_schermo, prezzo_acquisto, prezzo_vendita\n" +
+                    "FROM prodotto\n" +
+                    "WHERE id_venditore = " + gestore.getId() + " ;";
 
             ResultSet rs = stmt.executeQuery(query);
             return DataMapper.getProdottiFromDb(rs);
