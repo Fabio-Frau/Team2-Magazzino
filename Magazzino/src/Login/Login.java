@@ -13,6 +13,7 @@ import static DBManager.DbManager.createStatementForDbMagazzino;
 
 public class Login {
 
+    /**Questo è il punto di ingresso al programma. Si chiede se loggarsi come cliente o venditore oppure creare un nuovo profilo cliente.*/
     public static Utente accesso() {
 
         Utente utente = null;
@@ -93,7 +94,7 @@ public class Login {
                     "SELECT '" + nome + "', '" + cognome + "', '" + email + "', '" + password + "', '" + indirizzo + "', '" + paese + "', '" + numeroTelefono + "'\n" +
                     "WHERE NOT EXISTS ( SELECT * FROM cliente\n" +
                     "WHERE email = '" + email + "');";
-            System.out.println(query);
+
             stmt.execute(query);
 
         } catch (SQLException e) {
@@ -139,7 +140,6 @@ public class Login {
             String query = "SELECT id_cliente, nome, cognome, email, password, indirizzo, paese, telefono\n" +
                     "FROM cliente\n" +
                     "WHERE email ='" + email + "'" + "AND password = '" + password + "';";
-            System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
             ArrayList<Cliente> cliente = DataMapper.getClientiFromDb(rs);
@@ -182,7 +182,6 @@ public class Login {
             String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
                     "FROM venditore\n" +
                     "WHERE email ='" + email + "'" + "AND password = '" + password + "';";
-            System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
             ArrayList<Gestore> gestore = DataMapper.getVenditoriFromDb(rs);

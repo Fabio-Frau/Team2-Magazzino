@@ -162,20 +162,4 @@ public class DbManager {
 
 
 
-
-   /* private static ArrayList<City> dataMapper(ResultSet rs) throws SQLException {
-        ArrayList<City> cities = new ArrayList<>();
-        while (rs.next()) {
-            City city = new City(
-                    rs.getInt("ID"),
-                    rs.getString("Name"),
-                    rs.getString("CountryCode"),
-                    rs.getString("District"),
-                    rs.getInt("Population")
-            );
-            cities.add(city);
-        }
-        return cities;
-    }*/
-
 }

@@ -16,12 +16,9 @@ public class DbRicercaVenditore {
             String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
                     "FROM venditore\n" +
                     "WHERE id_venditore =" + id + " ;";
-            System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
-
             return DataMapper.getVenditoriFromDb(rs);
-
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -34,12 +31,9 @@ public class DbRicercaVenditore {
             String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
                     "FROM venditore\n" +
                     "WHERE nome ='" + nome + "' ;";
-            System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
-
             return DataMapper.getVenditoriFromDb(rs);
-
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -52,12 +46,9 @@ public class DbRicercaVenditore {
             String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
                     "FROM venditore\n" +
                     "WHERE cognome ='" + cognome + "' ;";
-            System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
-
             return DataMapper.getVenditoriFromDb(rs);
-
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -70,12 +61,9 @@ public class DbRicercaVenditore {
             String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
                     "FROM venditore\n" +
                     "WHERE email ='" + email + "' ;";
-            System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
-
             return DataMapper.getVenditoriFromDb(rs);
-
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -88,12 +76,9 @@ public class DbRicercaVenditore {
             String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
                     "FROM venditore\n" +
                     "WHERE indirizzo LIKE '%" + indirizzo + "%' ;";
-            System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
-
             return DataMapper.getVenditoriFromDb(rs);
-
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -106,12 +91,9 @@ public class DbRicercaVenditore {
             String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
                     "FROM venditore\n" +
                     "WHERE paese ='" + paese + "' ;";
-            System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
-
             return DataMapper.getVenditoriFromDb(rs);
-
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -124,12 +106,9 @@ public class DbRicercaVenditore {
             String query = "SELECT id_venditore, nome, cognome, email, password, indirizzo, paese, telefono\n" +
                     "FROM venditore\n" +
                     "WHERE telefono ='" + telefono + "' ;";
-            System.out.println(query);
 
             ResultSet rs = stmt.executeQuery(query);
-
             return DataMapper.getVenditoriFromDb(rs);
-
 
         } catch (SQLException e) {
             System.out.println(e);

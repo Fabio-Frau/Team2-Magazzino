@@ -1,5 +1,6 @@
 package SceltaOperazione;
 
+import DBManager.DbRicercaProdotto;
 import Login.Gestore;
 import Magazzino.Magazzino;
 import Prodotti.Prodotto;
@@ -27,11 +28,11 @@ public class InterfacciaGestoreDB {
 
             switch (sceltaUtente) {
                 case 1: {
-                    //Stampa.perGestore(magazzino.getListaProdotti());
+                    Verifica.checkResultsGestore(DbRicercaProdotto.ricercaTuttiProdotti());
                     break;
                 }
                 case 2: {
-                    //sceltaRicercheGestore(magazzino);
+                    sceltaRicercheGestore();
                     break;
                 }
                 case 3: {
@@ -61,33 +62,33 @@ public class InterfacciaGestoreDB {
 
     }
 
-    public static void sceltaRicercheGestore(Magazzino magazzino) {
+    public static void sceltaRicercheGestore() {
 
         ricGestore : while(true) {
             System.out.println("Opzioni disponibili" +
                     "\n 1. Ricerca per produttore" + "\n 2. Ricerca per modello" + "\n 3. Ricerca per ID" +
                     "\n 4. Ricerca per dimensione display" + "\n 5. Ricerca per dimensione memoria" +
                     "\n 6. Ricerca per prezzo d'acquisto" + "\n 7. Ricerca per prezzo di vendita" +
-                    "\n 8. Ricerca per tipo di prodotto" + "\n0. Ritorna al menu scelta operazioni gestore.");
+                    "\n 8. Ricerca per tipo di prodotto" + "\n 0. Ritorna al menu scelta operazioni gestore.");
 
             int sceltaUtente = Input.readInt();
             switch (sceltaUtente) {
                 case 1: {
                     System.out.println("Inserisci la marca del prodotto cercato:");
                     String marca = Input.readStr();
-                    Verifica.checkResultsGestore(RicercaPerMarca.ricercaPerMarca(magazzino.getListaProdotti(), marca));
+                    Verifica.checkResultsGestore(DbRicercaProdotto.ricercaPerProduttore(marca));
                     break;
                 }
                 case 2: {
                     System.out.println("Inserisci il modello del prodotto cercato:");
                     String modello = Input.readStr();
-                    Verifica.checkResultsGestore(RicercaPerModello.ricercaPerModello(magazzino.getListaProdotti(), modello));
+                    Verifica.checkResultsGestore(DbRicercaProdotto.ricercaPerModello(modello));
                     break;
                 }
                 case 3: {
                     System.out.println("Inserisci l'id del prodotto: ");
-                    String id = Input.readStr();
-                    Verifica.checkResultsGestore(RicercaPerID.ricercaPerID(magazzino.getListaProdotti(), id));
+                    int id = Input.readInt();
+                    Verifica.checkResultsGestore(DbRicercaProdotto.ricercaPerID(id));
                     break;
                 }
                 case 4: {
@@ -95,7 +96,7 @@ public class InterfacciaGestoreDB {
                     double[] minAndMax = RangeUtils.DoubleRange();
                     double min = minAndMax[0];
                     double max = minAndMax[1];
-                    Verifica.checkResultsGestore(RicercaPerDimSchermo.ricercaDimSchermo(magazzino.getListaProdotti(), min, max));
+                    Verifica.checkResultsGestore(DbRicercaProdotto.ricercaPerDimensioneSchermo(min, max));
                     break;
                 }
                 case 5: {
@@ -103,25 +104,25 @@ public class InterfacciaGestoreDB {
                     int[] minAndMax = Input.readIntSort();
                     int min = minAndMax[0];
                     int max = minAndMax[1];
-                    Verifica.checkResultsGestore(RicercaPerDimMemoria.ricercaDimMemoria(magazzino.getListaProdotti(),min,max));
+                    Verifica.checkResultsGestore(DbRicercaProdotto.ricercaPerMemoria(min, max));
                     break;
                 }
                 case 6: {
                     System.out.println("Inserisci la fascia di prezzo: (€)");
                     BigDecimal[] range = RangeUtils.DoubleRangeBD();
-                    Verifica.checkResultsGestore((RicercaPerPrezzo.ricercaPerPrezzoAcquisto(magazzino.getListaProdotti(), range)));
+                    Verifica.checkResultsGestore(DbRicercaProdotto.ricercaPerPrezzoAcquisto(range[0], range[1]));
                     break;
                 }
                 case 7: {
                     System.out.println("Inserisci la fascia di prezzo: (€)");
                     BigDecimal[] range = RangeUtils.DoubleRangeBD();
-                    Verifica.checkResultsGestore((RicercaPerPrezzo.ricercaPerPrezzoVendita(magazzino.getListaProdotti(), range)));
+                    Verifica.checkResultsGestore(DbRicercaProdotto.ricercaPerPrezzoVendita(range[0], range[1]));
                     break;
                 }
                 case 8: {
                     System.out.println("Inserisci il tipo di prodotto: ");
                     TipoProdotto tipo = Input.readTipo();
-                    Verifica.checkResultsGestore(RicercaPerTipo.ricercaPerTipo(magazzino.getListaProdotti(), tipo));
+                    Verifica.checkResultsGestore(DbRicercaProdotto.ricercaPerCategoria(tipo));
                     break;
                 }
                 case 0: {
