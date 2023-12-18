@@ -223,7 +223,7 @@ public class DbCreateSchema {
             String query = "ALTER TABLE prodottoCarrello " +
                     "ADD CONSTRAINT FK_prodottoCarrello_carrelloCliente " +
                     "FOREIGN KEY (id_carrello) " +
-                    "REFERENCES carrelloCliente(id_carrello);";
+                    "REFERENCES carrelloCliente(id_carrello) ON DELETE CASCADE;";
             stmt.executeUpdate(query);
 
         } catch (Exception e) {

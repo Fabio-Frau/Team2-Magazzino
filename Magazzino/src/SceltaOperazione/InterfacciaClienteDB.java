@@ -76,7 +76,9 @@ public class InterfacciaClienteDB {
                 }
                 case 6: {
                     //carrello.getCarrello().clear();
-                    System.out.println("Carrello svuotato");
+                    System.out.println("Inserisci l'ID del carrello");
+                    int id_carrello =Input.readInt();
+                    DbDelete.svuotaCarrello(id_carrello, cliente);
                     break;
                 }
                 case 7: {
