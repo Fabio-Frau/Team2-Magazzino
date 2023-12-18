@@ -10,6 +10,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DataMapper {
+
+    public static ArrayList<Integer> getIDCarrelliClienteDb(ResultSet rs) {
+        ArrayList<Integer> id_carrelli_cliente = new ArrayList<>();
+        try {
+            while (rs.next()) {
+                id_carrelli_cliente.add( rs.getInt("id_carrello"));
+            }
+            return id_carrelli_cliente;
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+
     public static ArrayList<Prodotto> getProdottiFromDb(ResultSet rs) {
         ArrayList<Prodotto> prodotti = new ArrayList<>();
         try {
