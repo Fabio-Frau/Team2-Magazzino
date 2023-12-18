@@ -1,6 +1,7 @@
 package SceltaOperazione;
 
 import Carrello.Carrello;
+import DBManager.DbDelete;
 import DBManager.DbRicercaCarrelloCliente;
 import DBManager.DbRicercaProdotto;
 import Login.Cliente;
@@ -65,15 +66,12 @@ public class InterfacciaClienteDB {
                     break;
                 }
                 case 5: {
+                    System.out.println("Inserisci l'ID del carrello");
+                    int id_carrello =Input.readInt();
                     System.out.println("Inserisci l'ID del prodotto da rimuovere dal carrello");
-                    /*String id =Input.readStr();
-                    Prodotto rimozione = carrello.rimuoviProdottoPerID(id);
-                    if (rimozione != null) {
-                        magTemp.aggiungiProdotto(rimozione);
-                        Stampa.perCliente(carrello.getCarrello());
-                    } else {
-                        System.out.println("Il prodotto selezionato non è presente nel carrello");
-                    }*/
+                    int id_prodotto =Input.readInt();
+                    DbDelete.deleteProdottoCarrello(id_prodotto, id_carrello, cliente);
+
                     break;
                 }
                 case 6: {

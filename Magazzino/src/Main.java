@@ -6,6 +6,7 @@ import Magazzino.*;
 
 import java.sql.SQLException;
 
+import SceltaOperazione.InterfacciaGestoreDB;
 import Utility.*;
 
 
@@ -17,7 +18,6 @@ public class Main {
         //Stampa.venditori(DbRicercaVenditore.ricercaPerTelefono("123"));
         //Login.pgAccediDb();
         Login.accesso();
-
 
     }
 
