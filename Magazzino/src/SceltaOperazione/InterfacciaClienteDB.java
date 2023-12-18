@@ -1,6 +1,7 @@
 package SceltaOperazione;
 
 import Carrello.Carrello;
+import DBManager.DbRicercaCarrelloCliente;
 import DBManager.DbRicercaProdotto;
 import Login.Cliente;
 import Login.Utente;
@@ -19,8 +20,7 @@ import java.util.ArrayList;
 public class InterfacciaClienteDB {
     public static void operazioniCliente(Cliente cliente) {
 
-        Carrello carrello = new Carrello(new ArrayList<Prodotto>());
-        //Magazzino magTemp = magazzino.clone();
+        ArrayList<Integer> carrelli_cliente = null;
 
         opCliente : while (true) {
             System.out.println("Seleziona l'operazione da eseguire:\n" +
@@ -46,7 +46,10 @@ public class InterfacciaClienteDB {
                     break;
                 }
                 case 3: {
-                    Stampa.perCliente(carrello.getCarrello());
+//                    carrelli_cliente = DbRicercaCarrelloCliente.getCarrelliCliente(cliente.getId());
+//                    System.out.println(carrelli_cliente);
+
+                    Stampa.perCliente(DbRicercaCarrelloCliente.getProdottiCarrelliCliente(cliente.getId()));
                     break;
                 }
                 case 4: {
@@ -74,13 +77,13 @@ public class InterfacciaClienteDB {
                     break;
                 }
                 case 6: {
-                    carrello.getCarrello().clear();
+                    //carrello.getCarrello().clear();
                     System.out.println("Carrello svuotato");
                     break;
                 }
                 case 7: {
                     System.out.println("Il prezzo totale del carrello é di ");
-                    System.out.println(carrello.getPrezzoTotale());
+                    //System.out.println(carrello.getPrezzoTotale());
                     break;
                 }
                 case 8: {
