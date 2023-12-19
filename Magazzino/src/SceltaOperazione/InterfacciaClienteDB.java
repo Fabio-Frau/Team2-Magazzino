@@ -70,15 +70,16 @@ public class InterfacciaClienteDB {
                     break;
                 }
                 case 6: {
-                    //carrello.getCarrello().clear();
                     System.out.println("Inserisci l'ID del carrello");
                     int id_carrello =Input.readInt();
                     DbDelete.svuotaCarrello(id_carrello, cliente);
                     break;
                 }
                 case 7: {
+                    System.out.println("Seleziona carrello di cui calcolare il totale");
+                    int id_carrello =Input.readInt();
                     System.out.println("Il prezzo totale del carrello é di ");
-                    //System.out.println(carrello.getPrezzoTotale());
+                    System.out.println(DbRicercaCarrelloCliente.getCostoTotaleCarrello(cliente,id_carrello));                    ;
                     break;
                 }
                 case 8: {
