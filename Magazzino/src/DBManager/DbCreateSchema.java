@@ -295,4 +295,22 @@ public class DbCreateSchema {
             System.out.println(e);
         }
     }
+
+    public static void createProcedureInsertProdottoIntoCarrello() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "create procedure insertProdottoIntoCarrello(idcarrello INT, idprodotto INT, idcliente INT) \n" +
+                    "BEGIN\n" +
+                    "if (select exists (select id_carrello from carrellocliente where id_cliente = idcliente))\n" +
+                    "then insert into prodottocarrello (id_prodotto, id_carrello) values(idprodotto, idcarrello);\n" +
+                    "end if;\n" +
+                    "end;\n" +
+                    "\n";
+
+            stmt.execute(query);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+
 }
