@@ -1,10 +1,7 @@
 package SceltaOperazione;
 
 import Carrello.Carrello;
-import DBManager.DbDelete;
-import DBManager.DbInsert;
-import DBManager.DbRicercaCarrelloCliente;
-import DBManager.DbRicercaProdotto;
+import DBManager.*;
 import Login.Cliente;
 import Login.Utente;
 import Magazzino.Magazzino;
@@ -59,7 +56,7 @@ public class InterfacciaClienteDB {
                     int id_prodotto = Input.readInt();
                     System.out.println("Inserisci l'ID del carrello");
                     int id_carrello = Input.readInt();
-                    DbInsert.insertProdottoIntoProdottoCarrello(id_prodotto, id_carrello, cliente);
+                    DbCallProcedures.callInsertProdottoIntoCarrello(id_carrello,id_prodotto, Integer.valueOf(cliente.getId()));
 
                     break;
                 }

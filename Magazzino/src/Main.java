@@ -17,8 +17,8 @@ public class Main {
         //Stampa.perCliente(DbRicercaProdotto.ricercaPerID(16));
         //Stampa.venditori(DbRicercaVenditore.ricercaPerTelefono("123"));
         //Login.pgAccediDb();
-        //Login.accesso();
-        DbCallProcedures.callInsertProdottoIntoCarrello(1,20,1);
+        Login.accesso();
+
 
 
     }
