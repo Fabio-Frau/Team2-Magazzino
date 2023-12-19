@@ -1,8 +1,7 @@
 package SceltaOperazione;
 
 import Carrello.Carrello;
-import DBManager.DbRicercaCarrelloCliente;
-import DBManager.DbRicercaProdotto;
+import DBManager.*;
 import Login.Cliente;
 import Login.Utente;
 import Magazzino.Magazzino;
@@ -54,36 +53,33 @@ public class InterfacciaClienteDB {
                 }
                 case 4: {
                     System.out.println("Inserisci l'ID del prodotto da aggiungere al carrello");
-                    /*String id = Input.readStr();
-                    Prodotto aggiunta = magTemp.rimuoviProdottoPerID(id);
-                    if( aggiunta != null) {
-                        carrello.aggiungiProdotto(aggiunta);
-                        Stampa.perCliente(carrello.getCarrello());
-                    } else {
-                        System.out.println("Il prodotto selezionato non è presente in magazzino.");
-                    }*/
+                    int id_prodotto = Input.readInt();
+                    System.out.println("Inserisci l'ID del carrello");
+                    int id_carrello = Input.readInt();
+                    DbCallProcedures.callInsertProdottoIntoCarrello(id_carrello,id_prodotto, Integer.valueOf(cliente.getId()));
+
                     break;
                 }
                 case 5: {
+                    System.out.println("Inserisci l'ID del carrello");
+                    int id_carrello =Input.readInt();
                     System.out.println("Inserisci l'ID del prodotto da rimuovere dal carrello");
-                    /*String id =Input.readStr();
-                    Prodotto rimozione = carrello.rimuoviProdottoPerID(id);
-                    if (rimozione != null) {
-                        magTemp.aggiungiProdotto(rimozione);
-                        Stampa.perCliente(carrello.getCarrello());
-                    } else {
-                        System.out.println("Il prodotto selezionato non è presente nel carrello");
-                    }*/
+                    int id_prodotto =Input.readInt();
+                    DbDelete.deleteProdottoCarrello(id_prodotto, id_carrello, cliente);
+
                     break;
                 }
                 case 6: {
-                    //carrello.getCarrello().clear();
-                    System.out.println("Carrello svuotato");
+                    System.out.println("Inserisci l'ID del carrello");
+                    int id_carrello =Input.readInt();
+                    DbDelete.svuotaCarrello(id_carrello, cliente);
                     break;
                 }
                 case 7: {
+                    System.out.println("Seleziona carrello di cui calcolare il totale");
+                    int id_carrello =Input.readInt();
                     System.out.println("Il prezzo totale del carrello é di ");
-                    //System.out.println(carrello.getPrezzoTotale());
+                    System.out.println(DbRicercaCarrelloCliente.getCostoTotaleCarrello(cliente,id_carrello));                    ;
                     break;
                 }
                 case 8: {

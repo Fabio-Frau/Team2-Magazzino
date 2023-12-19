@@ -34,10 +34,20 @@ public class DbManager {
         }
     }
 
+
+
     public static Statement createStatementForDbMagazzino () {
         try {
             Connection conn = DriverManager.getConnection(DB_URL_MAGAZZINO, USER_MAGAZZINO, PASSWORD_MAGAZZINO);
             return conn.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Connection createConnectionForDbMagazzino() {
+        try {
+            return DriverManager.getConnection(DB_URL_MAGAZZINO, USER_MAGAZZINO, PASSWORD_MAGAZZINO);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -158,6 +168,7 @@ public class DbManager {
         DbPopulate.populateDettaglioOrdine();
         DbPopulate.populateCarrelloCliente();
         DbPopulate.populateProdottoCarrello();
+        DbCreateSchema.createProcedureInsertProdottoIntoCarrello();
     }
 
 

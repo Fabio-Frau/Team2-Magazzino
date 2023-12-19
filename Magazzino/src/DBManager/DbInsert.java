@@ -1,4 +1,5 @@
 package DBManager;
+import Login.Cliente;
 import Login.Gestore;
 import Prodotti.Prodotto;
 import Prodotti.TipoProdotto;
@@ -27,6 +28,24 @@ public class DbInsert {
         }
 
     }
+
+    public static void insertProdottoIntoProdottoCarrello(int id_prodotto, int id_carrello, Cliente cliente) {
+        try (Statement stmt = DbManager.createStatementForDbMagazzino()) {
+            String query = "INSERT INTO prodottoCarrello (id_carrello, id_prodotto) \n" +
+                    "SELECT " + id_carrello + ", " + id_prodotto + " \n" +
+                    "FROM carrelloCliente JOIN prodottoCarrello ON carrelloCliente.id_carrello = prodottoCarrello.id_carrello \n" +
+                    "WHERE carrelloCliente.id_cliente = " + cliente.getId() + ";";
+            System.out.println(query);
+
+            stmt.executeUpdate(query);
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
+
+
 
 
 }
