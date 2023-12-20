@@ -1,4 +1,5 @@
 package DBManager;
+import Prodotti.Prodotto;
 import Prodotti.TipoProdotto;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -30,6 +31,18 @@ public class DbPopulate {
         for (int i = 1; i <= 9; i++) {
             DbManager.insertProdotto(3, TipoProdotto.TABLET, "Samsung", "Galaxy Tab A7 Lite", "NULL", 64,
                     8.7, BigDecimal.valueOf(60), BigDecimal.valueOf(119.00));
+        }
+        for (int i = 1; i <= 2; i++) {
+            DbManager.insertProdotto(3, TipoProdotto.SMARTPHONE, "Samsung", "Galaxy A54", "NULL", 256,
+                    6.4, BigDecimal.valueOf(250), BigDecimal.valueOf(529.00));
+        }
+        for (int i = 1; i <= 4; i++) {
+            DbManager.insertProdotto(3, TipoProdotto.SMARTPHONE, "Samsung", "Galaxy S23 Ultra", "NULL", 256,
+                    6.8, BigDecimal.valueOf(450), BigDecimal.valueOf(999.00));
+        }
+        for (int i = 1; i <= 1; i++) {
+            DbManager.insertProdotto(4, TipoProdotto.SMARTPHONE, "Xiaomi",  "Redmi Note 12 Pro", "NULL", 256,
+                    6.67, BigDecimal.valueOf(200), BigDecimal.valueOf(339.00));
         }
     }
 

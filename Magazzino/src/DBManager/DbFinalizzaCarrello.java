@@ -1,2 +1,5 @@
-package DBManager;public class DbFinalizzaCarrello {
+package DBManager;
+
+public class DbFinalizzaCarrello {
+
 }
