@@ -40,7 +40,7 @@ public class DbPopulate {
             DbManager.insertProdotto(3, TipoProdotto.SMARTPHONE, "Samsung", "Galaxy S23 Ultra", "NULL", 256,
                     6.8, BigDecimal.valueOf(450), BigDecimal.valueOf(999.00));
         }
-        for (int i = 1; i <= 1; i++) {
+        for (int i = 1; i <= 5; i++) {
             DbManager.insertProdotto(4, TipoProdotto.SMARTPHONE, "Xiaomi",  "Redmi Note 12 Pro", "NULL", 256,
                     6.67, BigDecimal.valueOf(200), BigDecimal.valueOf(339.00));
         }
