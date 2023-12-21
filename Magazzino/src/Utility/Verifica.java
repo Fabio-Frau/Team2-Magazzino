@@ -25,6 +25,13 @@ public class Verifica {
         }
     }
 
-    
+    public static boolean checkAppartenenzaCarrelloCliente(ArrayList<Carrello> carrelli, int idcarrelo) {
+        for (Carrello carrello : carrelli) {
+            if (carrello.getIdcarrello() == idcarrelo) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

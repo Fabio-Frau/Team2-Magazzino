@@ -2,6 +2,8 @@ import DBManager.DbManager;
 import Login.*;
 import java.sql.SQLException;
 
+import static DBManager.DbRicercaProdotto.checkDisponibilitaProdotto;
+
 
 public class Main {
 
@@ -9,6 +11,9 @@ public class Main {
         //DbManager.initDb();
 
         Login.accesso();
+
+
+
 
 
     }

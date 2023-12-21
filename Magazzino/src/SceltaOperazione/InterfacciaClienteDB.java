@@ -51,11 +51,10 @@ public class InterfacciaClienteDB {
                     int id_prodotto = Input.readInt();
                     System.out.println("Inserisci l'ID del carrello");
                     int id_carrello = Input.readInt();
-                    //fare check se l'id è presente nei carrellicliente
-                    //invece che la standard procedure aggiornare l'oggetto carrello e usare REPLACE INTO
-                    //se la riga c'è già lo sostituisce se non esiste ne crea uan nuova
 
-                    //check per vedere se il prodotto è disponibile in magazzino
+                    if (Verifica.checkAppartenenzaCarrelloCliente(carrelliCliente, id_carrello)) {
+                        DbInsert.insertProdottoCarrello(id_prodotto, id_carrello);
+                    }
 
                     DbCallProcedures.callInsertProdottoIntoCarrello(id_carrello,id_prodotto, Integer.valueOf(cliente.getId()));
 

@@ -14,6 +14,21 @@ import static DBManager.DbManager.createStatementForDbMagazzino;
 
 public class DbRicercaProdotto {
 
+    public static Boolean checkDisponibilitaProdotto(int id_prodotto) {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "SELECT disponibile\n" +
+                    "FROM prodotto WHERE id_prodotto = " + id_prodotto + ";";
+
+            ResultSet rs = stmt.executeQuery(query);
+            rs.next();
+            return rs.getBoolean("disponibile");
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
     public static ArrayList<Prodotto> ricercaTuttiProdotti() {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "SELECT *\n" +
