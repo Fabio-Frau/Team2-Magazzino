@@ -100,7 +100,7 @@ public class DbCreateSchema {
         }
     }
 
-    public static void createDettaglioOrdineTab() {
+  /*  public static void createDettaglioOrdineTab() {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "CREATE TABLE IF NOT EXISTS dettaglioOrdine (" +
                     "id_prodotto INT NOT NULL," +
@@ -111,9 +111,9 @@ public class DbCreateSchema {
         } catch (Exception e) {
             System.out.println(e);
         }
-    }
+    }*/
 
-    public static void createOrdineTab() {
+ /*   public static void createOrdineTab() {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "CREATE TABLE IF NOT EXISTS ordine (" +
                     "id_ordine INT NOT NULL AUTO_INCREMENT," +
@@ -125,8 +125,24 @@ public class DbCreateSchema {
         } catch (Exception e) {
             System.out.println(e);
         }
-    }
+    }*/
 
+
+    public static void createOrdineFinalizzatoTab() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "CREATE TABLE IF NOT EXISTS ordine_finalizzato (" +
+                    "id_s INT NOT NULL AUTO_INCREMENT," +
+                    "id_of INT NOT NULL,"+
+                    "id_cliente INT NOT NULL," +
+                    "id_prodotto INT NOT NULL," +
+                    "data DATETIME," +
+                    "PRIMARY KEY (id_s));";
+            stmt.executeUpdate(query);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     public static void createProdottoCarelloTab() {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "CREATE TABLE IF NOT EXISTS prodottoCarrello (" +
@@ -166,10 +182,23 @@ public class DbCreateSchema {
         }
     }
 
-    public static void createFkDettaglioOrdineProdotto() {
+//    public static void createFkDettaglioOrdineProdotto() {
+//        try (Statement stmt = createStatementForDbMagazzino()) {
+//            String query = "ALTER TABLE dettaglioOrdine " +
+//                    "ADD CONSTRAINT FK_dettaglioOrdine_prodotto " +
+//                    "FOREIGN KEY (id_prodotto) " +
+//                    "REFERENCES prodotto(id_prodotto);";
+//            stmt.executeUpdate(query);
+//
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//    }
+
+    public static void createFkOrdineFinalizzatoProdotto() {
         try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "ALTER TABLE dettaglioOrdine " +
-                    "ADD CONSTRAINT FK_dettaglioOrdine_prodotto " +
+            String query = "ALTER TABLE ordine_finalizzato " +
+                    "ADD CONSTRAINT FK_ordinefinalizzato_prodotto " +
                     "FOREIGN KEY (id_prodotto) " +
                     "REFERENCES prodotto(id_prodotto);";
             stmt.executeUpdate(query);
@@ -178,24 +207,10 @@ public class DbCreateSchema {
             System.out.println(e);
         }
     }
-
-    public static void createFkDettaglioOrdineOrdine() {
+    public static void createFkOrdineFinalizzatoCliente() {
         try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "ALTER TABLE dettaglioOrdine " +
-                    "ADD CONSTRAINT FK_dettaglioOrdine_ordine " +
-                    "FOREIGN KEY (id_ordine) " +
-                    "REFERENCES ordine(id_ordine);";
-            stmt.executeUpdate(query);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void createFkOrdineCliente() {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "ALTER TABLE ordine " +
-                    "ADD CONSTRAINT FK_ordine_cliente " +
+            String query = "ALTER TABLE ordine_finalizzato " +
+                    "ADD CONSTRAINT FK_dettaglioOrdine_cliente " +
                     "FOREIGN KEY (id_cliente) " +
                     "REFERENCES cliente(id_cliente);";
             stmt.executeUpdate(query);
@@ -204,6 +219,33 @@ public class DbCreateSchema {
             System.out.println(e);
         }
     }
+
+
+//    public static void createFkDettaglioOrdineOrdine() {
+//        try (Statement stmt = createStatementForDbMagazzino()) {
+//            String query = "ALTER TABLE dettaglioOrdine " +
+//                    "ADD CONSTRAINT FK_dettaglioOrdine_ordine " +
+//                    "FOREIGN KEY (id_ordine) " +
+//                    "REFERENCES ordine(id_ordine);";
+//            stmt.executeUpdate(query);
+//
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//    }
+
+//    public static void createFkOrdineCliente() {
+//        try (Statement stmt = createStatementForDbMagazzino()) {
+//            String query = "ALTER TABLE ordine " +
+//                    "ADD CONSTRAINT FK_ordine_cliente " +
+//                    "FOREIGN KEY (id_cliente) " +
+//                    "REFERENCES cliente(id_cliente);";
+//            stmt.executeUpdate(query);
+//
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//    }
 
     public static void createFkCarrelloClienteCliente() {
         try (Statement stmt = createStatementForDbMagazzino()) {
@@ -290,6 +332,16 @@ public class DbCreateSchema {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "ALTER TABLE magazzino.cliente " +
                     "ADD CONSTRAINT cliente_un_telefono UNIQUE KEY (telefono);";
+            stmt.executeUpdate(query);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void createUKOrdineFinalizzato() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "ALTER TABLE ordine_finalizzato " +
+                    "ADD CONSTRAINT uk_prodotto UNIQUE KEY (id_prodotto);";
             stmt.executeUpdate(query);
         } catch (Exception e) {
             System.out.println(e);
