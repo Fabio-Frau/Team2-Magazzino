@@ -104,4 +104,22 @@ public class DbPopulate {
         DbInsert.insertProdottoCarrello(30,3);
         DbInsert.insertProdottoCarrello(29,4);
     }
+
+    public static void populateProdottiVenduti() {
+        DbUpdate.rimuoviDisponibilitaProdotto(1);
+        DbUpdate.rimuoviDisponibilitaProdotto(2);
+        DbUpdate.rimuoviDisponibilitaProdotto(3);
+        DbUpdate.rimuoviDisponibilitaProdotto(4);
+        DbUpdate.rimuoviDisponibilitaProdotto(5);
+        DbUpdate.rimuoviDisponibilitaProdotto(6);
+        DbUpdate.rimuoviDisponibilitaProdotto(7);
+        DbUpdate.rimuoviDisponibilitaProdotto(11);
+        DbUpdate.rimuoviDisponibilitaProdotto(19);
+        DbUpdate.rimuoviDisponibilitaProdotto(20);
+        DbUpdate.rimuoviDisponibilitaProdotto(21);
+        DbUpdate.rimuoviDisponibilitaProdotto(24);
+        DbUpdate.rimuoviDisponibilitaProdotto(25);
+
+    }
+
 }

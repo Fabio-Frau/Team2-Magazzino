@@ -10,6 +10,7 @@ import java.sql.Statement;
 
 public class DbDelete {
 
+    //trasformarlo in update disp = 0 non voglio eliminare il prodotto problemi con FK
     public static void deleteProdottoVenditore(int id, Gestore gestore) {
         try (Statement stmt = DbManager.createStatementForDbMagazzino()) {
             String query = "DELETE FROM Prodotto WHERE id_prodotto = " + id + " AND id_venditore = " + gestore.getId() + " ;";

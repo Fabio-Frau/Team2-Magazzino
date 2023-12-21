@@ -62,8 +62,7 @@ public class DbManager {
         DbCreateSchema.createProdottoTab();
         DbCreateSchema.addColumnDisp();
         DbCreateSchema.createDettaglioOrdineTab();
-        DbCreateSchema.createOrdineTab();
-        //DbCreateSchema.createOrdineFinalizzatoTab();
+        DbCreateSchema.createOrdineTab();        ;
         DbCreateSchema.createProdottoCarelloTab();
         DbCreateSchema.createCarrelloClienteTab();
         DbCreateSchema.addDisponibilita();
@@ -71,8 +70,6 @@ public class DbManager {
         DbCreateSchema.createFkDettaglioOrdineProdotto();
         DbCreateSchema.createFkDettaglioOrdineOrdine();
         DbCreateSchema.createFkOrdineCliente();
-//        DbCreateSchema.createFkOrdineFinalizzatoProdotto();
-//        DbCreateSchema.createFkOrdineFinalizzatoCliente();
         DbCreateSchema.createFkCarrelloClienteCliente();
         DbCreateSchema.createFkProdottoCarrello_CarrelloCliente();
         DbCreateSchema.createFkProdottoCarrelloProdotto();
@@ -81,11 +78,10 @@ public class DbManager {
         DbCreateSchema.createUKEmailVenditore();
         DbCreateSchema.createUKTelefonoCliente();
         DbCreateSchema.createUKTelefonoVenditore();
-       // DbCreateSchema.createUKOrdineFinalizzato();
         DbPopulate.populateVenditore();
         DbPopulate.populateCliente();
         DbPopulate.populateProdotto();
-//        DbPopulate.populateOrdineFinalizzato();
+        DbPopulate.populateProdottiVenduti();
         DbPopulate.populateOrdine();
         DbPopulate.populateDettaglioOrdine();
         DbPopulate.populateCarrelloCliente();

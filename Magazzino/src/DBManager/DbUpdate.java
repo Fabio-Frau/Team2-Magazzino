@@ -7,11 +7,12 @@ import static DBManager.DbManager.createStatementForDbMagazzino;
 
 public class DbUpdate {
 
-    public static void rimuoviDisponibilitaProdotto(Prodotto prodotto) {
+    public static void rimuoviDisponibilitaProdotto(int idprodotto) {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "UPDATE prodotto " +
-                    " SET disponibile = 0" +
-                    " WHERE id_prodotto = " + prodotto.getId() + ");";
+                    " SET disponibile = 0 " +
+                    " WHERE id_prodotto = " + idprodotto + ";";
+            System.out.println(query);
 
             stmt.executeUpdate(query);
 
