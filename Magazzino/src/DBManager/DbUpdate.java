@@ -1,4 +1,5 @@
 package DBManager;
+import Login.Gestore;
 import Prodotti.Prodotto;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,6 +19,7 @@ public class DbUpdate {
         } catch (SQLException e) {
             System.out.println(e);
         }
-
     }
+
+
 }

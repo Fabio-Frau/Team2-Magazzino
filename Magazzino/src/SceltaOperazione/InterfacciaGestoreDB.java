@@ -2,6 +2,7 @@ package SceltaOperazione;
 import DBManager.DbDelete;
 import DBManager.DbInsert;
 import DBManager.DbRicercaProdotto;
+import DBManager.DbUpdate;
 import Login.Gestore;
 import Prodotti.Prodotto;
 import Prodotti.TipoProdotto;
@@ -45,7 +46,7 @@ public class InterfacciaGestoreDB {
                 case 4: {
                     System.out.println("Digita l'ID del prodotto che vuoi eliminare dal magazzino:");
                     int id = Input.readInt();
-                    DbDelete.deleteProdottoVenditore(id, gestore);
+                    DbUpdate.rimuoviDisponibilitaProdotto(id);
                     break;
                 }
                 case 5: {
