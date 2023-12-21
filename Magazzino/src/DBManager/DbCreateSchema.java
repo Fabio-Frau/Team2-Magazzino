@@ -338,6 +338,16 @@ public class DbCreateSchema {
         }
     }
 
+    public static void createUKOrdineFinalizzato() {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+            String query = "ALTER TABLE ordine_finalizzato " +
+                    "ADD CONSTRAINT uk_prodotto UNIQUE KEY (id_prodotto);";
+            stmt.executeUpdate(query);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
     public static void createProcedureInsertProdottoIntoCarrello() {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "create procedure insertProdottoIntoCarrello(idcarrello INT, idprodotto INT, idcliente INT) \n" +

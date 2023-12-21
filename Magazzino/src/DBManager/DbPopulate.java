@@ -33,6 +33,11 @@ public class DbPopulate {
         }
     }
 
+    public static void populateOrdineFinalizzato() {
+        DbOrdineFinalizzato.ordineFinalizzato("1", "1",  "20", OffsetDateTime.now());
+        DbOrdineFinalizzato.ordineFinalizzato("1", "1", "31", OffsetDateTime.now());
+    }
+
 //    public static void populateOrdine() {
 //        DbManager.insertOrdine(1, OffsetDateTime.now().minusMonths(3));
 //        DbManager.insertOrdine(1, OffsetDateTime.now().minusMonths(4));

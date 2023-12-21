@@ -96,26 +96,26 @@ public class DbManager {
 
     }
 
-    public static void insertOrdine(int id_cliente, OffsetDateTime data_esecuzione) {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String data = data_esecuzione.toString();
-            String query = "INSERT INTO ordine (id_cliente, data_esecuzione ) " + "VALUES ( '" + id_cliente + "', '" + data  + "' );";
-            stmt.execute(query);
-
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void insertDettaglioOrdine(int id_prodotto, int id_ordine) {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "INSERT INTO dettaglioOrdine (id_prodotto, id_ordine ) " + "VALUES ( '" + id_prodotto + "', '" + id_ordine  + "' );";
-            stmt.execute(query);
-
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
+//    public static void insertOrdine(int id_cliente, OffsetDateTime data_esecuzione) {
+//        try (Statement stmt = createStatementForDbMagazzino()) {
+//            String data = data_esecuzione.toString();
+//            String query = "INSERT INTO ordine (id_cliente, data_esecuzione ) " + "VALUES ( '" + id_cliente + "', '" + data  + "' );";
+//            stmt.execute(query);
+//
+//        } catch (SQLException e) {
+//            System.out.println(e);
+//        }
+//    }
+//
+//    public static void insertDettaglioOrdine(int id_prodotto, int id_ordine) {
+//        try (Statement stmt = createStatementForDbMagazzino()) {
+//            String query = "INSERT INTO dettaglioOrdine (id_prodotto, id_ordine ) " + "VALUES ( '" + id_prodotto + "', '" + id_ordine  + "' );";
+//            stmt.execute(query);
+//
+//        } catch (SQLException e) {
+//            System.out.println(e);
+//        }
+//    }
 
     public static void insertCarrelloCliente( int id_cliente) {
         try (Statement stmt = createStatementForDbMagazzino()) {
@@ -164,9 +164,11 @@ public class DbManager {
         DbCreateSchema.createUKEmailVenditore();
         DbCreateSchema.createUKTelefonoCliente();
         DbCreateSchema.createUKTelefonoVenditore();
+        DbCreateSchema.createUKOrdineFinalizzato();
         DbPopulate.populateVenditore();
         DbPopulate.populateCliente();
         DbPopulate.populateProdotto();
+        DbPopulate.populateOrdineFinalizzato();
 //        DbPopulate.populateOrdine();
 //        DbPopulate.populateDettaglioOrdine();
         DbPopulate.populateCarrelloCliente();
