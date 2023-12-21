@@ -31,6 +31,12 @@ public class DbInsert {
 
     }
 
+    public static void insertProdottoQuantitaVolte(Prodotto prodotto, int quantita, Gestore gestore) {
+        for (int i = 0; i < quantita; i++) {
+            insertProdottoIntoProdotto(prodotto, gestore);
+        }
+    }
+
     public static void insertProdottoIntoProdottoCarrello(int id_prodotto, int id_carrello, Cliente cliente) {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "INSERT INTO prodottoCarrello (id_carrello, id_prodotto) \n" +

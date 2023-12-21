@@ -36,9 +36,10 @@ public class InterfacciaGestoreDB {
                     break;
                 }
                 case 3: {
-                    //aggiungere parametro per inserire prodotti multipli
                     Prodotto prodotto = new Prodotto();
-                    DbInsert.insertProdottoIntoProdotto(prodotto, gestore);
+                    System.out.println("Quante unità di prodotto vuoi aggiungere al magazzino?");
+                    int quantita = Input.readInt();
+                    DbInsert.insertProdottoQuantitaVolte(prodotto, quantita, gestore);
                     break;
                 }
                 case 4: {
