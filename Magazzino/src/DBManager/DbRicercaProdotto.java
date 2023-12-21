@@ -47,7 +47,7 @@ public class DbRicercaProdotto {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "SELECT id_prodotto, categoria, produttore, modello, descrizione, dimensione_memoria, dimensione_schermo, prezzo_acquisto, prezzo_vendita\n" +
                     "FROM prodotto\n" +
-                    "WHERE modello LIKE '%" + modello + "%' ;";
+                    "WHERE modello LIKE '%" + modello + "%' AND disponibile = 1 ;";
 
             ResultSet rs = stmt.executeQuery(query);
             return DataMapper.getProdottiFromDb(rs);
@@ -62,7 +62,7 @@ public class DbRicercaProdotto {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "SELECT id_prodotto, categoria, produttore, modello, descrizione, dimensione_memoria, dimensione_schermo, prezzo_acquisto, prezzo_vendita\n" +
                     "FROM prodotto\n" +
-                    "WHERE produttore LIKE '%" + produttore + "%' ;";
+                    "WHERE produttore LIKE '%" + produttore + "%' AND disponibile = 1  ;";
 
             ResultSet rs = stmt.executeQuery(query);
             return DataMapper.getProdottiFromDb(rs);
@@ -77,7 +77,7 @@ public class DbRicercaProdotto {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "SELECT id_prodotto, categoria, produttore, modello, descrizione, dimensione_memoria, dimensione_schermo, prezzo_acquisto, prezzo_vendita\n" +
                     "FROM prodotto\n" +
-                    "WHERE id_prodotto LIKE '%" + id + "%' ;";
+                    "WHERE id_prodotto LIKE '%" + id + "%' AND disponibile = 1 ;";
 
             ResultSet rs = stmt.executeQuery(query);
             return DataMapper.getProdottiFromDb(rs);
@@ -92,7 +92,7 @@ public class DbRicercaProdotto {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "SELECT id_prodotto, categoria, produttore, modello, descrizione, dimensione_memoria, dimensione_schermo, prezzo_acquisto, prezzo_vendita\n" +
                     "FROM prodotto\n" +
-                    "WHERE categoria LIKE '%" + categoria + "%' ;";
+                    "WHERE categoria LIKE '%" + categoria + "%' AND disponibile = 1 ;";
 
             ResultSet rs = stmt.executeQuery(query);
             return DataMapper.getProdottiFromDb(rs);
@@ -107,7 +107,7 @@ public class DbRicercaProdotto {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "SELECT id_prodotto, categoria, produttore, modello, descrizione, dimensione_memoria, dimensione_schermo, prezzo_acquisto, prezzo_vendita\n" +
                     "FROM prodotto\n" +
-                    "WHERE descrizione LIKE '%" + descrizione + "%' ;";
+                    "WHERE descrizione LIKE '%" + descrizione + "%' AND disponibile = 1 ;";
 
             ResultSet rs = stmt.executeQuery(query);
             return DataMapper.getProdottiFromDb(rs);
@@ -122,7 +122,7 @@ public class DbRicercaProdotto {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "SELECT id_prodotto, categoria, produttore, modello, descrizione, dimensione_memoria, dimensione_schermo, prezzo_acquisto, prezzo_vendita\n" +
                     "FROM prodotto\n" +
-                    "WHERE dimensione_schermo BETWEEN " + dimensioneMin + " AND " + dimensioneMax + ";";
+                    "WHERE dimensione_schermo BETWEEN " + dimensioneMin + " AND " + dimensioneMax + " AND disponibile = 1 ;";
 
             ResultSet rs = stmt.executeQuery(query);
             return DataMapper.getProdottiFromDb(rs);
@@ -137,7 +137,7 @@ public class DbRicercaProdotto {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "SELECT id_prodotto, categoria, produttore, modello, descrizione, dimensione_memoria, dimensione_schermo, prezzo_acquisto, prezzo_vendita\n" +
                     "FROM prodotto\n" +
-                    "WHERE prezzo_vendita BETWEEN " + prezzoMinimo + " AND " + prezzoMassimo + ";";
+                    "WHERE prezzo_vendita BETWEEN " + prezzoMinimo + " AND " + prezzoMassimo + " AND disponibile = 1 ;";
 
             ResultSet rs = stmt.executeQuery(query);
             return DataMapper.getProdottiFromDb(rs);
@@ -152,7 +152,7 @@ public class DbRicercaProdotto {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "SELECT id_prodotto, categoria, produttore, modello, descrizione, dimensione_memoria, dimensione_schermo, prezzo_acquisto, prezzo_vendita\n" +
                     "FROM prodotto\n" +
-                    "WHERE prezzo_acquisto BETWEEN " + prezzoMinimo + " AND " + prezzoMassimo + ";";
+                    "WHERE prezzo_acquisto BETWEEN " + prezzoMinimo + " AND " + prezzoMassimo + " AND disponibile = 1 ;";
 
             ResultSet rs = stmt.executeQuery(query);
             return DataMapper.getProdottiFromDb(rs);
@@ -167,7 +167,7 @@ public class DbRicercaProdotto {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "SELECT id_prodotto, categoria, produttore, modello, descrizione, dimensione_memoria, dimensione_schermo, prezzo_acquisto, prezzo_vendita\n" +
                     "FROM prodotto\n" +
-                    "WHERE dimensione_memoria BETWEEN " + memoriaMinima + " AND " + memoriaMassima + ";";
+                    "WHERE dimensione_memoria BETWEEN " + memoriaMinima + " AND " + memoriaMassima + " AND disponibile = 1 ;";
 
             ResultSet rs = stmt.executeQuery(query);
             return DataMapper.getProdottiFromDb(rs);

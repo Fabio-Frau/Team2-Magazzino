@@ -12,7 +12,6 @@ public class DbUpdate {
             String query = "UPDATE prodotto " +
                     " SET disponibile = 0 " +
                     " WHERE id_prodotto = " + idprodotto + ";";
-            System.out.println(query);
 
             stmt.executeUpdate(query);
 
