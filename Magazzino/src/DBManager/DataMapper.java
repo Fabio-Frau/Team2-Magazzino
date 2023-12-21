@@ -46,7 +46,7 @@ public class DataMapper {
         ArrayList<Cliente> clienti = new ArrayList<>();
         try {
             while (rs.next()) {
-                clienti.add(new Cliente(rs.getString("id_cliente"), rs.getString("nome"), rs.getString("cognome"),
+                clienti.add(new Cliente(rs.getInt("id_cliente"), rs.getString("nome"), rs.getString("cognome"),
                         rs.getString("email"), rs.getString("password"), rs.getString("indirizzo"),
                         rs.getString("paese"), rs.getInt("telefono"))
                 );
@@ -62,7 +62,7 @@ public class DataMapper {
         ArrayList<Gestore> venditori = new ArrayList<>();
         try {
             while (rs.next()) {
-                venditori.add(new Gestore(rs.getString("id_venditore"), rs.getString("nome"), rs.getString("cognome"),
+                venditori.add(new Gestore(rs.getInt("id_venditore"), rs.getString("nome"), rs.getString("cognome"),
                         rs.getString("email"), rs.getString("password"), rs.getString("indirizzo"),
                         rs.getString("paese"), rs.getInt("telefono"))
                 );

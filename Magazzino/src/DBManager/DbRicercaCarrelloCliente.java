@@ -1,5 +1,6 @@
 package DBManager;
 
+import Carrello.Carrello;
 import Login.Cliente;
 import Prodotti.Prodotto;
 
@@ -13,15 +14,24 @@ import static DBManager.DbManager.createStatementForDbMagazzino;
 
 public class DbRicercaCarrelloCliente {
 
-    public static ArrayList<Prodotto> getProdottiCarrelliCliente(String id_cliente) {
-        try (Statement stmt = createStatementForDbMagazzino()) {
-            String query = "SELECT prodotto.id_prodotto, categoria, produttore, modello, descrizione, dimensione_memoria, dimensione_schermo, prezzo_acquisto, prezzo_vendita\n" +
-                    "FROM prodotto JOIN prodottocarrello ON prodotto.id_prodotto = prodottocarrello.id_prodotto\n" +
-                    "JOIN carrellocliente ON prodottocarrello.id_carrello = carrellocliente.id_carrello\n" +
-                    "WHERE id_cliente =" + id_cliente + " ;";
 
-            ResultSet rs = stmt.executeQuery(query);
-            return DataMapper.getProdottiFromDb(rs);
+
+    public static ArrayList<Carrello> getProdottiCarrelliCliente(Cliente cliente) {
+        try (Statement stmt = createStatementForDbMagazzino()) {
+
+            ArrayList<Integer> idCarrelliCliente = getCarrelliCliente(cliente);
+            ArrayList<Carrello> carrelliCliente = new ArrayList<>();
+
+            for (Integer idcarrello : idCarrelliCliente) {
+                String query = "SELECT prodotto.id_prodotto, categoria, produttore, modello, descrizione, dimensione_memoria, dimensione_schermo, prezzo_acquisto, prezzo_vendita\n" +
+                        "FROM prodotto JOIN prodottocarrello ON prodotto.id_prodotto = prodottocarrello.id_prodotto\n" +
+                        "WHERE id_carrello =" + idcarrello + " ;";
+
+                ResultSet rs = stmt.executeQuery(query);
+                carrelliCliente.add(new Carrello(DataMapper.getProdottiFromDb(rs), cliente.getId(), idcarrello)) ;
+            }
+
+            return carrelliCliente;
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -29,11 +39,11 @@ public class DbRicercaCarrelloCliente {
         return null;
     }
 
-    public static ArrayList<Integer> getCarrelliCliente(String id_cliente) {
+    public static ArrayList<Integer> getCarrelliCliente(Cliente cliente) {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "SELECT id_carrello\n" +
                     "FROM carrellocliente\n" +
-                    "WHERE id_cliente =" + id_cliente + " ;";
+                    "WHERE id_cliente =" + cliente.getId() + " ;";
 
             ResultSet rs = stmt.executeQuery(query);
             return DataMapper.getIDCarrelliClienteDb(rs);

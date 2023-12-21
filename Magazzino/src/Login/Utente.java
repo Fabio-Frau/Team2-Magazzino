@@ -1,9 +1,7 @@
 package Login;
 
-import java.math.BigInteger;
-
 public class Utente {
-    private String id;
+    private Integer id;
     private String nome;
     private String cognome;
     private String email;
@@ -12,7 +10,7 @@ public class Utente {
     private String paese;
     private int numeroTelefono;
 
-    public Utente(String id, String nome, String cognome, String email, String password, String indirizzo,
+    public Utente(Integer id, String nome, String cognome, String email, String password, String indirizzo,
                   String paese, int numeroTelefono) {
         this.id = id;
         this.nome = nome;
@@ -66,11 +64,11 @@ public class Utente {
         this.numeroTelefono = numeroTelefono;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

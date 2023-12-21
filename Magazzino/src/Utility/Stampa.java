@@ -1,5 +1,6 @@
 package Utility;
 
+import Carrello.Carrello;
 import Login.Cliente;
 import Login.Gestore;
 import Login.Utente;
@@ -8,6 +9,13 @@ import Prodotti.Prodotto;
 import java.util.ArrayList;
 
 public class Stampa {
+
+    public static void carrelliPerCliente(ArrayList<Carrello> carrelli) {
+        for(Carrello carrello : carrelli) {
+            System.out.println("Cliente: " + carrello.getIdcliente() + " ID Carrello: " + carrello.getIdcarrello());
+            perCliente(carrello.getCarrello());
+        }
+    }
 
     public static void perCliente(ArrayList<Prodotto> prodottoCercato) {
         System.out.printf("%-15s %-15s %-15s %-25s %-20s %-20s %-20s", "Tipo", "ID", "Produttore", "Modello", "Dim. Display",

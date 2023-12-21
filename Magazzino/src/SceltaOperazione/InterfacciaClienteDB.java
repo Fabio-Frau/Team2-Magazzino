@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class InterfacciaClienteDB {
     public static void operazioniCliente(Cliente cliente) {
 
-        ArrayList<Integer> carrelli_cliente = null;
+        ArrayList<Carrello> carrelliCliente = DbRicercaCarrelloCliente.getProdottiCarrelliCliente(cliente);
 
         opCliente : while (true) {
             System.out.println("Seleziona l'operazione da eseguire:\n" +
@@ -45,10 +45,12 @@ public class InterfacciaClienteDB {
                     break;
                 }
                 case 3: {
+
+                    Stampa.carrelliPerCliente(carrelliCliente);
 //                    carrelli_cliente = DbRicercaCarrelloCliente.getCarrelliCliente(cliente.getId());
 //                    System.out.println(carrelli_cliente);
 
-                    Stampa.perCliente(DbRicercaCarrelloCliente.getProdottiCarrelliCliente(cliente.getId()));
+                    //Stampa.perCliente(DbRicercaCarrelloCliente.getProdottiCarrelliCliente(cliente));
                     break;
                 }
                 case 4: {

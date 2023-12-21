@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 public class Carrello {
 
+    int idcarrello;
+    int idcliente;
+
+
     private ArrayList<Prodotto> carrello;
     public ArrayList<Prodotto> getCarrello(){return carrello;}
     public void setCarrello(ArrayList<Prodotto> carrello){this.carrello = carrello;}
@@ -58,8 +62,11 @@ public class Carrello {
 
 
 
-    public Carrello(ArrayList<Prodotto> carrello) {
+    public Carrello(ArrayList<Prodotto> carrello, int idcliente, int idcarrello) {
+
         this.carrello = carrello;
+        this.idcarrello = idcarrello;
+        this.idcliente = idcliente;
     }
 
     @Override
@@ -67,5 +74,17 @@ public class Carrello {
         return "Carrello{" +
                 "carrello=" + carrello +
                 '}';
+    }
+
+    public int getIdcarrello() {
+        return idcarrello;
+    }
+
+    public int getIdcliente() {
+        return idcliente;
+    }
+
+    public void setIdcarrello(int idcarrello) {
+        this.idcarrello = idcarrello;
     }
 }

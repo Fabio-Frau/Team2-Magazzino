@@ -1,6 +1,4 @@
 package Utility;
-import SceltaOperazione.InterfacciaCliente;
-import SceltaOperazione.InterfacciaGestore;
 
 import java.util.Scanner;
 
