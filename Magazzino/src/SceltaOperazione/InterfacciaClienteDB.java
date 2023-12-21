@@ -55,6 +55,7 @@ public class InterfacciaClienteDB {
                         int id_carrello = Input.readInt();
                         if (Verifica.checkAppartenenzaCarrelloCliente(carrelliCliente, id_carrello)) {
                             DbInsert.insertProdottoCarrello(id_prodotto, id_carrello);
+                            carrelliCliente = DbRicercaCarrelloCliente.getProdottiCarrelliCliente(cliente);
                         } else {
                             System.out.println("Carrello non appartenente al cliente");
                         }
@@ -67,9 +68,19 @@ public class InterfacciaClienteDB {
                 case 5: {
                     System.out.println("Inserisci l'ID del carrello");
                     int id_carrello =Input.readInt();
-                    System.out.println("Inserisci l'ID del prodotto da rimuovere dal carrello");
-                    int id_prodotto =Input.readInt();
-                    DbDelete.deleteProdottoCarrello(id_prodotto, id_carrello, cliente);
+                    if (Verifica.checkAppartenenzaCarrelloCliente(carrelliCliente, id_carrello)) {
+                        Carrello carrello = Verifica.getCarreloFromCarrelli(carrelliCliente, id_carrello);
+                        System.out.println("Inserisci l'ID del prodotto da rimuovere dal carrello");
+                        int id_prodotto =Input.readInt();
+                        if (Verifica.checkPresenzaProdottoInCarrello(carrello, id_prodotto)) {
+                            DbDelete.deleteProdottoCarrello(id_prodotto, id_carrello, cliente);
+                            carrelliCliente = DbRicercaCarrelloCliente.getProdottiCarrelliCliente(cliente);
+                        } else {
+                            System.out.println("Prodotto non presente nel carrello");
+                        }
+                    } else {
+                        System.out.println("Carrello non appartenente al cliente");
+                    }
 
                     break;
                 }

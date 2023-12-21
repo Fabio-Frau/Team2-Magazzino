@@ -22,9 +22,9 @@ public class Magazzino {
         return this.listaProdotti.addAll(prodotti);
     }
 
-    public Prodotto rimuoviProdottoPerID(String id) {
+    public Prodotto rimuoviProdottoPerID(int id) {
         for (Prodotto prodotto : this.listaProdotti) {
-            if(prodotto.getId().equals(id)) {
+            if(prodotto.getId( )== id) {
                 listaProdotti.remove(prodotto);
                 return prodotto;
             }

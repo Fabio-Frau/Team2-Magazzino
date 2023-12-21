@@ -34,4 +34,22 @@ public class Verifica {
         return false;
     }
 
+    public static Carrello getCarreloFromCarrelli(ArrayList<Carrello> carrelli, int idcarrelo) {
+        for (Carrello carrelo : carrelli) {
+            if (carrelo.getIdcarrello() == idcarrelo) {
+                return carrelo;
+            }
+        }
+        return null;
+    }
+
+    public static boolean checkPresenzaProdottoInCarrello(Carrello carrello, int idprodotto) {
+        for(Prodotto prodotto : carrello.getCarrello()) {
+            if (prodotto.getId() == idprodotto) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

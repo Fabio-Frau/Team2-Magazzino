@@ -22,9 +22,9 @@ public class Carrello {
         return this.carrello.addAll(prodotti);
     }
 
-    public Prodotto rimuoviProdottoPerID(String id) {
+    public Prodotto rimuoviProdottoPerID(int id) {
         for (Prodotto prodotto : this.carrello) {
-            if(prodotto.getId().equals(id)) {
+            if(prodotto.getId() == id) {
                 carrello.remove(prodotto);
                 return prodotto;
             }
