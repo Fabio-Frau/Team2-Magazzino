@@ -57,6 +57,8 @@ public class InterfacciaClienteDB {
                     //invece che la standard procedure aggiornare l'oggetto carrello e usare REPLACE INTO
                     //se la riga c'è già lo sostituisce se non esiste ne crea uan nuova
 
+                    //check per vedere se il prodotto è disponibile in magazzino
+
                     DbCallProcedures.callInsertProdottoIntoCarrello(id_carrello,id_prodotto, Integer.valueOf(cliente.getId()));
 
                     break;

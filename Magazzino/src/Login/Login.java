@@ -1,7 +1,6 @@
 package Login;
 
 import DBManager.DataMapper;
-import DBManager.FakeDB;
 import SceltaOperazione.*;
 
 import java.sql.ResultSet;
