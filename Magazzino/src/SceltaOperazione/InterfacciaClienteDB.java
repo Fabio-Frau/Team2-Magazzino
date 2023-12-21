@@ -85,12 +85,14 @@ public class InterfacciaClienteDB {
                     break;
                 }
                 case 6: {
+                    //Aggiungere i check appartenenza carrello a cliente
                     System.out.println("Inserisci l'ID del carrello");
                     int id_carrello =Input.readInt();
                     DbDelete.svuotaCarrello(id_carrello, cliente);
                     break;
                 }
                 case 7: {
+                    //Farlo calcolare tramite gli oggetti creati in java e non al DB
                     System.out.println("Seleziona carrello di cui calcolare il totale");
                     int id_carrello =Input.readInt();
                     System.out.println("Il prezzo totale del carrello é di ");
@@ -98,6 +100,7 @@ public class InterfacciaClienteDB {
                     break;
                 }
                 case 8: {
+                    //implementare logica check disponibilita prodotto, creazion nuovo ordine, popolare dettaglio ordine con i prodotti
                     /*if (magazzino.checkAvailability(carrello.getCarrello())) {
                         magazzino.rimuoviListaProdotti(carrello.getCarrello());
                         magTemp.getListaProdotti().clear();
