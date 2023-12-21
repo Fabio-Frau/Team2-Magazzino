@@ -17,7 +17,7 @@ public class DbRicercaProdotto {
     public static ArrayList<Prodotto> ricercaTuttiProdotti() {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String query = "SELECT *\n" +
-                    "FROM prodotto;";
+                    "FROM prodotto WHERE disponibile = 1;";
 
             ResultSet rs = stmt.executeQuery(query);
             return DataMapper.getProdottiFromDb(rs);
