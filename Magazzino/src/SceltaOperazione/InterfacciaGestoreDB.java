@@ -1,16 +1,13 @@
 package SceltaOperazione;
-
 import DBManager.DbDelete;
 import DBManager.DbInsert;
 import DBManager.DbRicercaProdotto;
 import Login.Gestore;
-import Magazzino.Magazzino;
 import Prodotti.Prodotto;
 import Prodotti.TipoProdotto;
-import Ricerca.*;
 import Utility.Input;
 import Utility.RangeUtils;
-import Utility.Stampa;
+
 import Utility.Verifica;
 
 import java.math.BigDecimal;

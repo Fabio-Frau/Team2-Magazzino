@@ -1,18 +1,12 @@
 package SceltaOperazione;
-
 import Carrello.Carrello;
 import DBManager.*;
 import Login.Cliente;
-import Login.Utente;
-import Magazzino.Magazzino;
-import Prodotti.Prodotto;
 import Prodotti.TipoProdotto;
-import Ricerca.*;
 import Utility.Input;
 import Utility.RangeUtils;
 import Utility.Stampa;
 import Utility.Verifica;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 

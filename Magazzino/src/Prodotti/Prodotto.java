@@ -23,7 +23,6 @@ public class Prodotto {
         setTipo();
         setProduttore();
         setModello();
-        //setId();
         setDescrizione();
         setDimDisplay();
         setDimMemoria();
