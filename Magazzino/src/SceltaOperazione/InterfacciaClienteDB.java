@@ -49,14 +49,18 @@ public class InterfacciaClienteDB {
                 case 4: {
                     System.out.println("Inserisci l'ID del prodotto da aggiungere al carrello");
                     int id_prodotto = Input.readInt();
-                    System.out.println("Inserisci l'ID del carrello");
-                    int id_carrello = Input.readInt();
 
-                    if (Verifica.checkAppartenenzaCarrelloCliente(carrelliCliente, id_carrello)) {
-                        DbInsert.insertProdottoCarrello(id_prodotto, id_carrello);
+                    if (DbRicercaProdotto.checkDisponibilitaProdotto(id_prodotto)) {
+                        System.out.println("Inserisci l'ID del carrello");
+                        int id_carrello = Input.readInt();
+                        if (Verifica.checkAppartenenzaCarrelloCliente(carrelliCliente, id_carrello)) {
+                            DbInsert.insertProdottoCarrello(id_prodotto, id_carrello);
+                        } else {
+                            System.out.println("Carrello non appartenente al cliente");
+                        }
+                    } else {
+                        System.out.println("Prodotto non disponibile");
                     }
-
-                    DbCallProcedures.callInsertProdottoIntoCarrello(id_carrello,id_prodotto, Integer.valueOf(cliente.getId()));
 
                     break;
                 }
