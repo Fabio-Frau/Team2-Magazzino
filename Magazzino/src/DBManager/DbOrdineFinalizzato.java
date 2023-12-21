@@ -1,15 +1,10 @@
 package DBManager;
 
-import Prodotti.Prodotto;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 import static DBManager.DbManager.createStatementForDbMagazzino;
 
-public class DbFinalizzaCarrello {
+public class DbOrdineFinalizzato {
 
     public static void ordineFinalizzato (String id_cliente){
         try (Statement stmt = createStatementForDbMagazzino()) {

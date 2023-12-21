@@ -167,8 +167,8 @@ public class DbManager {
         DbPopulate.populateVenditore();
         DbPopulate.populateCliente();
         DbPopulate.populateProdotto();
-        DbPopulate.populateOrdine();
-        DbPopulate.populateDettaglioOrdine();
+//        DbPopulate.populateOrdine();
+//        DbPopulate.populateDettaglioOrdine();
         DbPopulate.populateCarrelloCliente();
         DbPopulate.populateProdottoCarrello();
         DbCreateSchema.createProcedureInsertProdottoIntoCarrello();

@@ -33,39 +33,39 @@ public class DbPopulate {
         }
     }
 
-    public static void populateOrdine() {
-        DbManager.insertOrdine(1, OffsetDateTime.now().minusMonths(3));
-        DbManager.insertOrdine(1, OffsetDateTime.now().minusMonths(4));
+//    public static void populateOrdine() {
+//        DbManager.insertOrdine(1, OffsetDateTime.now().minusMonths(3));
+//        DbManager.insertOrdine(1, OffsetDateTime.now().minusMonths(4));
+//
+//
+//        DbManager.insertOrdine(2, OffsetDateTime.now().minusMonths(13));
+//        DbManager.insertOrdine(2, OffsetDateTime.now().minusMonths(7));
+//
+//
+//        DbManager.insertOrdine(3, OffsetDateTime.now().minusMonths(2));
+//        DbManager.insertOrdine(3, OffsetDateTime.now().minusMonths(1));
+//    }
 
-
-        DbManager.insertOrdine(2, OffsetDateTime.now().minusMonths(13));
-        DbManager.insertOrdine(2, OffsetDateTime.now().minusMonths(7));
-
-
-        DbManager.insertOrdine(3, OffsetDateTime.now().minusMonths(2));
-        DbManager.insertOrdine(3, OffsetDateTime.now().minusMonths(1));
-    }
-
-    public static void populateDettaglioOrdine() {
-        DbManager.insertDettaglioOrdine(1,1);
-        DbManager.insertDettaglioOrdine(19,1);
-
-        DbManager.insertDettaglioOrdine(2,2);
-
-        DbManager.insertDettaglioOrdine(3,3);
-
-        DbManager.insertDettaglioOrdine(4,4);
-        DbManager.insertDettaglioOrdine(11,4);
-        DbManager.insertDettaglioOrdine(20,4);
-        DbManager.insertDettaglioOrdine(24,4);
-
-        DbManager.insertDettaglioOrdine(5,5);
-        DbManager.insertDettaglioOrdine(6,5);
-        DbManager.insertDettaglioOrdine(7,5);
-
-        DbManager.insertDettaglioOrdine(21,6);
-        DbManager.insertDettaglioOrdine(25,6);
-    }
+//    public static void populateDettaglioOrdine() {
+//        DbManager.insertDettaglioOrdine(1,1);
+//        DbManager.insertDettaglioOrdine(19,1);
+//
+//        DbManager.insertDettaglioOrdine(2,2);
+//
+//        DbManager.insertDettaglioOrdine(3,3);
+//
+//        DbManager.insertDettaglioOrdine(4,4);
+//        DbManager.insertDettaglioOrdine(11,4);
+//        DbManager.insertDettaglioOrdine(20,4);
+//        DbManager.insertDettaglioOrdine(24,4);
+//
+//        DbManager.insertDettaglioOrdine(5,5);
+//        DbManager.insertDettaglioOrdine(6,5);
+//        DbManager.insertDettaglioOrdine(7,5);
+//
+//        DbManager.insertDettaglioOrdine(21,6);
+//        DbManager.insertDettaglioOrdine(25,6);
+//    }
 
     public static void populateCarrelloCliente() {
         DbManager.insertCarrelloCliente(1);
