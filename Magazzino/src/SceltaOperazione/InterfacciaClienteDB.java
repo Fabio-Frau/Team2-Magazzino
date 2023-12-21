@@ -11,6 +11,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class InterfacciaClienteDB {
+
+
+
     public static void operazioniCliente(Cliente cliente) {
 
         ArrayList<Carrello> carrelliCliente = DbRicercaCarrelloCliente.getProdottiCarrelliCliente(cliente);
@@ -19,12 +22,13 @@ public class InterfacciaClienteDB {
             System.out.println("Seleziona l'operazione da eseguire:\n" +
                     "1. Lettura prodotti in magazzino\n" +
                     "2. Ricerca Prodotto\n" +
-                    "3. Visualizzare il carrello \n" +
+                    "3. Visualizzare i carrelli \n" +
                     "4. Aggiungere un prodotto al carrello\n" +
                     "5. Rimuovere un prodotto dal carrello\n" +
                     "6. Svuotare il carrello\n" +
                     "7. Calcolare la spesa totale\n" +
                     "8. Concludere l'ordine\n" +
+                    "9. Crea nuovo carrello\n" +
                     "0. Ritorna al menu di Login"
             );
 
@@ -86,6 +90,11 @@ public class InterfacciaClienteDB {
                         carrello.getCarrello().clear(); //salvare la transazione da qualche parte
                     }*/
 
+                }
+                case 9: {
+                    DbInsert.insertCarrelloCliente(cliente.getId());
+                    carrelliCliente = DbRicercaCarrelloCliente.getProdottiCarrelliCliente(cliente);
+                    break;
                 }
                 case 0: {
                     break opCliente;
