@@ -45,12 +45,7 @@ public class InterfacciaClienteDB {
                     break;
                 }
                 case 3: {
-
                     Stampa.carrelliPerCliente(carrelliCliente);
-//                    carrelli_cliente = DbRicercaCarrelloCliente.getCarrelliCliente(cliente.getId());
-//                    System.out.println(carrelli_cliente);
-
-                    //Stampa.perCliente(DbRicercaCarrelloCliente.getProdottiCarrelliCliente(cliente));
                     break;
                 }
                 case 4: {
@@ -58,6 +53,10 @@ public class InterfacciaClienteDB {
                     int id_prodotto = Input.readInt();
                     System.out.println("Inserisci l'ID del carrello");
                     int id_carrello = Input.readInt();
+                    //fare check se l'id è presente nei carrellicliente
+                    //invece che la standard procedure aggiornare l'oggetto carrello e usare REPLACE INTO
+                    //se la riga c'è già lo sostituisce se non esiste ne crea uan nuova
+
                     DbCallProcedures.callInsertProdottoIntoCarrello(id_carrello,id_prodotto, Integer.valueOf(cliente.getId()));
 
                     break;

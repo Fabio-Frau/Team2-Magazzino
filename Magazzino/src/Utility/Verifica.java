@@ -1,5 +1,6 @@
 package Utility;
 
+import Carrello.Carrello;
 import Prodotti.Prodotto;
 
 import java.util.ArrayList;
@@ -24,5 +25,6 @@ public class Verifica {
         }
     }
 
+    
 
 }
