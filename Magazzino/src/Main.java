@@ -10,9 +10,9 @@ import static DBManager.DbRicercaProdotto.checkDisponibilitaProdotto;
 public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException, SQLException {
-        //DbManager.initDb();
+        DbManager.initDb();
 
-        Login.accesso();
+        //Login.accesso();
 
 
 
