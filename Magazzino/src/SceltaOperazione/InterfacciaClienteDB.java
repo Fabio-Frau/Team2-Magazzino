@@ -85,10 +85,15 @@ public class InterfacciaClienteDB {
                     break;
                 }
                 case 6: {
-                    //Aggiungere i check appartenenza carrello a cliente
                     System.out.println("Inserisci l'ID del carrello");
                     int id_carrello =Input.readInt();
-                    DbDelete.svuotaCarrello(id_carrello, cliente);
+                    if (Verifica.checkAppartenenzaCarrelloCliente(carrelliCliente, id_carrello)) {
+                        DbDelete.svuotaCarrello(id_carrello, cliente);
+                        carrelliCliente = DbRicercaCarrelloCliente.getProdottiCarrelliCliente(cliente);
+                    } else {
+                        System.out.println("Carrello non appartenente al cliente");
+                    }
+
                     break;
                 }
                 case 7: {

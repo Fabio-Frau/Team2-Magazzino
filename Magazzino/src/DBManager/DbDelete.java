@@ -7,6 +7,7 @@ import Prodotti.Prodotto;
 import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Queue;
 
 public class DbDelete {
 
@@ -43,14 +44,8 @@ public class DbDelete {
     public static void svuotaCarrello(int id_carrello, Cliente cliente) {
         try (Statement stmt = DbManager.createStatementForDbMagazzino()) {
             String query = "DELETE FROM carrellocliente \n" +
-                    "WHERE id_carrello = " + id_carrello + " AND id_cliente = " + cliente.getId() + " ;";
-            int updatedRows = stmt.executeUpdate(query);
-
-            if(updatedRows == 0) {
-                System.out.println("Elemento non trovato");
-            } else if (updatedRows == 1) {
-                System.out.println("Carrello svuotato");
-            }
+                    "WHERE id_carrello = " + id_carrello + " ;";
+            stmt.executeUpdate(query);
 
         } catch (SQLException e) {
             System.out.println(e);
