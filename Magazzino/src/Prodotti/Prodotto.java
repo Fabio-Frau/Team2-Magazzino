@@ -17,13 +17,12 @@ public class Prodotto {
     private int dimMemoria;
     private BigDecimal prezzoAcquisto;
     private BigDecimal prezzoVendita;
-    private String id;
+    private int id;
 
     public Prodotto() {
         setTipo();
         setProduttore();
         setModello();
-        //setId();
         setDescrizione();
         setDimDisplay();
         setDimMemoria();
@@ -32,7 +31,7 @@ public class Prodotto {
 
     }
 
-    public Prodotto(TipoProdotto tipo, String produttore, String modello, String id, String descrizione,
+    public Prodotto(TipoProdotto tipo, String produttore, String modello, int id, String descrizione,
                     double dimDisplay, int dimMemoria, BigDecimal prezzoAcquisto, BigDecimal prezzoVendita) {
         this.tipo = tipo;
         this.produttore = produttore;
@@ -150,16 +149,16 @@ public class Prodotto {
         this.prezzoVendita = prezzoVendita;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
     public void setId() {
         System.out.println("ID:");
-        this.id = Utility.Input.readStrNoLowerCase();
+        this.id = Utility.Input.readInt();
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

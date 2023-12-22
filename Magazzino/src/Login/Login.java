@@ -1,7 +1,6 @@
 package Login;
 
 import DBManager.DataMapper;
-import DBManager.FakeDB;
 import SceltaOperazione.*;
 
 import java.sql.ResultSet;
@@ -49,25 +48,6 @@ public class Login {
         return utente;
     }
 
-    //Accesso
-    public static Utente pgAccedi(ArchivioUtenti archivioUtenti) {
-
-        while (true) {
-            System.out.println("Email:");
-            String email = Utility.Input.readStr();
-            System.out.println("Password:");
-            String psw = Utility.Input.readStr();
-            Utente utente = archivioUtenti.checkCredentials(email, psw);
-
-            if (utente != null) {
-                System.out.println("Autenticazione avvenuta con successo.");
-                System.out.println("Benvenuto " + utente.getNome() + " " + utente.getCognome());
-                return utente;
-            } else {
-                System.out.println("Autenticazione fallita");
-            }
-        }
-    }
 
 
     public static void pgRegistrati() {

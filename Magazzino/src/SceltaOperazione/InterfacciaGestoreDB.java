@@ -1,16 +1,14 @@
 package SceltaOperazione;
-
 import DBManager.DbDelete;
 import DBManager.DbInsert;
 import DBManager.DbRicercaProdotto;
+import DBManager.DbUpdate;
 import Login.Gestore;
-import Magazzino.Magazzino;
 import Prodotti.Prodotto;
 import Prodotti.TipoProdotto;
-import Ricerca.*;
 import Utility.Input;
 import Utility.RangeUtils;
-import Utility.Stampa;
+
 import Utility.Verifica;
 
 import java.math.BigDecimal;
@@ -39,15 +37,16 @@ public class InterfacciaGestoreDB {
                     break;
                 }
                 case 3: {
-                    //aggiungere parametro per inserire prodotti multipli
                     Prodotto prodotto = new Prodotto();
-                    DbInsert.insertProdottoIntoProdotto(prodotto, gestore);
+                    System.out.println("Quante unità di prodotto vuoi aggiungere al magazzino?");
+                    int quantita = Input.readInt();
+                    DbInsert.insertProdottoQuantitaVolte(prodotto, quantita, gestore);
                     break;
                 }
                 case 4: {
                     System.out.println("Digita l'ID del prodotto che vuoi eliminare dal magazzino:");
                     int id = Input.readInt();
-                    DbDelete.deleteProdottoVenditore(id, gestore);
+                    DbUpdate.rimuoviDisponibilitaProdotto(id);
                     break;
                 }
                 case 5: {

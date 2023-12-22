@@ -30,7 +30,7 @@ public class DataMapper {
         try {
             while (rs.next()) {
                 prodotti.add(new Prodotto(TipoProdotto.valueOf(rs.getString("categoria")), rs.getString("produttore"),
-                        rs.getString("modello"), rs.getString("id_prodotto"), rs.getString("descrizione"),
+                        rs.getString("modello"), rs.getInt("id_prodotto"), rs.getString("descrizione"),
                         rs.getDouble("dimensione_schermo"), rs.getInt("dimensione_memoria"),
                         rs.getBigDecimal("prezzo_acquisto"), rs.getBigDecimal("prezzo_vendita")
                         ));
