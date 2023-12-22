@@ -118,13 +118,14 @@ public class InterfacciaClienteDB {
                         if (Verifica.disponibilitaProdottiCarrello(carrello)) {
                             Integer id_ordine = DbInsert.insertOrdine(cliente.getId(), OffsetDateTime.now());
                             DbInsert.insertFromCarrelloToDettaglioOrdine(carrello, id_ordine);
+                            DbDelete.svuotaCarrello(id_carrello, cliente);
+                            carrelliCliente = DbRicercaCarrelloCliente.getProdottiCarrelliCliente(cliente);
                         } else {
                             System.out.println("Alcuni prodotti presenti nel carrello non sono più disponibili");
                         }
                     } else {
                         System.out.println("Carrello non appartenente al cliente");
                     }
-                    //implementare logica check disponibilita prodotto, creazion nuovo ordine, popolare dettaglio ordine con i prodotti
 
 
                 }

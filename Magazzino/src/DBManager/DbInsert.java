@@ -109,7 +109,6 @@ public class DbInsert {
 
             rs.next();
             int lastIndex = rs.getInt(1);
-            System.out.println(lastIndex);
 
             return lastIndex;
 
