@@ -1,10 +1,12 @@
 package DBManager;
+import Carrello.Carrello;
 import Login.Cliente;
 import Login.Gestore;
 import Prodotti.Prodotto;
 import Prodotti.TipoProdotto;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.OffsetDateTime;
@@ -96,16 +98,40 @@ public class DbInsert {
 
     }
 
-    public static void insertOrdine(int id_cliente, OffsetDateTime data_esecuzione) {
+    public static Integer insertOrdine(int id_cliente, OffsetDateTime data_esecuzione) {
         try (Statement stmt = createStatementForDbMagazzino()) {
             String data = data_esecuzione.toString();
             String query = "INSERT INTO ordine (id_cliente, data_esecuzione ) " + "VALUES ( '" + id_cliente + "', '" + data  + "' );";
             stmt.execute(query);
 
+            query = "select last_insert_id(); ";
+            ResultSet rs = stmt.executeQuery(query);
+
+            rs.next();
+            int lastIndex = rs.getInt(1);
+            System.out.println(lastIndex);
+
+            return lastIndex;
+
         } catch (SQLException e) {
             System.out.println(e);
         }
+        return null;
     }
+
+    public static void insertFromCarrelloToDettaglioOrdine(Carrello carrello, int id_ordine) {
+        for (Prodotto prodotto : carrello.getCarrello()) {
+            try (Statement stmt = createStatementForDbMagazzino()) {
+                String query = "INSERT INTO dettaglioOrdine (id_prodotto, id_ordine ) " + "VALUES ( '" + prodotto.getId() + "', '" + id_ordine  + "' );";
+                stmt.execute(query);
+
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+
+    }
+
 
     public static void insertDettaglioOrdine(int id_prodotto, int id_ordine) {
         try (Statement stmt = createStatementForDbMagazzino()) {

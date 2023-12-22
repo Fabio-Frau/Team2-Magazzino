@@ -8,6 +8,7 @@ import Utility.RangeUtils;
 import Utility.Stampa;
 import Utility.Verifica;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 
 public class InterfacciaClienteDB {
@@ -113,8 +114,10 @@ public class InterfacciaClienteDB {
                     System.out.println("Seleziona carrello che vuoi acquistare: ");
                     int id_carrello =Input.readInt();
                     if (Verifica.checkAppartenenzaCarrelloCliente(carrelliCliente, id_carrello)) {
-                        if (Verifica.disponibilitaProdottiCarrello(Verifica.getCarreloFromCarrelli(carrelliCliente, id_carrello))) {
-
+                        Carrello carrello = Verifica.getCarreloFromCarrelli(carrelliCliente, id_carrello);
+                        if (Verifica.disponibilitaProdottiCarrello(carrello)) {
+                            Integer id_ordine = DbInsert.insertOrdine(cliente.getId(), OffsetDateTime.now());
+                            DbInsert.insertFromCarrelloToDettaglioOrdine(carrello, id_ordine);
                         } else {
                             System.out.println("Alcuni prodotti presenti nel carrello non sono più disponibili");
                         }
