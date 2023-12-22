@@ -1,5 +1,7 @@
 import DBManager.DbManager;
 import Login.*;
+import Utility.Verifica;
+
 import java.sql.SQLException;
 
 import static DBManager.DbRicercaProdotto.checkDisponibilitaProdotto;
@@ -11,6 +13,7 @@ public class Main {
         //DbManager.initDb();
 
         Login.accesso();
+
 
 
 

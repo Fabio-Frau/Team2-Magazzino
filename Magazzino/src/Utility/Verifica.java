@@ -1,6 +1,7 @@
 package Utility;
 
 import Carrello.Carrello;
+import DBManager.DbRicercaProdotto;
 import Prodotti.Prodotto;
 
 import java.util.ArrayList;
@@ -50,6 +51,15 @@ public class Verifica {
             }
         }
         return false;
+    }
+
+    public static Boolean disponibilitaProdottiCarrello(Carrello carrello) {
+        for (Prodotto prodotto : carrello.getCarrello()) {
+            if (!DbRicercaProdotto.checkDisponibilitaProdotto(prodotto.getId())) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

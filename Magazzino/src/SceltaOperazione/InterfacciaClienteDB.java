@@ -110,12 +110,19 @@ public class InterfacciaClienteDB {
                     break;
                 }
                 case 8: {
+                    System.out.println("Seleziona carrello che vuoi acquistare: ");
+                    int id_carrello =Input.readInt();
+                    if (Verifica.checkAppartenenzaCarrelloCliente(carrelliCliente, id_carrello)) {
+                        if (Verifica.disponibilitaProdottiCarrello(Verifica.getCarreloFromCarrelli(carrelliCliente, id_carrello))) {
+
+                        } else {
+                            System.out.println("Alcuni prodotti presenti nel carrello non sono più disponibili");
+                        }
+                    } else {
+                        System.out.println("Carrello non appartenente al cliente");
+                    }
                     //implementare logica check disponibilita prodotto, creazion nuovo ordine, popolare dettaglio ordine con i prodotti
-                    /*if (magazzino.checkAvailability(carrello.getCarrello())) {
-                        magazzino.rimuoviListaProdotti(carrello.getCarrello());
-                        magTemp.getListaProdotti().clear();
-                        carrello.getCarrello().clear(); //salvare la transazione da qualche parte
-                    }*/
+
 
                 }
                 case 9: {
