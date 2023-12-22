@@ -126,8 +126,7 @@ public class InterfacciaClienteDB {
                     } else {
                         System.out.println("Carrello non appartenente al cliente");
                     }
-
-
+                    break ;
                 }
                 case 9: {
                     DbInsert.insertCarrelloCliente(cliente.getId());
