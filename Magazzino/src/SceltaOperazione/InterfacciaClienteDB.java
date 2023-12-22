@@ -92,11 +92,16 @@ public class InterfacciaClienteDB {
                     break;
                 }
                 case 7: {
-                    //Farlo calcolare tramite gli oggetti creati in java e non al DB
                     System.out.println("Seleziona carrello di cui calcolare il totale");
                     int id_carrello =Input.readInt();
-                    System.out.println("Il prezzo totale del carrello é di ");
-                    System.out.println(DbRicercaCarrelloCliente.getCostoTotaleCarrello(cliente,id_carrello));                    ;
+                    if (Verifica.checkAppartenenzaCarrelloCliente(carrelliCliente, id_carrello)){
+                        Carrello carrello = Verifica.getCarreloFromCarrelli(carrelliCliente, id_carrello);
+                        carrello.getPrezzoTotale();
+                        System.out.println("Il costo totale del carrelo " + carrello.getIdcarrello() + " è di " + carrello.getPrezzoTotale());
+                    } else {
+                        System.out.println("Carrello non appartentente al cliente");
+                    }
+                                        ;
                     break;
                 }
                 case 8: {
